@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.outinforMapper" >
+  <resultMap id="BaseResultMap" type="com.pojo.outinfor" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="summary" property="summary" jdbcType="VARCHAR" />
+    <result column="infoSource" property="infosource" jdbcType="VARCHAR" />
+    <result column="sourceUrl" property="sourceurl" jdbcType="VARCHAR" />
+    <result column="pubDateStr" property="pubdatestr" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, title, summary, infoSource, sourceUrl, pubDateStr
+  </sql>
+  
+  <select id="getAllOutinfor" resultMap="BaseResultMap">
+  	select <include refid="Base_Column_List" /> from outinfor order by id desc limit #{page1.start},#{page1.end}
+  </select>
+  
+  <select id="countByOutinfor" resultType="INTEGER">
+  	select count(*) from outinfor
+  </select>
+  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from outinfor
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from outinfor
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.pojo.outinfor" >
+    insert into outinfor (id, title, summary, 
+      infoSource, sourceUrl, pubDateStr
+      )
+    values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{summary,jdbcType=VARCHAR}, 
+      #{infosource,jdbcType=VARCHAR}, #{sourceurl,jdbcType=VARCHAR}, #{pubdatestr,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.pojo.outinfor" >
+    insert into outinfor
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="summary != null" >
+        summary,
+      </if>
+      <if test="infosource != null" >
+        infoSource,
+      </if>
+      <if test="sourceurl != null" >
+        sourceUrl,
+      </if>
+      <if test="pubdatestr != null" >
+        pubDateStr,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="summary != null" >
+        #{summary,jdbcType=VARCHAR},
+      </if>
+      <if test="infosource != null" >
+        #{infosource,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceurl != null" >
+        #{sourceurl,jdbcType=VARCHAR},
+      </if>
+      <if test="pubdatestr != null" >
+        #{pubdatestr,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.pojo.outinfor" >
+    update outinfor
+    <set >
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="summary != null" >
+        summary = #{summary,jdbcType=VARCHAR},
+      </if>
+      <if test="infosource != null" >
+        infoSource = #{infosource,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceurl != null" >
+        sourceUrl = #{sourceurl,jdbcType=VARCHAR},
+      </if>
+      <if test="pubdatestr != null" >
+        pubDateStr = #{pubdatestr,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.pojo.outinfor" >
+    update outinfor
+    set title = #{title,jdbcType=VARCHAR},
+      summary = #{summary,jdbcType=VARCHAR},
+      infoSource = #{infosource,jdbcType=VARCHAR},
+      sourceUrl = #{sourceurl,jdbcType=VARCHAR},
+      pubDateStr = #{pubdatestr,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

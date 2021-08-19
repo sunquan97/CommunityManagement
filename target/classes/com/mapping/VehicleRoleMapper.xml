@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.VehicleRoleMapper" >
+  <resultMap id="BaseResultMap" type="com.pojo.VehicleRole" >
+    <id column="vehicleroleid" property="vehicleroleid" jdbcType="INTEGER" />
+    <result column="vehiclerolename" property="vehiclerolename" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    vehicleroleid, vehiclerolename
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from vehiclerole
+    where vehicleroleid = #{vehicleroleid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from vehiclerole
+    where vehicleroleid = #{vehicleroleid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.pojo.VehicleRole" >
+    insert into vehiclerole (vehicleroleid, vehiclerolename)
+    values (#{vehicleroleid,jdbcType=INTEGER}, #{vehiclerolename,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.pojo.VehicleRole" >
+    insert into vehiclerole
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="vehicleroleid != null" >
+        vehicleroleid,
+      </if>
+      <if test="vehiclerolename != null" >
+        vehiclerolename,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="vehicleroleid != null" >
+        #{vehicleroleid,jdbcType=INTEGER},
+      </if>
+      <if test="vehiclerolename != null" >
+        #{vehiclerolename,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.pojo.VehicleRole" >
+    update vehiclerole
+    <set >
+      <if test="vehiclerolename != null" >
+        vehiclerolename = #{vehiclerolename,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where vehicleroleid = #{vehicleroleid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.pojo.VehicleRole" >
+    update vehiclerole
+    set vehiclerolename = #{vehiclerolename,jdbcType=VARCHAR}
+    where vehicleroleid = #{vehicleroleid,jdbcType=INTEGER}
+  </update>
+</mapper>

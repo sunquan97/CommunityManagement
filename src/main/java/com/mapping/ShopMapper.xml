@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.ShopMapper" >
+  <resultMap id="BaseResultMap" type="com.pojo.Shop" >
+    <id column="shopid" property="shopid" jdbcType="INTEGER" />
+    <result column="foodid" property="foodid" jdbcType="INTEGER" />
+    <result column="count" property="count" jdbcType="INTEGER" />
+    <result column="amount" property="amount" jdbcType="DECIMAL" />
+    <result column="orderid" property="orderid" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="BaseResultMap1" type="com.pojo.Shop" >
+    <id column="shopid" property="shopid" jdbcType="INTEGER" />
+    <result column="foodid" property="foodid" jdbcType="INTEGER" />
+    <result column="count" property="count" jdbcType="INTEGER" />
+    <result column="amount" property="amount" jdbcType="DECIMAL" />
+    <result column="orderid" property="orderid" jdbcType="INTEGER" />
+    <collection property="food" column="foodid" select="com.dao.FoodMapper.selectByPrimaryKey1"></collection>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    shopid, foodid, count, amount, orderid
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from shop
+    where shopid = #{shopid,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectByOrderid" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select group_concat(foodid ) as foodids from shop where orderid= #{orderid,jdbcType=INTEGER}
+  </select>
+  
+  <select id="calculatedAmount" resultType="DECIMAL" parameterType="java.lang.Integer" >
+  SELECT sum(amount*count) FROM `shop` where orderid=#{orderid,jdbcType=INTEGER}
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from shop
+    where shopid = #{shopid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.pojo.Shop" >
+    insert into shop (shopid, foodid, count, 
+      amount, orderid)
+    values (#{shopid,jdbcType=INTEGER}, #{foodid,jdbcType=INTEGER}, #{count,jdbcType=INTEGER}, 
+      #{amount,jdbcType=DECIMAL}, #{orderid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.pojo.Shop" >
+    insert into shop
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="shopid != null" >
+        shopid,
+      </if>
+      <if test="foodid != null" >
+        foodid,
+      </if>
+      <if test="count != null" >
+        count,
+      </if>
+      <if test="amount != null" >
+        amount,
+      </if>
+      <if test="orderid != null" >
+        orderid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="shopid != null" >
+        #{shopid,jdbcType=INTEGER},
+      </if>
+      <if test="foodid != null" >
+        #{foodid,jdbcType=INTEGER},
+      </if>
+      <if test="count != null" >
+        #{count,jdbcType=INTEGER},
+      </if>
+      <if test="amount != null" >
+        #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="orderid != null" >
+        #{orderid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.pojo.Shop" >
+    update shop
+    <set >
+      <if test="foodid != null" >
+        foodid = #{foodid,jdbcType=INTEGER},
+      </if>
+      <if test="count != null" >
+        count = #{count,jdbcType=INTEGER},
+      </if>
+      <if test="amount != null" >
+        amount = #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="orderid != null" >
+        orderid = #{orderid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where shopid = #{shopid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.pojo.Shop" >
+    update shop
+    set foodid = #{foodid,jdbcType=INTEGER},
+      count = #{count,jdbcType=INTEGER},
+      amount = #{amount,jdbcType=DECIMAL},
+      orderid = #{orderid,jdbcType=INTEGER}
+    where shopid = #{shopid,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.NoticeMapper" >
+  <resultMap id="BaseResultMap" type="com.pojo.Notice" >
+    <id column="noticeid" property="noticeid" jdbcType="INTEGER" />
+    <result column="noticename" property="noticename" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="img" property="img" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    noticeid, noticename, content, img, createtime
+  </sql>
+  
+  <select id="getAllNotices" resultMap="BaseResultMap">
+  	select <include refid="Base_Column_List" /> from notice order by noticeid desc limit #{page.start},#{page.end}
+  </select>
+  
+  <select id="countByNotices" resultType="INTEGER">
+  	select count(*) from notice
+  </select>
+  
+  <select id="getAllNoticeSum" resultType="INTEGER">
+    select 
+    count(*)
+    from notice
+  </select>
+  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from notice
+    where noticeid = #{noticeid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from notice
+    where noticeid = #{noticeid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.pojo.Notice" >
+    insert into notice (noticeid, noticename, content, 
+      img, createtime)
+    values (#{noticeid,jdbcType=INTEGER}, #{noticename,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, 
+      #{img,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.pojo.Notice" >
+    insert into notice
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="noticeid != null" >
+        noticeid,
+      </if>
+      <if test="noticename != null" >
+        noticename,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+      <if test="img != null" >
+        img,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="noticeid != null" >
+        #{noticeid,jdbcType=INTEGER},
+      </if>
+      <if test="noticename != null" >
+        #{noticename,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="img != null" >
+        #{img,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.pojo.Notice" >
+    update notice
+    <set >
+      <if test="noticename != null" >
+        noticename = #{noticename,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="img != null" >
+        img = #{img,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where noticeid = #{noticeid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.pojo.Notice" >
+    update notice
+    set noticename = #{noticename,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      img = #{img,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP}
+    where noticeid = #{noticeid,jdbcType=INTEGER}
+  </update>
+</mapper>

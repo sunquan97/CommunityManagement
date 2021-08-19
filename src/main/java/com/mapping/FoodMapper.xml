@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.FoodMapper" >
+  <resultMap id="BaseResultMap" type="com.pojo.Food" >
+    <id column="foodid" property="foodid" jdbcType="INTEGER" />
+    <result column="foodname" property="foodname" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="DECIMAL" />
+    <result column="img" property="img" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    foodid, foodname, price, img
+  </sql>
+  
+  <select id="getAllFood" resultMap="BaseResultMap">
+  	select <include refid="Base_Column_List" /> from food  limit #{page.start},#{page.end}
+  </select>
+  
+  <select id="countByFood" resultType="INTEGER">
+  	select count(*) from food
+  </select>
+  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from food
+    where foodid = #{foodid,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectByPrimaryKey1" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from food
+    where foodid = #{foodid,jdbcType=INTEGER}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from food
+    where foodid = #{foodid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.pojo.Food" >
+    insert into food (foodid, foodname, price, 
+      img)
+    values (#{foodid,jdbcType=INTEGER}, #{foodname,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, 
+      #{img,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.pojo.Food" >
+    insert into food
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="foodid != null" >
+        foodid,
+      </if>
+      <if test="foodname != null" >
+        foodname,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="img != null" >
+        img,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="foodid != null" >
+        #{foodid,jdbcType=INTEGER},
+      </if>
+      <if test="foodname != null" >
+        #{foodname,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="img != null" >
+        #{img,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.pojo.Food" >
+    update food
+    <set >
+      <if test="foodname != null" >
+        foodname = #{foodname,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="img != null" >
+        img = #{img,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where foodid = #{foodid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.pojo.Food" >
+    update food
+    set foodname = #{foodname,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DECIMAL},
+      img = #{img,jdbcType=VARCHAR}
+    where foodid = #{foodid,jdbcType=INTEGER}
+  </update>
+</mapper>
