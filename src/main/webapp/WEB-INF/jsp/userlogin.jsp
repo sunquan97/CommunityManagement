@@ -144,7 +144,7 @@ h1 {
   							//提醒用户识别成功
   							//验证成功跳转页面
   							alert("欢迎进入！");
-  							window.location.href="userlogin.jsp";
+  							window.location.href="/userlogin";
   				  		}else{
   				  			alert("图像模糊，请重新拍照！");
   				  		}

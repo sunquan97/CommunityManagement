@@ -141,7 +141,7 @@
 											<li class="hit"><h3 style="margin-top:15px;">公告栏</h3></li>
 											<c:choose>
 						  						<c:when test="${ sessionScope.user.userroleid == 2}">
-													<li><button  class="btn" onclick="javascript:window.location.href='release.jsp';">
+													<li><button  class="btn" onclick="javascript:window.location.href='/release';">
 														<i class="ydc-icon-shu"></i>
 														<span>发布公告</span>
 														</button>

@@ -23,7 +23,7 @@
 					<c:forEach items="${food }" var="food">
 						<div class="mingxing fl" >
 							<input type="hidden" id="foodid" value="${food.foodid}">
-							<div class="sub_mingxing"><a href=""><img src="${food.img}" alt=""></a></div>
+							<div class="sub_mingxing"><a href=""><img src="${pageContext.request.contextPath }${food.img}" alt=""></a></div>
 							<div class="pinpai"><a href="">${food.foodname }</a></div><br>
 							<div class="jiage" id="jiage">${food.price }</div><br>
 							<div style="margin-left:70px;" id="count"><input type="text" class="spinner" id="${food.foodid }"/></div>

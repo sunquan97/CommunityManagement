@@ -89,7 +89,7 @@
             </div>
         </section>
         <!-- content YDC end -->
-        <script type="text/javascript" src="jsp/js/nicEdit.js"></script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/nicEdit.js"></script>
         <script type="text/javascript">
             
 	    jQuery(function(){

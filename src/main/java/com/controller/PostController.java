@@ -69,7 +69,7 @@ public class PostController {
 	
 	@RequestMapping("/addjsp.action")
 	public String addjsp(HttpServletRequest request) {
-		return "addquestion";
+		return "jsp/addquestion";
 	}
 	
 	//发布帖子

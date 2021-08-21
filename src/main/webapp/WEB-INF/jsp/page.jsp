@@ -62,7 +62,7 @@
 	</section>
 <!-- content YDC end -->
 
-	<script type="text/javascript" src="${pageContext.request.contextPath }jsp/js/jquery.min.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath }static/js/jquery.min.js"></script>
 	<script type="text/javascript">
 	    var slideIndex = 0;
 	    showSlides();

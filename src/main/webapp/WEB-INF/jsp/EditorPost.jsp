@@ -53,7 +53,7 @@
   </div>
 </div>
 
- <script type="text/javascript" charset="utf-8" src="${pageContext.request.contextPath}/jsp/res/js/kindeditor.js"></script>
+ <script type="text/javascript" charset="utf-8" src="${pageContext.request.contextPath}/static/res/js/kindeditor.js"></script>
   <script type="text/javascript">
     KE.show({
         id : 'content',

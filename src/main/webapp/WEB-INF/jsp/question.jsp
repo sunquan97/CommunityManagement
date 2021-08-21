@@ -43,7 +43,7 @@
 						<c:forEach items="${posts }" var="post">
 							<li class="fly-list-li">
 								<a href="#" class="fly-list-avatar">
-									<img src="${pageContext.request.contextPath}/jsp/res/images/uer.jpg" alt="">
+									<img src="${pageContext.request.contextPath}/static/res/images/uer.jpg" alt="">
 								</a>
 								<h2 class="fly-tip">
 		            				<a href="${pageContext.request.contextPath }/getPostById.action?postid=${post.postid }">${post.title }</a>

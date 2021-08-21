@@ -244,7 +244,7 @@ function link_operating(name,title){
 				 <i class="icon-caret-down"></i>
 				</a>
 				<ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
-				 <li><a href="javascript:void(0)" name="${pageContext.request.contextPath }/jsp/Systems.jsp" title="系统设置" class="iframeurl"><i class="icon-cog"></i>网站设置</a></li>
+				 <li><a href="javascript:void(0)" name="/Systems" title="系统设置" class="iframeurl"><i class="icon-cog"></i>网站设置</a></li>
 				 <li><a href="javascript:void(0)" name="${pageContext.request.contextPath }/getInformationByUserName.action?username=${sessionScope.user.username}" title="个人信息" class="iframeurl"><i class="icon-user"></i>个人资料</a></li>
 				 <li class="divider"></li>
 				 <li><a href="javascript:ovid(0)" id="Exit_system"><i class="icon-off"></i>退出</a></li>
@@ -344,11 +344,11 @@ function link_operating(name,title){
 					<li>
 					<a href="#" class="dropdown-toggle"><i class="icon-list"></i><span class="menu-text"> 疫情实时动态 </span><b class="arrow icon-angle-down"></b></a>
                     <ul class="submenu">
-                    <li class="home"><a href="javascript:void(0)" name="${pageContext.request.contextPath }/jsp/Epidemic_Details.jsp" title="疫情详细数据"  class="iframeurl"><i class="icon-double-angle-right"></i>疫情详细数据</a></li>
-                    <li class="home"><a href="javascript:void(0)" name="${pageContext.request.contextPath }/jsp/Perimeter_outbreak.jsp" title="周边疫情查询"  class="iframeurl"><i class="icon-double-angle-right"></i>周边疫情查询</a></li>
-                    <li class="home"><a href="javascript:void(0)" name="${pageContext.request.contextPath }/jsp/Concurrent_Query.jsp" title="同程查询"  class="iframeurl"><i class="icon-double-angle-right"></i>同程查询</a></li>
-					<li class="home"><a href="javascript:void(0)" name="${pageContext.request.contextPath }/jsp/Epidemic_Information.jsp" title="疫情数据（图）"  class="iframeurl"><i class="icon-double-angle-right"></i>疫情数据(图)</a></li>
-                    <li class="home"><a href="javascript:void(0)" name="${pageContext.request.contextPath }/jsp/Foreign_epidemic.jsp" title="国外疫情"  class="iframeurl"><i class="icon-double-angle-right"></i>国外疫情</a></li>
+                    <li class="home"><a href="javascript:void(0)" name="/EpidemicDetails" title="疫情详细数据"  class="iframeurl"><i class="icon-double-angle-right"></i>疫情详细数据</a></li>
+                    <li class="home"><a href="javascript:void(0)" name="/PerimeterOutbreak" title="周边疫情查询"  class="iframeurl"><i class="icon-double-angle-right"></i>周边疫情查询</a></li>
+                    <li class="home"><a href="javascript:void(0)" name="/ConcurrentQuery" title="同程查询"  class="iframeurl"><i class="icon-double-angle-right"></i>同程查询</a></li>
+					<li class="home"><a href="javascript:void(0)" name="/EpidemicInformation" title="疫情数据（图）"  class="iframeurl"><i class="icon-double-angle-right"></i>疫情数据(图)</a></li>
+                    <li class="home"><a href="javascript:void(0)" name="/ForeignEpidemic" title="国外疫情"  class="iframeurl"><i class="icon-double-angle-right"></i>国外疫情</a></li>
                    </ul>
 				  </li>
                         	<li><a href="#" class="dropdown-toggle"><i class="icon-cogs"></i><span class="menu-text"> 系统管理 </span><b class="arrow icon-angle-down"></b></a>
@@ -385,7 +385,7 @@ function link_operating(name,title){
 						<ul class="breadcrumb">
 							<li>
 								<i class="icon-home home-icon"></i>
-								<a href="${pageContext.request.contextPath }/WEB-INF/jsp/index.jsp">首页</a>
+								<a href="/index">首页</a>
 							</li>
 							<li class="active"><span class="Current_page iframeurl"></span></li>
                             <li class="active" id="parentIframe"><span class="parentIframe iframeurl"></span></li>

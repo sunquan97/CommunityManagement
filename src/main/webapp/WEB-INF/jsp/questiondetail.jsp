@@ -64,7 +64,7 @@ form {
 					</div>
 					<div class="detail-about">
 						<a class="jie-user" href=""> <img
-							src="${pageContext.request.contextPath}/jsp/res/images/uer.jpg" alt="头像"> <cite> ${post.username }
+							src="${pageContext.request.contextPath}/static/res/images/uer.jpg" alt="头像"> <cite> ${post.username }
 								<em><fmt:formatDate value="${post.createtime }" pattern="yyyy-MM-dd HH:mm:ss"/> 发布</em> </cite> </a>
 						<c:choose>
 					        		<c:when test="${post.username == sessionScope.user.username}">
@@ -105,7 +105,7 @@ form {
 							name="item-121212121212"></a>
 							<div class="detail-about detail-about-reply">
 								<a class="jie-user" href=""> <img
-									src="${pageContext.request.contextPath}/jsp/res/images/uer.jpg" alt=""> <cite> <i>${replypost.username }</i>
+									src="${pageContext.request.contextPath}/static/res/images/uer.jpg" alt=""> <cite> <i>${replypost.username }</i>
 										<!-- <em>(楼主)</em>
                   						<em style="color:#5FB878">(管理员)</em> --> </cite> </a>
 								<div class="detail-hits">
@@ -136,7 +136,7 @@ form {
 							<div class="detail-about detail-about-reply">
 							<input type="hidden" value="${replypost.replypostid }" id="replypostid">
 								<a class="jie-user" href=""> <img
-									src="${pageContext.request.contextPath}/jsp/res/images/uer.jpg" alt=""> <cite> <i>${replypost.username }</i>
+									src="${pageContext.request.contextPath}/static/res/images/uer.jpg" alt=""> <cite> <i>${replypost.username }</i>
 										<em style="color:#FF9E3F">活雷锋</em> </cite> </a>
 								<div class="detail-hits">
 									<span><fmt:formatDate value="${replypost.createtime }" pattern="yyyy-MM-dd HH:mm:ss"/></span>
@@ -233,7 +233,7 @@ form {
 
 		</div>
 	</div>
- <script type="text/javascript" charset="utf-8" src="${pageContext.request.contextPath}/jsp/res/js/kindeditor.js"></script>
+ <script type="text/javascript" charset="utf-8" src="${pageContext.request.contextPath}/static/res/js/kindeditor.js"></script>
   <script >
 
     $('#layui-btn').on('click', function(){

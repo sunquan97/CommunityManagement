@@ -109,10 +109,10 @@
 	</a>
 	<!-- /Back to Top -->
 	<!-- Jquery Library-->
-	<script src="${pageContext.request.contextPath }/jsp/js/jquery-3.2.1.min.js"></script>
-	<script src="${pageContext.request.contextPath }/jsp/js/bootstrap.min.js"></script>
-	<script src="${pageContext.request.contextPath }/jsp/charts/js/raphael-min.js"></script>
-	<script src="${pageContext.request.contextPath }/jsp/charts/js/morris.min.js"></script>
+	<script src="${pageContext.request.contextPath }/static/js/jquery-3.2.1.min.js"></script>
+	<script src="${pageContext.request.contextPath }/static/js/bootstrap.min.js"></script>
+	<script src="${pageContext.request.contextPath }/static/charts/js/raphael-min.js"></script>
+	<script src="${pageContext.request.contextPath }/static/charts/js/morris.min.js"></script>
 </body>
 <script>
 $(document).ready(function(){
