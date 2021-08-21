@@ -6,22 +6,22 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<!-- Fav  Icon Link -->
-	<link rel="shortcut icon" type="image/png" href="${pageContext.request.contextPath }/jsp/images/fav.png">
+	<link rel="shortcut icon" type="image/png" href="${pageContext.request.contextPath }/static/images/fav.png">
 	<!-- Bootstrap core CSS -->
-	<link rel="stylesheet" href="${pageContext.request.contextPath }/jsp/css/bootstrap.min.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/static/css/bootstrap.min.css">
 	<!-- themify icons CSS -->
-	<link rel="stylesheet" href="${pageContext.request.contextPath }/jsp/css/themify-icons.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/static/css/themify-icons.css">
 	<!-- Animations CSS -->
-	<link rel="stylesheet" href="${pageContext.request.contextPath }/jsp/css/animate.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/static/css/animate.css">
 	<!-- Main CSS -->
-	<link rel="stylesheet" href="${pageContext.request.contextPath }/jsp/css/styles.css">
-	<link rel="stylesheet" href="${pageContext.request.contextPath }/jsp/css/green.css" id="style_theme">
-	<link rel="stylesheet" href="${pageContext.request.contextPath }/jsp/css/responsive.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/static/css/styles.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/static/css/green.css" id="style_theme">
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/static/css/responsive.css">
 	<!-- morris charts -->
-	<link rel="stylesheet" href="${pageContext.request.contextPath }/jsp/charts/css/morris.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/static/charts/css/morris.css">
 	<!-- jvectormap -->
-	<link rel="stylesheet" href="${pageContext.request.contextPath }/jsp/css/jquery-jvectormap.css">
-	<script src="${pageContext.request.contextPath }/jsp/js/modernizr.min.js"></script>
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/static/css/jquery-jvectormap.css">
+	<script src="${pageContext.request.contextPath }/static/js/modernizr.min.js"></script>
 </head>
 <body>
 

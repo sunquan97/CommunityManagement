@@ -6,18 +6,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
- <link href="${pageContext.request.contextPath }/jsp/assets/css/bootstrap.min.css" rel="stylesheet" />
-        <link rel="stylesheet" href="${pageContext.request.contextPath }/jsp/css/style.css"/>       
-        <link href="${pageContext.request.contextPath }/jsp/assets/css/codemirror.css" rel="stylesheet">
-        <link rel="stylesheet" href="${pageContext.request.contextPath }/jsp/assets/css/ace.min.css" />
-        <link rel="stylesheet" href="${pageContext.request.contextPath }/jsp/font/css/font-awesome.min.css" />
-		<script src="${pageContext.request.contextPath }/jsp/js/jquery-3.2.1.min.js"></script>
-		<script src="${pageContext.request.contextPath }/jsp/assets/layer/layer.js" type="text/javascript" ></script>
-        <script src="${pageContext.request.contextPath }/jsp/assets/laydate/laydate.js" type="text/javascript"></script>  
-        <script src="${pageContext.request.contextPath }/jsp/assets/js/bootstrap.min.js"></script>
-		<script src="${pageContext.request.contextPath }/jsp/assets/js/typeahead-bs2.min.js"></script>           	
-		<script src="${pageContext.request.contextPath }/jsp/assets/js/jquery.dataTables.min.js"></script>
-		<script src="${pageContext.request.contextPath }/jsp/assets/js/jquery.dataTables.bootstrap.js"></script>
+ <link href="${pageContext.request.contextPath }/static/assets/css/bootstrap.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="${pageContext.request.contextPath }/static/css/style.css"/>
+        <link href="${pageContext.request.contextPath }/static/assets/css/codemirror.css" rel="stylesheet">
+        <link rel="stylesheet" href="${pageContext.request.contextPath }/static/assets/css/ace.min.css" />
+        <link rel="stylesheet" href="${pageContext.request.contextPath }/static/font/css/font-awesome.min.css" />
+		<script src="${pageContext.request.contextPath }/static/js/jquery-3.2.1.min.js"></script>
+		<script src="${pageContext.request.contextPath }/static/assets/layer/layer.js" type="text/javascript" ></script>
+        <script src="${pageContext.request.contextPath }/static/assets/laydate/laydate.js" type="text/javascript"></script>
+        <script src="${pageContext.request.contextPath }/static/assets/js/bootstrap.min.js"></script>
+		<script src="${pageContext.request.contextPath }/static/assets/js/typeahead-bs2.min.js"></script>
+		<script src="${pageContext.request.contextPath }/static/assets/js/jquery.dataTables.min.js"></script>
+		<script src="${pageContext.request.contextPath }/static/assets/js/jquery.dataTables.bootstrap.js"></script>
                       
 <title>个人信息管理</title>
 </head>

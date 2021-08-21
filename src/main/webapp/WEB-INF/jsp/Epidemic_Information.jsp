@@ -8,9 +8,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta http-equiv="Cache-Control" content="no-siteapp" />
 <title>订单</title>
-	<script src="${pageContext.request.contextPath }/jsp/js/jquery-1.9.1.min.js"></script>
-    <script src="${pageContext.request.contextPath }/jsp/assets/dist/echarts.js"></script>
-    <script src="${pageContext.request.contextPath }/jsp/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+	<script src="${pageContext.request.contextPath }/static/js/jquery-1.9.1.min.js"></script>
+    <script src="${pageContext.request.contextPath }/static/assets/dist/echarts.js"></script>
+    <script src="${pageContext.request.contextPath }/static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 </head>
 
 <body>

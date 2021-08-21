@@ -7,10 +7,10 @@
         <meta name="baidu-site-verification" content="ZVPGgtpUfW"/>
         <link rel="icon" type="image/x-icon" href="favicon.ico">
         <link href="iTunesArtwork@2x.png" sizes="114x114" rel="apple-touch-icon-precomposed">
-        <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath }/jsp/css/core.css">
-        <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath }/jsp/css/icon.css">
-        <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath }/jsp/css/home.css">
-        <script type="text/javascript" src="admin/js/jquery-3.2.1.min.js"></script>
+        <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath }/static/css/core.css">
+        <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath }/static/css/icon.css">
+        <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath }/static/css/home.css">
+        <script type="text/javascript" src="${pageContext.request.contextPath}/static/assets/js/jquery-3.2.1.min.js"></script>
         <script type="text/javascript">
         var currentShowCity=0;
         $(document).ready(function(){

@@ -10,12 +10,12 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<meta name="keywords" content="">
 		<meta name="description" content="">
-				<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath }/jsp/css/home.css">
-		<link rel="stylesheet" href="${pageContext.request.contextPath}/jsp/res/layui/css/layui.css">
-		<link rel="stylesheet" href="${pageContext.request.contextPath}/jsp/res/css/global.css">
-		<script src="${pageContext.request.contextPath}/jsp/res/layui/layui.js"></script>
-		<script type="text/javascript" src="${pageContext.request.contextPath }/jsp/js/jquery-3.2.1.min.js"></script>
-				<script type="text/javascript" src="${pageContext.request.contextPath }/jsp/js/viewSearchPostPage.js"></script>
+				<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath }/static/css/home.css">
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/static/res/layui/css/layui.css">
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/static/res/css/global.css">
+		<script src="${pageContext.request.contextPath}/static/res/layui/layui.js"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath }/static/js/jquery-3.2.1.min.js"></script>
+				<script type="text/javascript" src="${pageContext.request.contextPath }/static/js/viewSearchPostPage.js"></script>
 	</head>
 	<body>
 		<div class="main layui-clear">

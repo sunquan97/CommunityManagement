@@ -6,10 +6,10 @@
   <meta charset="utf-8">
   <title>发表问题</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/jsp/res/layui/css/layui.css">
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/jsp/res/css/global.css">
-  <script src="${pageContext.request.contextPath}/jsp/res/layui/layui.js"></script>
-  <script src="${pageContext.request.contextPath}/jsp/js/jquery-3.2.1.min.js"></script>  
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/static/res/layui/css/layui.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/static/res/css/global.css">
+  <script src="${pageContext.request.contextPath}/static/res/layui/layui.js"></script>
+  <script src="${pageContext.request.contextPath}/static/js/jquery-3.2.1.min.js"></script>
 </head>
 <body>
 

@@ -7,13 +7,13 @@
 <head>
 <meta charset="utf-8">
 <title>问题详情</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/jsp/res/layui/css/layui.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/jsp/res/css/global.css">
-        <link href="${pageContext.request.contextPath }/jsp/assets/css/codemirror.css" rel="stylesheet">
-        <link rel="stylesheet" href="${pageContext.request.contextPath }/jsp/assets/css/ace.min.css" />
-<script src="${pageContext.request.contextPath}/jsp/res/layui/layui.js"></script>
-<script src="${pageContext.request.contextPath }/jsp/assets/js/bootstrap.min.js"></script>
-<script src="${pageContext.request.contextPath}/jsp/js/jquery-3.2.1.min.js"></script>        
+<link rel="stylesheet" href="${pageContext.request.contextPath}/static/res/layui/css/layui.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/static/res/css/global.css">
+        <link href="${pageContext.request.contextPath }/static/assets/css/codemirror.css" rel="stylesheet">
+        <link rel="stylesheet" href="${pageContext.request.contextPath }/static/assets/css/ace.min.css" />
+<script src="${pageContext.request.contextPath}/static/res/layui/layui.js"></script>
+<script src="${pageContext.request.contextPath }/static/assets/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/static/js/jquery-3.2.1.min.js"></script>
 <style type="text/css" rel="stylesheet">
 form {
 	margin: 0;

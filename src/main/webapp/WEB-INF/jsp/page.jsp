@@ -5,9 +5,9 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath }/jsp/css/core.css">
-	<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath }/jsp/css/icon.css">
-	<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath }/jsp/css/home.css">
+	<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath }/static/css/core.css">
+	<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath }/static/css/icon.css">
+	<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath }/static/css/home.css">
 </head>
 <body>
 <!-- head YDC begin -->

@@ -3,8 +3,8 @@
 <html>
 <head>
 <title>车辆通行</title>
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/jsp/css/style1.css" />
-<script type="text/javascript" src="${pageContext.request.contextPath}/jsp/js/jquery-3.2.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/style1.css" />
+<script type="text/javascript" src="${pageContext.request.contextPath}/static/js/jquery-3.2.1.min.js"></script>
 <style>
 body {
 	height: 100%;
@@ -17,9 +17,9 @@ canvas {
 	position: absolute;
 }
 </style>
-<script src="${pageContext.request.contextPath}/jsp/js/jquery.js"></script>
-<script src="${pageContext.request.contextPath}/jsp/js/verificationNumbers.js"></script>
-<script src="${pageContext.request.contextPath}/jsp/js/Particleground.js"></script>
+<script src="${pageContext.request.contextPath}/static/js/jquery.js"></script>
+<script src="${pageContext.request.contextPath}/static/js/verificationNumbers.js"></script>
+<script src="${pageContext.request.contextPath}/static/js/Particleground.js"></script>
 <script>
 $(document).ready(function() {
   //粒子背景特效

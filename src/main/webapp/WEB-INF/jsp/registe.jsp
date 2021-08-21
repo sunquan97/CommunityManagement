@@ -5,14 +5,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
-		<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
-		<link rel="stylesheet" href="assets/css/ace.min.css" />
-		<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
-		<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
-        <link rel="stylesheet" href="css/style.css"/>
-		<script src="assets/js/ace-extra.min.js"></script>
-		<script src="${pageContext.request.contextPath}/jsp/js/jquery-3.2.1.min.js"></script>        
-        <script src="assets/layer/layer.js" type="text/javascript"></script>
+		<link rel="stylesheet" href="/static/assets/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="/static/assets/css/ace.min.css" />
+		<link rel="stylesheet" href="/static/assets/css/ace-rtl.min.css" />
+		<link rel="stylesheet" href="/static/assets/css/ace-skins.min.css" />
+        <link rel="stylesheet" href="/static/css/style.css"/>
+		<script src="/static/assets/js/ace-extra.min.js"></script>
+		<script src="${pageContext.request.contextPath}/static/assets/js/jquery-3.2.1.min.js"></script>
+        <script src="/static/assets/layer/layer.js" type="text/javascript"></script>
 <title>注册</title>
 </head>
 

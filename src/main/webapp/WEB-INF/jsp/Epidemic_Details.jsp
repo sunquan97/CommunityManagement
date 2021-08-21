@@ -5,15 +5,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="${pageContext.request.contextPath }/jsp/assets/css/bootstrap.min.css" rel="stylesheet" />
-        <link rel="stylesheet" href="${pageContext.request.contextPath }/jsp/css/style.css"/>
-        <link rel="stylesheet" href="${pageContext.request.contextPath }/jsp/assets/css/font-awesome.min.css" />
-        <link href="${pageContext.request.contextPath }/jsp/assets/css/codemirror.css" rel="stylesheet">
-        <link rel="stylesheet" href="${pageContext.request.contextPath }/jsp/font/css/font-awesome.min.css" />
-		<script src="${pageContext.request.contextPath }/jsp/assets/js/ace-extra.min.js"></script>
-		<script src="${pageContext.request.contextPath }/jsp/js/jquery-3.2.1.min.js" type="text/javascript"></script>       
+        <link rel="stylesheet" href="${pageContext.request.contextPath }/static/css/style.css"/>
+        <link rel="stylesheet" href="${pageContext.request.contextPath }/static/assets/css/font-awesome.min.css" />
+        <link href="${pageContext.request.contextPath }/static/assets/css/codemirror.css" rel="stylesheet">
+        <link rel="stylesheet" href="${pageContext.request.contextPath }/static/font/css/font-awesome.min.css" />
+		<script src="${pageContext.request.contextPath }/static/assets/js/ace-extra.min.js"></script>
+		<script src="${pageContext.request.contextPath }/static/js/jquery-3.2.1.min.js" type="text/javascript"></script>
 		<!-- <![endif]-->
-        <script src="${pageContext.request.contextPath }/jsp/assets/dist/echarts.js"></script>
-        <script src="${pageContext.request.contextPath }/jsp/assets/js/bootstrap.min.js"></script>
+        <script src="${pageContext.request.contextPath }/static/assets/dist/echarts.js"></script>
+        <script src="${pageContext.request.contextPath }/static/assets/js/bootstrap.min.js"></script>
           <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
 		  <script src="//code.jquery.com/jquery-1.9.1.js"></script>
 		  <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>

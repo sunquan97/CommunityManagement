@@ -5,16 +5,16 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/jsp/css/style_1.css">
-		<script type="text/javascript" src="${pageContext.request.contextPath }/jsp/js/jquery-3.2.1.min.js"></script>
-		<link rel="stylesheet" href="${pageContext.request.contextPath }/jsp/css/jquery.spinner.css" /> 
-		<script type="text/javascript" src="${pageContext.request.contextPath }/jsp/js/jquery.spinner.js"></script>
-		<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath }/jsp/css/home.css">
-		<link rel="stylesheet" href="${pageContext.request.contextPath }/jsp/css/style.css"/>
-		<link rel="stylesheet" href="${pageContext.request.contextPath}/jsp/res/layui/css/layui.css">
-		<script src="${pageContext.request.contextPath }/jsp/assets/layer/layer.js" type="text/javascript" ></script>
-        <script src="${pageContext.request.contextPath }/jsp/assets/laydate/laydate.js" type="text/javascript"></script>
-		<script type="text/javascript" src="${pageContext.request.contextPath }/jsp/js/viewFoodPage.js"></script>
+		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/static/css/style_1.css">
+		<script type="text/javascript" src="${pageContext.request.contextPath }/static/js/jquery-3.2.1.min.js"></script>
+		<link rel="stylesheet" href="${pageContext.request.contextPath }/static/css/jquery.spinner.css" />
+		<script type="text/javascript" src="${pageContext.request.contextPath }/static/js/jquery.spinner.js"></script>
+		<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath }/static/css/home.css">
+		<link rel="stylesheet" href="${pageContext.request.contextPath }/static/css/style.css"/>
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/static/res/layui/css/layui.css">
+		<script src="${pageContext.request.contextPath }/static/assets/layer/layer.js" type="text/javascript" ></script>
+        <script src="${pageContext.request.contextPath }/static/assets/laydate/laydate.js" type="text/javascript"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath }/static/js/viewFoodPage.js"></script>
 	</head>
 	<body>
 		<div class="danpin center">

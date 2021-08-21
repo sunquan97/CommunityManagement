@@ -7,24 +7,24 @@
 		<meta charset="utf-8" />
 		<title>智慧社区管理系统  </title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link href="${pageContext.request.contextPath }/jsp/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" />
-		<link rel="stylesheet" href="${pageContext.request.contextPath }/jsp/assets/css/font-awesome.min.css" />
-		<link rel="stylesheet" href="${pageContext.request.contextPath }/jsp/assets/css/ace.min.css" />
-		<link rel="stylesheet" href="${pageContext.request.contextPath }/jsp/assets/css/ace-rtl.min.css" />
-		<link rel="stylesheet" href="${pageContext.request.contextPath }/jsp/assets/css/ace-skins.min.css" />
-        <link rel="stylesheet" href="${pageContext.request.contextPath }/jsp/css/style.css"/>
-		<script src="${pageContext.request.contextPath }/jsp/assets/js/ace-extra.min.js"></script>
-		<script src="${pageContext.request.contextPath }/jsp/js/jquery-1.9.1.min.js"></script>        
+		<link href="${pageContext.request.contextPath }/static/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="${pageContext.request.contextPath }/static/assets/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="${pageContext.request.contextPath }/static/assets/css/ace.min.css" />
+		<link rel="stylesheet" href="${pageContext.request.contextPath }/static/assets/css/ace-rtl.min.css" />
+		<link rel="stylesheet" href="${pageContext.request.contextPath }/static/assets/css/ace-skins.min.css" />
+        <link rel="stylesheet" href="${pageContext.request.contextPath }/static/css/style.css"/>
+		<script src="${pageContext.request.contextPath }/static/assets/js/ace-extra.min.js"></script>
+		<script src="${pageContext.request.contextPath }/static/js/jquery-1.9.1.min.js"></script>
 		<script type="text/javascript">
-			if("ontouchend" in document) document.write("<script src='${pageContext.request.contextPath }/jsp/assets/js/jquery.mobile.custom.min.js'>"+"<"+"script>");
+			if("ontouchend" in document) document.write("<script src='${pageContext.request.contextPath }/static/assets/js/jquery.mobile.custom.min.js'>"+"<"+"script>");
 		</script>
-		<script src="${pageContext.request.contextPath }/jsp/assets/js/bootstrap.min.js"></script>
-		<script src="${pageContext.request.contextPath }/jsp/assets/js/typeahead-bs2.min.js"></script>
-		<script src="${pageContext.request.contextPath }/jsp/assets/js/ace-elements.min.js"></script>
-		<script src="${pageContext.request.contextPath }/jsp/assets/js/ace.min.js"></script>
-        <script src="${pageContext.request.contextPath }/jsp/assets/layer/layer.js" type="text/javascript"></script>
-		<script src="${pageContext.request.contextPath }/jsp/assets/laydate/laydate.js" type="text/javascript"></script>
-        <script src="${pageContext.request.contextPath }/jsp/js/jquery.nicescroll.js" type="text/javascript"></script>
+		<script src="${pageContext.request.contextPath }/static/assets/js/bootstrap.min.js"></script>
+		<script src="${pageContext.request.contextPath }/static/assets/js/typeahead-bs2.min.js"></script>
+		<script src="${pageContext.request.contextPath }/static/assets/js/ace-elements.min.js"></script>
+		<script src="${pageContext.request.contextPath }/static/assets/js/ace.min.js"></script>
+        <script src="${pageContext.request.contextPath }/static/assets/layer/layer.js" type="text/javascript"></script>
+		<script src="${pageContext.request.contextPath }/static/assets/laydate/laydate.js" type="text/javascript"></script>
+        <script src="${pageContext.request.contextPath }/static/js/jquery.nicescroll.js" type="text/javascript"></script>
 <script type="text/javascript">	
  $(function(){ 
  var cid = $('#nav_list> li>.submenu');
@@ -227,7 +227,7 @@ function link_operating(name,title){
 				<div class="navbar-header pull-left">
 					<a href="#" class="navbar-brand">
 						<small>					
-						<img src="${pageContext.request.contextPath }/jsp/images/logo.png" width="470px">
+						<img src="${pageContext.request.contextPath }/static/images/logo.png" width="470px">
 						</small>
 					</a><!-- /.brand -->
 				</div><!-- /.navbar-header -->
@@ -244,7 +244,7 @@ function link_operating(name,title){
 				 <i class="icon-caret-down"></i>
 				</a>
 				<ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
-				 <li><a href="javascript:void(0" name="${pageContext.request.contextPath }/jsp/Systems.jsp" title="系统设置" class="iframeurl"><i class="icon-cog"></i>网站设置</a></li>
+				 <li><a href="javascript:void(0)" name="${pageContext.request.contextPath }/jsp/Systems.jsp" title="系统设置" class="iframeurl"><i class="icon-cog"></i>网站设置</a></li>
 				 <li><a href="javascript:void(0)" name="${pageContext.request.contextPath }/getInformationByUserName.action?username=${sessionScope.user.username}" title="个人信息" class="iframeurl"><i class="icon-user"></i>个人资料</a></li>
 				 <li class="divider"></li>
 				 <li><a href="javascript:ovid(0)" id="Exit_system"><i class="icon-off"></i>退出</a></li>
@@ -301,7 +301,7 @@ function link_operating(name,title){
 				     <li class="home"><a href="javascript:void(0)" name="${pageContext.request.contextPath }/getAllNotices.action" class="iframeurl" title=""><i class="icon-home"></i><span class="menu-text"> 系统首页 </span></a></li>
 				     <c:choose>
 						  <c:when test="${ sessionScope.user.userroleid == 1}">
-								<li><a href="#" class="dropdown-toggle"><img src="${pageContext.request.contextPath }/jsp/images/car.png" style="margin-left:5px; width:20px;height:20px;"/><span class="menu-text">&nbsp;&nbsp; 车辆管理 </span><b class="arrow icon-angle-down"></b></a>
+								<li><a href="#" class="dropdown-toggle"><img src="${pageContext.request.contextPath }/static/images/car.png" style="margin-left:5px; width:20px;height:20px;"/><span class="menu-text">&nbsp;&nbsp; 车辆管理 </span><b class="arrow icon-angle-down"></b></a>
 						   			<ul class="submenu">
 				                        <li class="home"><a  href="javascript:void(0)" name="${pageContext.request.contextPath }/getAllVehicles.action"  title="车辆管理" class="iframeurl"><i class="icon-double-angle-right"></i>车辆列表</a></li>
 									</ul>
