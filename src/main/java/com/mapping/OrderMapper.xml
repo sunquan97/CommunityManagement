@@ -38,7 +38,7 @@
     <include refid="Base_Column_List" />
     from communitymanagement.order
   </select>
-   <select id="getMyOrder" resultMap="BaseResultMap1" parameterType="java.lang.Integer" >
+   <select id="getMyOrder" resultMap="BaseResultMap1" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from communitymanagement.order where name=#{name,jdbcType=VARCHAR}
