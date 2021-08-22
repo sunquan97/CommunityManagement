@@ -342,9 +342,9 @@ function link_operating(name,title){
 							</c:when>
         				</c:choose>
 					<li>
-					<a href="#" class="dropdown-toggle"><i class="icon-list"></i><span class="menu-text"> 疫情实时动态 </span><b class="arrow icon-angle-down"></b></a>
+					<a href="#" class="dropdown-toggle"><i class="icon-list"></i><span class="menu-text"> 疫情防控 </span><b class="arrow icon-angle-down"></b></a>
                     <ul class="submenu">
-                    <li class="home"><a href="javascript:void(0)" name="/EpidemicDetails" title="疫情详细数据"  class="iframeurl"><i class="icon-double-angle-right"></i>疫情详细数据</a></li>
+                    <li class="home"><a href="javascript:void(0)" name="https://voice.baidu.com/act/newpneumonia/newpneumonia" title="疫情实时大数据报告"  class="iframeurl"><i class="icon-double-angle-right"></i>疫情实时大数据报告</a></li>
                     <li class="home"><a href="javascript:void(0)" name="/PerimeterOutbreak" title="周边疫情查询"  class="iframeurl"><i class="icon-double-angle-right"></i>周边疫情查询</a></li>
                     <li class="home"><a href="javascript:void(0)" name="/ConcurrentQuery" title="同程查询"  class="iframeurl"><i class="icon-double-angle-right"></i>同程查询</a></li>
 					<li class="home"><a href="javascript:void(0)" name="/EpidemicInformation" title="疫情数据（图）"  class="iframeurl"><i class="icon-double-angle-right"></i>疫情数据(图)</a></li>

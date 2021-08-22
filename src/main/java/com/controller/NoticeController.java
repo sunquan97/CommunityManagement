@@ -67,7 +67,7 @@ public class NoticeController {
 			curPage=currentPage;
 		}
 		PageUtil page=new PageUtil(5, ser.countByNotices(), curPage);
-		PageUtil page1=new PageUtil(5, ser2.countByOutinfor(), curPage);
+		PageUtil page1=new PageUtil(8, ser2.countByOutinfor(), curPage);
 		List<Notice> notices=ser.getAllNotices(page);
 		List<outinfor> outinfors=ser2.getAllOutinfor(page1);
 		model.addAttribute("outinfors",outinfors);

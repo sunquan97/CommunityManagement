@@ -28,7 +28,7 @@
 			<div class="container home">
 				<div class="row">
 					<!-- Widget Item -->
-					<div class="col-md-3">
+					<div class="col-md-6">
 						<div class="widget-area lochana-box-shadow color-red">
 							<div class="widget-left">
 								<span class="ti-user"></span>
@@ -41,7 +41,7 @@
 					</div>
 					<!-- Widget Item -->
 					<!-- Widget Item -->
-					<div class="col-md-3">
+					<div class="col-md-6">
 						<div class="widget-area lochana-box-shadow color-red">
 							<div class="widget-left">
 								<span class="ti-user"></span>
@@ -54,7 +54,7 @@
 					</div>
 					<!-- /Widget Item -->
 					<!-- Widget Item -->
-					<div class="col-md-3">
+					<div class="col-md-6">
 						<div class="widget-area lochana-box-shadow color-green">
 							<div class="widget-left">
 								<span class="ti-user"></span>
@@ -67,7 +67,7 @@
 					</div>
 					<!-- /Widget Item -->
 					<!-- Widget Item -->
-					<div class="col-md-3">
+					<div class="col-md-6">
 						<div class="widget-area lochana-box-shadow color-black">
 							<div class="widget-left">
 								<span class="ti-user"></span>
@@ -144,8 +144,8 @@ $(document).ready(function(){
 					deadCountsum=deadCountsum+pro.deadCount;
 					if(pro.countryShortCode=='USA'){
 						USA=pro.confirmedCount;
-					}else if(pro.countryShortCode=='ITA'){
-						ITA=pro.confirmedCount;
+					}else if(pro.countryShortCode=='IND'){
+						IND=pro.confirmedCount;
 					}else if(pro.countryShortCode=='ESP'){
 						ESP=pro.confirmedCount;
 					}else if(pro.countryShortCode=='DEU'){
