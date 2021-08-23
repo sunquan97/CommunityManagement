@@ -299,58 +299,80 @@ function link_operating(name,title){
 					<div id="menu_style" class="menu_style">
 					<ul class="nav nav-list" id="nav_list">
 				     <li class="home"><a href="javascript:void(0)" name="${pageContext.request.contextPath }/getAllNotices.action" class="iframeurl" title=""><i class="icon-home"></i><span class="menu-text"> 系统首页 </span></a></li>
-				     <c:choose>
-						  <c:when test="${ sessionScope.user.userroleid == 1}">
-								<li><a href="#" class="dropdown-toggle"><img src="${pageContext.request.contextPath }/static/images/car.png" style="margin-left:5px; width:20px;height:20px;"/><span class="menu-text">&nbsp;&nbsp; 车辆管理 </span><b class="arrow icon-angle-down"></b></a>
-						   			<ul class="submenu">
-				                        <li class="home"><a  href="javascript:void(0)" name="${pageContext.request.contextPath }/getAllVehicles.action"  title="车辆管理" class="iframeurl"><i class="icon-double-angle-right"></i>车辆列表</a></li>
-									</ul>
-								</li>
-				          </c:when>
-        			</c:choose>
 						<li>
-						<a href="#" class="dropdown-toggle"><i class="icon-picture "></i><span class="menu-text">便民服务</span><b class="arrow icon-angle-down"></b></a>
+							<a href="#" class="dropdown-toggle"><i class="icon-picture "></i><span class="menu-text">社区医疗</span><b class="arrow icon-angle-down"></b></a>
 							<ul class="submenu">
-								<li class="home"><a href="javascript:void(0)" name="${pageContext.request.contextPath }/getPosts.action" title="社区贴吧" class="iframeurl"><i class="icon-double-angle-right"></i>社区贴吧</a></li>
-								<li class="home"><a href="javascript:void(0)" name="${pageContext.request.contextPath }/getAllFood.action" title="社区代购"  class="iframeurl"><i class="icon-double-angle-right"></i>社区代购</a></li>
-								<c:choose>
-						  			<c:when test="${ sessionScope.user.userroleid == 2}">
-										<li class="home"><a href="javascript:void(0)" name="${pageContext.request.contextPath }/getAllOrder.action" title="代购订单"  class="iframeurl"><i class="icon-double-angle-right"></i>代购订单</a></li>
-									</c:when>
-        						</c:choose>
-								<li class="home"><a href="javascript:void(0)" name="${pageContext.request.contextPath }/getMyOrder.action?name=${sessionScope.user.realname}" title="我的订单"  class="iframeurl"><i class="icon-double-angle-right"></i>我的订单</a></li>
+								<li class="home"><a href="javascript:void(0)" name="${pageContext.request.contextPath }/getPosts.action" title="预约体检" class="iframeurl"><i class="icon-double-angle-right"></i>预约体检</a></li>
+								<li class="home"><a href="javascript:void(0)" name="${pageContext.request.contextPath }/getAllFood.action" title="上门服务"  class="iframeurl"><i class="icon-double-angle-right"></i>上门服务</a></li>
+								<li class="home"><a href="javascript:void(0)" name="${pageContext.request.contextPath }/getMyOrder.action?name=${sessionScope.user.realname}" title="健康信息填报"  class="iframeurl"><i class="icon-double-angle-right"></i>健康信息填报</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="#" class="dropdown-toggle"><i class="icon-picture "></i><span class="menu-text">社区环境</span><b class="arrow icon-angle-down"></b></a>
+							<ul class="submenu">
+								<li class="home"><a href="javascript:void(0)" name="${pageContext.request.contextPath }/getPosts.action" title="垃圾分类" class="iframeurl"><i class="icon-double-angle-right"></i>垃圾分类</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="#" class="dropdown-toggle"><i class="icon-picture "></i><span class="menu-text">社区养老</span><b class="arrow icon-angle-down"></b></a>
+							<ul class="submenu">
+								<li class="home"><a href="javascript:void(0)" name="${pageContext.request.contextPath }/getPosts.action" title="生活照料" class="iframeurl"><i class="icon-double-angle-right"></i>生活照料</a></li>
+								<li class="home"><a href="javascript:void(0)" name="${pageContext.request.contextPath }/getPosts.action" title="紧急救助" class="iframeurl"><i class="icon-double-angle-right"></i>紧急救助</a></li>
 							</ul>
 						</li>
 						<c:choose>
-						  <c:when test="${ sessionScope.user.userroleid == 2}">
-						 <li>
-							<a href="#" class="dropdown-toggle"><i class="icon-user"></i><span class="menu-text"> 用户管理 </span><b class="arrow icon-angle-down"></b></a>
-		                    <ul class="submenu">
-		                    <li class="home"><a href="javascript:void(0)" name="${pageContext.request.contextPath }/getAllUsers.action" title="用户列表"  class="iframeurl"><i class="icon-double-angle-right"></i>用户列表</a></li>
-		
-		                   </ul>
-						  </li>
-						  </c:when>
-        				</c:choose>
-        				<c:choose>
-						  	<c:when test="${ sessionScope.user.userroleid == 2}">
-							<li><a href="#" class="dropdown-toggle"><i class="icon-group"></i><span class="menu-text"> 安保人员管理 </span><b class="arrow icon-angle-down"></b></a>
-							<ul class="submenu">
-							<li class="home"><a href="javascript:void(0)" name="${pageContext.request.contextPath }/getAllSecuritys.action" title="安保人员列表" class="iframeurl"><i class="icon-double-angle-right"></i>安保人员列表</a></li>
-							</ul>
-							</li>
+							<c:when test="${ sessionScope.user.userroleid == 2}">
+								<li>
+									<a href="#" class="dropdown-toggle"><i class="icon-user"></i><span class="menu-text"> 社区安全</span><b class="arrow icon-angle-down"></b></a>
+									<ul class="submenu">
+										<li class="home"><a href="javascript:void(0)" name="${pageContext.request.contextPath }/getAllUsers.action" title="用户列表"  class="iframeurl"><i class="icon-double-angle-right"></i>用户列表</a></li>
+										<c:choose>
+											<c:when test="${ sessionScope.user.userroleid == 2}">
+												<li class="home"><a href="javascript:void(0)" name="${pageContext.request.contextPath }/getAllSecuritys.action" title="安保人员列表" class="iframeurl"><i class="icon-double-angle-right"></i>安保人员列表</a></li>
+											</c:when>
+										</c:choose>
+										<c:choose>
+											<c:when test="${ sessionScope.user.userroleid == 1}">
+												<li class="home"><a  href="javascript:void(0)" name="${pageContext.request.contextPath }/getAllVehicles.action"  title="车辆管理" class="iframeurl"><i class="icon-double-angle-right"></i>车辆列表</a></li>
+											</c:when>
+										</c:choose>
+										<li class="home"><a href="javascript:void(0)" name="${pageContext.request.contextPath }/getAllUsers.action" title="一键求助"  class="iframeurl"><i class="icon-double-angle-right"></i>一键求助</a></li>
+
+									</ul>
+								</li>
 							</c:when>
-        				</c:choose>
-					<li>
-					<a href="#" class="dropdown-toggle"><i class="icon-list"></i><span class="menu-text"> 疫情防控 </span><b class="arrow icon-angle-down"></b></a>
-                    <ul class="submenu">
-                    <li class="home"><a href="javascript:void(0)" name="https://voice.baidu.com/act/newpneumonia/newpneumonia" title="疫情实时大数据报告"  class="iframeurl"><i class="icon-double-angle-right"></i>疫情实时大数据报告</a></li>
-                    <li class="home"><a href="javascript:void(0)" name="/PerimeterOutbreak" title="周边疫情查询"  class="iframeurl"><i class="icon-double-angle-right"></i>周边疫情查询</a></li>
-                    <li class="home"><a href="javascript:void(0)" name="/ConcurrentQuery" title="同程查询"  class="iframeurl"><i class="icon-double-angle-right"></i>同程查询</a></li>
-					<li class="home"><a href="javascript:void(0)" name="/EpidemicInformation" title="疫情数据（图）"  class="iframeurl"><i class="icon-double-angle-right"></i>疫情数据(图)</a></li>
-                    <li class="home"><a href="javascript:void(0)" name="/ForeignEpidemic" title="国外疫情"  class="iframeurl"><i class="icon-double-angle-right"></i>国外疫情</a></li>
-                   </ul>
-				  </li>
+						</c:choose>
+						<li>
+						<a href="#" class="dropdown-toggle"><i class="icon-picture "></i><span class="menu-text">社区生活</span><b class="arrow icon-angle-down"></b></a>
+							<ul class="submenu">
+								<li class="home"><a href="javascript:void(0)" name="${pageContext.request.contextPath }/getPosts.action" title="社区贴吧" class="iframeurl"><i class="icon-double-angle-right"></i>社区贴吧</a></li>
+								<li>
+									<a href="#" class="dropdown-toggle"><i class="icon-picture "></i><span class="menu-text">社区购物</span><b class="arrow icon-angle-down"></b></a>
+									<ul class="submenu">
+										<li class="home"><a href="javascript:void(0)" name="${pageContext.request.contextPath }/getAllFood.action" title="社区购物"  class="iframeurl"><i class="icon-double-angle-right"></i>社区代购</a></li>
+										<c:choose>
+											<c:when test="${ sessionScope.user.userroleid == 2}">
+												<li class="home"><a href="javascript:void(0)" name="${pageContext.request.contextPath }/getAllOrder.action" title="代购订单"  class="iframeurl"><i class="icon-double-angle-right"></i>代购订单</a></li>
+											</c:when>
+										</c:choose>
+										<li class="home"><a href="javascript:void(0)" name="${pageContext.request.contextPath }/getMyOrder.action?name=${sessionScope.user.realname}" title="我的订单"  class="iframeurl"><i class="icon-double-angle-right"></i>我的订单</a></li>
+									</ul>
+								</li>
+								<li>
+									<a href="#" class="dropdown-toggle"><i class="icon-list"></i><span class="menu-text"> 疫情防控 </span><b class="arrow icon-angle-down"></b></a>
+									<ul class="submenu">
+										<li class="home"><a href="javascript:void(0)" name="https://voice.baidu.com/act/newpneumonia/newpneumonia" title="疫情实时大数据报告"  class="iframeurl"><i class="icon-double-angle-right"></i>疫情实时大数据报告</a></li>
+										<li class="home"><a href="javascript:void(0)" name="/PerimeterOutbreak" title="周边疫情查询"  class="iframeurl"><i class="icon-double-angle-right"></i>周边疫情查询</a></li>
+										<li class="home"><a href="javascript:void(0)" name="/ConcurrentQuery" title="同程查询"  class="iframeurl"><i class="icon-double-angle-right"></i>同程查询</a></li>
+										<li class="home"><a href="javascript:void(0)" name="/EpidemicInformation" title="疫情数据（图）"  class="iframeurl"><i class="icon-double-angle-right"></i>疫情数据(图)</a></li>
+										<li class="home"><a href="javascript:void(0)" name="/ForeignEpidemic" title="国外疫情"  class="iframeurl"><i class="icon-double-angle-right"></i>国外疫情</a></li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+
+
+
                         	<li><a href="#" class="dropdown-toggle"><i class="icon-cogs"></i><span class="menu-text"> 系统管理 </span><b class="arrow icon-angle-down"></b></a>
 							<ul class="submenu">
 								<li class="home"><a href="javascript:void(0)" name="${pageContext.request.contextPath }/getInformationByUserName.action?username=${sessionScope.user.username} " title="个人信息" class="iframeurl"><i class="icon-double-angle-right"></i>个人信息</a></li>
