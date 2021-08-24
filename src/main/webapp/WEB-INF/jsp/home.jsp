@@ -161,7 +161,7 @@
         <li style="width:100%;">
             <h4><p align="center" id="title"></p></h4>
         </li>
-        <li style="width:100%;"><p style="margin-left:80px;margin-right:80px;" id="summary"></p></li>
+        <li style="width:100%;text-align:center"><span style="margin-left:80px;margin-right:80px;" id="summary"></span></li>
         <div>
             <li style="width:100%;margin-top:90px;"><p style="margin-left:80px;" id="infosource"></p></li>
         </div>
@@ -237,13 +237,13 @@ function infor(id) {
                 title: '疫情资讯',
                 maxmin: true,
                 shadeClose: true, /*点击遮罩关闭层*/
-                area: ['800px', '400px'],
+                area: ['60%'],
                 content: $('#add_menber_style'),
-                offset: 'auto'
+                offset:  ['20%', '20%']
             });
             $("#title").html(data.title);
             $("#summary").html(data.summary);
-            $("#infosource").html("<br><br>来源：&nbsp;&nbsp;<a href=" + data.sourceurl + " >" + data.infosource + "</a>");
+            $("#infosource").html("<br>来源：&nbsp;&nbsp;<a href=" + data.sourceurl + " >" + data.infosource + "</a>");
         }
     });
 }</script>
