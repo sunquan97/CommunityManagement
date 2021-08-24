@@ -89,36 +89,6 @@ if(result!=" " || $.trim($("#result").val()).length != 0){
 		alert(result);
 	}
 }
-$(function(){
-	$.ajax({
-		type:"post",
-		url:"https://api.tianapi.com/txapi/ncov/index?key=7dcef006b46a8fc296af6b3266cf6a10",
-		success:function(data){
-			$.each(data.newslist,function(i,pro){
-				$.each(pro.news,function(i,json){
-					$.ajax({
-						type:"post",
-						url:"${pageContext.request.contextPath }/addOutinfor.action",
-						data : {
-							id : json.id,
-							title: json.title,
-							summary: json.summary,
-							infosource: json.infoSource,
-							sourceurl: json.sourceUrl
-						},
-						success:function(data){
-						},
-						error:function(xmlHttpRequest){
-							alert(xmlHttpRequest.status);
-						}
-					});
-				}); 
-			}); 
-		},
-		error:function(xmlHttpRequest){
-			alert(xmlHttpRequest.status);
-		}
-	});
-});
+
 </script>
 </html>

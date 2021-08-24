@@ -29,9 +29,10 @@ thymeleaf:
 mybatis:
   type-aliases-package: com.pojo
   mapper-locations: classpath*:com/mapping/*.xml
-  logging:
+  logging: #打印sql日志
     level:
-    com.mapper: debug
+    com.dao: debug
+
 
 
 
