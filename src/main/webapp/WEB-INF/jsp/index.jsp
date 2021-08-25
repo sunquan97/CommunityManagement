@@ -293,7 +293,7 @@
                             <li class="home"><a href="javascript:void(0)"
                                                 name="${pageContext.request.contextPath }/getPosts.action" title="社区贴吧"
                                                 class="iframeurl"><i class="icon-double-angle-right"></i>社区贴吧</a></li>
-                            <li><a href="#" class="dropdown-toggle"><i class="icon-picture "></i><span
+                            <li><a href="#" class="dropdown-toggle"><span
                                     class="menu-text">社区购物</span><b class="arrow icon-angle-down"></b></a>
                                 <ul class="submenu">
                                     <li class="home"><a href="javascript:void(0)"
@@ -312,7 +312,7 @@
                                             class="icon-double-angle-right"></i>我的订单</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#" class="dropdown-toggle"><i class="icon-list"></i><span class="menu-text"> 疫情防控 </span><b
+                            <li><a href="#" class="dropdown-toggle"><span class="menu-text"> 疫情防控 </span><b
                                     class="arrow icon-angle-down"></b></a>
                                 <ul class="submenu">
                                     <li class="home"><a href="javascript:void(0)"
