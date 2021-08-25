@@ -52,7 +52,7 @@
             <section class="panel">
                 <div class="symbol yellow"><i class="icon-user"></i></div>
                 <div class="value"><h1 id="securitySum"></h1>
-                    <p>安保人员</p></div>
+                    <p>社区安保</p></div>
             </section>
         </div>
         <div class="col-lg-3 col-sm-3">
@@ -63,7 +63,7 @@
             </section>
         </div>
         <div class="col-lg-3 col-sm-3">
-            <iframe width="400" height="100" frameborder="0" scrolling="no" hspace="0"
+            <iframe width="300" height="100" frameborder="0" scrolling="no" hspace="0"
                     src="https://i.tianqi.com/?c=code&a=getcode&id=35&site=34&icon=1"></iframe>
         </div>
     </div>
@@ -137,9 +137,9 @@
                                                 </button>
                                             </li>
                                             <li class="ydc-previous-item">
-                                                <div class="ydc-item-quick-kun"><input type="number" id="viPage"
+                                                第<div class="ydc-item-quick-kun"><input type="number" id="viPage"
                                                                                        aria-invalid="false" class="">
-                                                </div>
+                                                </div>页
                                                 <button id="transfer" style="margin-left:5px;"
                                                         class="ydc-previous-item-btn-medium"><span>跳转</span></button>
                                             </li>
@@ -154,7 +154,34 @@
         </div>
     </div>
 </div>
-<%--<div class="page-content clearfix" style="width:50%;float:left;">--%><%--    <div id="Member_Ratings">--%><%--        <div class="d_Confirm_Order_style"><!---->--%><%--            <div class="table_menu_list">--%><%--                <div class="ydc-loading-box">--%><%--                    <div class="ydc-tabPanel">--%><%--                        <div>--%><%--                            <ul>--%><%--                                <li class="hit"><h3 style="margin-top:10px;">疫情资讯</h3></li>--%><%--                            </ul>--%><%--                        </div>--%><%--                        <div class="ydc-panes">--%><%--                            <div class="ydc-pane" style="display:block;"><c:forEach items="${outinfors }"--%><%--                                                                                    var="outinfor">--%><%--                                <ol class="ydc-pane-list">--%><%--                                    <li><h4><a onclick="infor(${outinfor.id })" id="information"--%><%--                                               target="_blank">${outinfor.title }</a><span--%><%--                                            style="float:right;"><fmt:formatDate value="${outinfor.pubdatestr}"--%><%--                                                                                 pattern="yyyy-MM-dd"/></span></h4></li>--%><%--                                </ol>--%><%--                            </c:forEach></div>--%><%--                        </div>--%><%--                    </div>--%><%--                </div>--%><%--            </div>--%><%--        </div>--%><%--    </div>--%><%--</div>--%>
+<%--<div class="page-content clearfix" style="width:50%;float:left;">--%>
+<%--    <div id="Member_Ratings">--%>
+<%--        <div class="d_Confirm_Order_style"><!---->--%>
+<%--            <div class="table_menu_list">--%>
+<%--                <div class="ydc-loading-box">--%>
+<%--                    <div class="ydc-tabPanel">--%>
+<%--                        <div>--%>
+<%--                            <ul>--%>
+<%--                                <li class="hit"><h3 style="margin-top:10px;">疫情资讯</h3></li>--%>
+<%--                            </ul>--%>
+<%--                        </div>--%>
+<%--                        <div class="ydc-panes">--%>
+<%--                            <div class="ydc-pane" style="display:block;"><c:forEach items="${outinfors }"--%>
+<%--                                                                                    var="outinfor">--%>
+<%--                                <ol class="ydc-pane-list">--%>
+<%--                                    <li><h4><a onclick="infor(${outinfor.id })" id="information"--%>
+<%--                                               target="_blank">${outinfor.title }</a><span--%>
+<%--                                            style="float:right;"><fmt:formatDate value="${outinfor.pubdatestr}"--%>
+<%--                                                                                 pattern="yyyy-MM-dd"/></span></h4></li>--%>
+<%--                                </ol>--%>
+<%--                            </c:forEach></div>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--    </div>--%>
+<%--</div>--%>
 <div class="add_menber" id="add_menber_style" style="display:none;height:230px;">
     <ul>
         <li style="width:100%;">

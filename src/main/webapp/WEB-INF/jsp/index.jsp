@@ -213,7 +213,7 @@
         ace.settings.check('main-container', 'fixed')
     } catch (e) {
     }</script>
-    <div class="main-container-inner"><a class="menu-toggler" id="menu-toggler" href="#"><span class="menu-text"></span></a>
+    <div class="main-container-inner" style="height: 480px;"><a class="menu-toggler" id="menu-toggler" href="#"><span class="menu-text"></span></a>
         <div class="sidebar" id="sidebar">
             <script type="text/javascript"> try {
                 ace.settings.check('sidebar', 'fixed')
@@ -362,7 +362,7 @@
             } catch (e) {
             }</script>
         </div>
-        <div class="main-content">
+        <div class="main-content" style="height: 400px;">
             <script type="text/javascript"> try {
                 ace.settings.check('breadcrumbs', 'fixed')
             } catch (e) {
@@ -375,7 +375,7 @@
                     <li class="active" id="parentIfour"><span class="parentIfour iframeurl"></span></li>
                 </ul>
             </div>
-            <iframe id="iframe" style="border:0; width:100%;height:750px; background-color:#FFF;" name="iframe"
+            <iframe id="iframe" style="scrolling : no;border:0; width:100%;height:750px; background-color:#FFF;" name="iframe"
                     frameborder="0" src="${pageContext.request.contextPath }/getAllNotices.action"></iframe>
             <!-- /.page-content --></div><!-- /.main-content -->
         <div class="ace-settings-container" id="ace-settings-container">
