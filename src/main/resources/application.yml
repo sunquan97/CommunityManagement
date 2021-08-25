@@ -7,12 +7,20 @@ spring:
     view:
       suffix: .jsp
       prefix: /WEB-INF/jsp
-  #数据源
+  #数据源  连接虚拟机
+#  datasource:
+#    url: jdbc:mysql://192.168.0.109:3306/CommunityManagement?characterEncoding=utf-8&serverTimezone=GMT
+#    username: root
+#    password: root1997
+#    driverClassName: com.mysql.jdbc.Driver
+
   datasource:
-    url: jdbc:mysql://localhost:3306/communitymanagement?characterEncoding=utf-8&serverTimezone=GMT
+    url: jdbc:mysql://localhost:3306/CommunityManagement?characterEncoding=utf-8&serverTimezone=GMT
     username: root
     password: root
     driverClassName: com.mysql.jdbc.Driver
+
+
   #热部署
   devtools:
     restart:
