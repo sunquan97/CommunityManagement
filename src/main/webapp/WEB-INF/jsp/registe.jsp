@@ -33,7 +33,7 @@
 		<form action="${pageContext.request.contextPath}/registe.action" method="post" id="formregiste">
 			<input name="username" type="text" id="username"  value="用户名" onfocus="this.value=''" onblur="if(this.value==''){this.value='用户名'}">
 			<input name="password" type="password"   id="password" placeholder="密码"/>
-			<input name="userRePassword" type="password"   id="userRePassword" placeholder="确认密码"/>
+			<input name="confirmpassword" type="password"   id="confirmpassword" placeholder="确认密码"/>
 			<input id="xiao-submit-button" type="button" style="float: left;width: 49%" onclick="registeuser()" value="立即注册"/>
 			<input class="back-button"   type="button" style="float: left;width: 49%;margin-left: 5px;"	onclick="javascript:history.go(-1)" value="返回">
 <%--			<div class="xiao-container">--%>
@@ -104,39 +104,132 @@
 
 
 </body>
-<script>
-	$('#facelogin_btn').on('click', function(){
-		window.location.href="/facelogin"
-	});
-	$('#registe_btn').on('click', function(){
-		window.location.href="/registe"
-	});
-	$('#login_btn').on('click', function(){
-		var username =$("#username").val();
-		var password =$("#password").val();
-		var username1 = new RegExp("[\\u4E00-\\u9FFF]+","g");
-		if(username== "" || $.trim($("#username").val()).length == 0){
-			alert("请输入用户名！");
-		}else if (username1.test(username)){
-			alert("用户名不能含有有中文");
-		}else if(username.length > 20){
-			alert("用户名长度不能超过20位");
-		}else if(password== "" || $.trim($("#password").val()).length == 0){
-			alert("请输入密码！");
-		}else if(password.length <6 || password.length > 12){
-			alert("密码长度范围在6-12位之间");
-		}else{
-			$('#login').submit();
-		}
-	});
-	var result =$("#result").val()
-	if(result!=" " || $.trim($("#result").val()).length != 0){
-		if(result=="欢迎登录"){
-			alert(result);
-		}else{
-			alert(result);
-		}
+<script type="text/javascript"> var canvans = document.getElementById("canvas");
+var video = document.getElementById("video"); /*获取video标签*/
+var context = canvas.getContext("2d");
+var con = {audio: false, video: {width: 300, height: 300,}};/*导航 获取用户媒体对象*/
+navigator.mediaDevices.getUserMedia(con).then(function (stream) {
+	video.srcObject = stream;
+	video.onloadmetadate = function (e) {
+		video.play();
 	}
+});
+var num = 0;
 
-</script>
+function registe() {
+	context.drawImage(video, 0, 0);
+	var imgData = canvans.toDataURL();
+	var imgData1 = imgData.split("base64,")[1];
+	$("#img").attr("value", imgData1);
+	var username = $("#username").val();
+	$.ajax({
+		type: "post",
+		url: "${pageContext.request.contextPath}/faceregiste.action",
+		data: {"img": imgData1, "username": username},
+		success: function (data) {
+			data = eval('(' + data + ')');
+			if (data.error_msg == "SUCCESS") {
+				if (data.result.user_list[0].score > 90) {
+					$("#xiao-submit-button").attr("disabled", true);
+					alert("您已注册");
+				} else {
+					$.ajax({
+						type: "post",
+						url: "${pageContext.request.contextPath}/faceregiste1.action",
+						data: {"img": imgData1, "username": username},
+						success: function (data) {
+							data = eval('(' + data + ')');
+							$("#xiao-submit-button").attr("disabled", false);
+							alert("图片注册成功");
+						},
+						error: function (msg) {
+							alert("错误");
+						}
+					});
+				}
+			} else {
+				$("#xiao-submit-button").attr("disabled", true);
+				alert(data.error_msg);
+			}
+		},
+		error: function (msg) {
+			alert("错误");
+		}
+	});
+}
+
+function registeuser() {
+	var username = $("#username").val();
+	var password = $("#password").val();
+	var confirmpassword = $("#confirmpassword").val();
+	// var idnumber = $("#idnumber").val();
+	// var age = $("#age").val();
+	// var input = $("#input").val();
+	// var phonenumber = $("#phonenumber").val();
+	// var address = $("#address").val();
+	// var realname = $("#realname").val();
+	// var idnumber1 = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+	// var username1 = new RegExp("[\\u4E00-\\u9FFF]+", "g");
+	// var phonenumber1 = /^[1][3,4,5,7,8][0-9]{9}$/;
+	// var realname1 = /^[\u4e00-\u9fa5]{2,4}$/;
+	// var age1 = /^\d+(\.\d+)?$/;
+	if (username == "" || $.trim($("#username").val()).length == 0) {
+		alert("请输入用户名！");
+	// } else if (username1.test(username)) {
+	// 	alert("用户名不能含有有中文");
+	} else if (username.length > 20) {
+		alert("用户名长度不能超过20位");
+	// } else if (input == "已注册") {
+	// 	alert("用户名已注册");
+	} else if ($("#password").val().length == 0) {
+		alert("请输入密码！");
+	} else if (password.length < 6 || password.length > 12) {
+		alert("密码长度范围在6-12位之间");
+	// } else if (idnumber.length == 0) {
+	// 	alert("请输入身份证号");
+	// } else if (!idnumber1.test(idnumber)) {
+	// 	alert("身份证号输入不合法");
+	// } else if (age.length == 0) {
+	// 	alert("请输入年龄");
+	// } else if (!age1.test(age)) {
+	// 	alert("请输入年龄");
+	} else if (confirmpassword.length == 0) {
+		alert("请再次输入密码");
+	} else if (confirmpassword != password) {
+		alert("两次密码输入不一致");
+	// } else if (phonenumber.length == 0) {
+	// 	alert("请输入手机号码");
+	// } else if (!phonenumber1.test(phonenumber)) {
+	// 	alert("请输入正确的手机号码");
+	// } else if (address.length == 0) {
+	// 	alert("请输入家庭住址");
+	// } else if (realname.length == 0) {
+	// 	alert("请输入真实姓名");
+	// } else if (!realname1.test(realname)) {
+	// 	alert("请输入真实姓名");
+	} else {
+		$("#formregiste").submit();
+	}
+}
+
+$("#username").change(function () {
+	var username = $("#username").val();
+	$.ajax({
+		type: "post",
+		url: "${pageContext.request.contextPath}/checkUserName.action",
+		data: {"username": username},
+		success: function (data) {
+			$("#div").empty();
+			var span = "<span id='span1' style='color: red;'>" + data + "</span>"
+			var input = "<input type='hidden' value='" + data + "' id='input'>"
+			var div = "<div id='div' style='float:right;margin-right:110px;'> </div>"
+			$("#userbox").append(div);
+			$("#div").append(span);
+			$("#div").append(input);
+		},
+		error: function (msg) {
+			alert("错误");
+		}
+	});
+});</script>
 </html>
