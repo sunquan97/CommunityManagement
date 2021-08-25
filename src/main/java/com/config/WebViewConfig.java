@@ -39,6 +39,7 @@ public class WebViewConfig implements WebMvcConfigurer {
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/").setViewName("jsp/login");
         registry.addViewController("/login").setViewName("jsp/login");
+        registry.addViewController("/password").setViewName("jsp/password");
         registry.addViewController("/carLogin").setViewName("jsp/carlogin");
         registry.addViewController("/userLogin").setViewName("jsp/userlogin");
         registry.addViewController("/faceLogin").setViewName("jsp/facelogin");

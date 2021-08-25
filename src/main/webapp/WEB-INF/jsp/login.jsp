@@ -46,7 +46,7 @@
           </div>
           <form method="post" action="${pageContext.request.contextPath}/login.action" id="login">
               <input name="username" type="text" id="username"  value="用户名" onfocus="this.value=''" onblur="if(this.value==''){this.value='用户名'}">
-             </label><input name="password" type="password"   id="password" placeholder="密码"/>
+              <input name="password" type="password"   id="password" placeholder="密码"/>
               <input value="密码登录" style="width:45%;" type="button" id="login_btn">
               <input value="注册" id="registe_btn" style="width:45%;margin-left:24px;" type="button">
               <input value="人脸识别登录" id="facelogin_btn" style="width:100%;margin-top:5px;" type="button">
