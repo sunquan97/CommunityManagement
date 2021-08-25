@@ -60,52 +60,52 @@
         $(this).addClass('active');
     });
 
-    function addCheckIn(userid) {
-        $.ajax({
-            type: "get",
-            url: "${pageContext.request.contextPath }/addCheckIn.action",
-            data: {"userid": userid},
-            success: function (data) {
-                $("#everyday").attr('onclick', '');
-                $("#everyday").text("已打卡");
-                $("#everyday").attr('style', 'opacity: 0.2');
-                alert(data);
-            },
-            error: function (msg) {
-                alert("错误");
-            }
-        });
-    }
+    <%--function addCheckIn(userid) {--%>
+    <%--    $.ajax({--%>
+    <%--        type: "get",--%>
+    <%--        url: "${pageContext.request.contextPath }/addCheckIn.action",--%>
+    <%--        data: {"userid": userid},--%>
+    <%--        success: function (data) {--%>
+    <%--            $("#everyday").attr('onclick', '');--%>
+    <%--            $("#everyday").text("已打卡");--%>
+    <%--            $("#everyday").attr('style', 'opacity: 0.2');--%>
+    <%--            alert(data);--%>
+    <%--        },--%>
+    <%--        error: function (msg) {--%>
+    <%--            alert("错误");--%>
+    <%--        }--%>
+    <%--    });--%>
+    <%--}--%>
 
-    function check() {
-        var userid = $("#userid").val();
-        $.ajax({
-            type: "get",
-            url: "${pageContext.request.contextPath }/getCheckIn.action",
-            data: {"userid": userid},
-            success: function (data) {
-                data = eval('(' + data + ')');
-                if (data.flag == 1) {
-                    $("#everyday").empty();
-                    var i = "<i class='icon-bell-alt'></i>每日打卡";
-                    $("#everyday").append(i);
-                    $("#everyday").attr('onclick', 'addCheckIn(${sessionScope.user.userid})');
-                    $("#everyday").attr('style', '');
-                    alert(data.result);
-                } else {
-                    $("#everyday").attr('onclick', '');
-                    $("#everyday").text("已打卡");
-                    $("#everyday").attr('style', 'opacity: 0.2');
-                }
-            },
-            error: function (msg) {
-                alert("错误");
-            }
-        });
-    }
+    <%--function check() {--%>
+    <%--    var userid = $("#userid").val();--%>
+    <%--    $.ajax({--%>
+    <%--        type: "get",--%>
+    <%--        url: "${pageContext.request.contextPath }/getCheckIn.action",--%>
+    <%--        data: {"userid": userid},--%>
+    <%--        success: function (data) {--%>
+    <%--            data = eval('(' + data + ')');--%>
+    <%--            if (data.flag == 1) {--%>
+    <%--                $("#everyday").empty();--%>
+    <%--                var i = "<i class='icon-bell-alt'></i>每日打卡";--%>
+    <%--                $("#everyday").append(i);--%>
+    <%--                $("#everyday").attr('onclick', 'addCheckIn(${sessionScope.user.userid})');--%>
+    <%--                $("#everyday").attr('style', '');--%>
+    <%--                alert(data.result);--%>
+    <%--            } else {--%>
+    <%--                $("#everyday").attr('onclick', '');--%>
+    <%--                $("#everyday").text("已打卡");--%>
+    <%--                $("#everyday").attr('style', 'opacity: 0.2');--%>
+    <%--            }--%>
+    <%--        },--%>
+    <%--        error: function (msg) {--%>
+    <%--            alert("错误");--%>
+    <%--        }--%>
+    <%--    });--%>
+    <%--}--%>
 
     /*********************点击事件*********************/ $(document).ready(function () {
-        check();/*24小时 执行一次这个函数*/
+        // check();/*24小时 执行一次这个函数*/
         $('#nav_list,.link_cz').find('li.home').on('click', function () {
             $('#nav_list,.link_cz').find('li.home').removeClass('active');
             $(this).addClass('active');
@@ -375,7 +375,7 @@
                     <li class="active" id="parentIfour"><span class="parentIfour iframeurl"></span></li>
                 </ul>
             </div>
-            <iframe id="iframe" style="border:0; width:100%;height:850px; background-color:#FFF;" name="iframe"
+            <iframe id="iframe" style="border:0; width:100%;height:750px; background-color:#FFF;" name="iframe"
                     frameborder="0" src="${pageContext.request.contextPath }/getAllNotices.action"></iframe>
             <!-- /.page-content --></div><!-- /.main-content -->
         <div class="ace-settings-container" id="ace-settings-container">

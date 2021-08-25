@@ -45,7 +45,14 @@
             <section class="panel">
                 <div class="symbol terques"><i class="icon-user"></i></div>
                 <div class="value"><h1 id="userSum"></h1>
-                    <p>社区总人数</p></div>
+                    <p>社区居民</p></div>
+            </section>
+        </div>
+        <div class="col-lg-3 col-sm-3">
+            <section class="panel">
+                <div class="symbol yellow"><i class="icon-user"></i></div>
+                <div class="value"><h1 id="securitySum"></h1>
+                    <p>安保人员</p></div>
             </section>
         </div>
         <div class="col-lg-3 col-sm-3">
@@ -55,12 +62,32 @@
                     <p>公告数</p></div>
             </section>
         </div>
-        <div class="col-lg-6 col-sm-6">
-            <iframe width="800" height="150" frameborder="0" scrolling="no" hspace="0" src="https://i.tianqi.com/?c=code&a=getcode&id=48&num=6&icon=1"></iframe>
+        <div class="col-lg-3 col-sm-3">
+            <iframe width="400" height="100" frameborder="0" scrolling="no" hspace="0"
+                    src="https://i.tianqi.com/?c=code&a=getcode&id=35&site=34&icon=1"></iframe>
         </div>
     </div>
 </div>
-<div class="page-content clearfix" style="width:50%;float:left;">
+<div class="page-content clearfix" style="width:60%;float:left;">
+    <div id="myCarousel" class="carousel" data-ride="carousel" style="margin-top: 20px"><!--图片的容器-->
+        <div class="carousel-inner">
+            <div class="item active"><img style="width: 850px;height: 400px"
+                                          src="${pageContext.request.contextPath }/static/images/propaganda/51miz.jpg"/>
+            </div>
+            <div class="item"><img style="width: 850px;height: 400px"
+                                   src="${pageContext.request.contextPath }/static/images/propaganda/gtimg.jpg"/></div>
+            <div class="item"><img style="width: 850px;height: 400px"
+                                   src="${pageContext.request.contextPath }/static/images/propaganda/yuncs.jpg"/></div>
+        </div><!--圆圈指示符-->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+        </ol><!--左右的按钮--><a href="#myCarousel" class="left carousel-control" data-slide="prev"><span
+                class="glyphicon glyphicon-chevron-left"></span></a><a href="#myCarousel" class="right carousel-control"
+                                                                       data-slide="next"><span
+                class="glyphicon glyphicon-chevron-right"></span></a></div>
+</div>
+<div class="page-content clearfix" style="width:40%;float:left;">
     <div id="Member_Ratings">
         <div class="d_Confirm_Order_style"><!---->
             <div class="table_menu_list">
@@ -86,82 +113,55 @@
                                 </ol>
                             </c:forEach>
                                 <ol class="ydc-pane-list">
-                                     <li><span style="float: left;margin-left: 10px">共${page.pageCount}页/当前第${page.currentPage}页/共${page.recordCount }条记录</span></li>
+                                    <li><span
+                                            style="float: left;margin-left: 10px">共${page.pageCount}页/当前第${page.currentPage}页/共${page.recordCount }条记录</span>
+                                    </li>
                                 </ol>
-                                <ol>
-                                    <div class="ydc-pagination"><input type="hidden" value="${page.currentPage}" id="currentPage"><input
-                                            type="hidden" value="${pageContext.request.contextPath }" id="url"><input type="hidden"
-                                                                                                                      value="${page.pageCount }"
-                                                                                                                      id="pageCount">
-                                        <ol>
+                                <ol style="width: 100%;height: 45px;">
+                                    <div class="ydc-pagination" style="width: 100%;"><input type="hidden"
+                                                                                            value="${page.currentPage}"
+                                                                                            id="currentPage"><input
+                                            type="hidden" value="${pageContext.request.contextPath }" id="url"><input
+                                            type="hidden" value="${page.pageCount }" id="pageCount">
+                                        <ol style="width: 100%;">
                                             <li class="ydc-previous-item">
-                                                <button id="first" class="ydc-previous-item-btn-medium "><span>首页</span></button>
+                                                <button id="first" class="ydc-previous-item-btn-medium "><span>首页</span>
+                                                </button>
                                             </li>
                                             <li class="ydc-previous-item">
-                                                <button id="prev" class="ydc-previous-item-btn-medium "><span>上一页</span></button>
+                                                <button id="prev" class="ydc-previous-item-btn-medium "><span>上一页</span>
+                                                </button>
                                             </li>
                                             <li class="ydc-previous-item">
-                                                <button id="next" class="ydc-previous-item-btn-medium"><span>下一页</span></button>
+                                                <button id="next" class="ydc-previous-item-btn-medium"><span>下一页</span>
+                                                </button>
                                             </li>
-                                            <li>
-                                                <div style="margin-left:10px;">第
-                                                    <div class="ydc-item-quick-kun"><input type="number" id="viPage" aria-invalid="false"
-                                                                                           class=""></div>
-                                                    页
-                                                    <button id="transfer" style="margin-left:5px;" class="ydc-previous-item-btn-medium">
-                                                        <span>跳转</span></button>
+                                            <li class="ydc-previous-item">
+                                                <div class="ydc-item-quick-kun"><input type="number" id="viPage"
+                                                                                       aria-invalid="false" class="">
                                                 </div>
+                                                <button id="transfer" style="margin-left:5px;"
+                                                        class="ydc-previous-item-btn-medium"><span>跳转</span></button>
                                             </li>
-
                                         </ol>
                                     </div>
                                 </ol>
-
-
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
 </div>
-<div class="page-content clearfix" style="width:50%;float:left;">
-    <div id="Member_Ratings">
-        <div class="d_Confirm_Order_style"><!---->
-            <div class="table_menu_list">
-                <div class="ydc-loading-box">
-                    <div class="ydc-tabPanel">
-                        <div>
-                            <ul>
-                                <li class="hit"><h3 style="margin-top:10px;">疫情资讯</h3></li>
-                            </ul>
-                        </div>
-                        <div class="ydc-panes">
-                            <div class="ydc-pane" style="display:block;"><c:forEach items="${outinfors }"
-                                                                                    var="outinfor">
-                                <ol class="ydc-pane-list">
-                                    <li><h4><a onclick="infor(${outinfor.id })" id="information"
-                                               target="_blank">${outinfor.title }</a><span
-                                            style="float:right;"><fmt:formatDate value="${outinfor.pubdatestr}"
-                                                                                 pattern="yyyy-MM-dd"/></span></h4></li>
-                                </ol>
-                            </c:forEach></div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<%--<div class="page-content clearfix" style="width:50%;float:left;">--%><%--    <div id="Member_Ratings">--%><%--        <div class="d_Confirm_Order_style"><!---->--%><%--            <div class="table_menu_list">--%><%--                <div class="ydc-loading-box">--%><%--                    <div class="ydc-tabPanel">--%><%--                        <div>--%><%--                            <ul>--%><%--                                <li class="hit"><h3 style="margin-top:10px;">疫情资讯</h3></li>--%><%--                            </ul>--%><%--                        </div>--%><%--                        <div class="ydc-panes">--%><%--                            <div class="ydc-pane" style="display:block;"><c:forEach items="${outinfors }"--%><%--                                                                                    var="outinfor">--%><%--                                <ol class="ydc-pane-list">--%><%--                                    <li><h4><a onclick="infor(${outinfor.id })" id="information"--%><%--                                               target="_blank">${outinfor.title }</a><span--%><%--                                            style="float:right;"><fmt:formatDate value="${outinfor.pubdatestr}"--%><%--                                                                                 pattern="yyyy-MM-dd"/></span></h4></li>--%><%--                                </ol>--%><%--                            </c:forEach></div>--%><%--                        </div>--%><%--                    </div>--%><%--                </div>--%><%--            </div>--%><%--        </div>--%><%--    </div>--%><%--</div>--%>
 <div class="add_menber" id="add_menber_style" style="display:none;height:230px;">
     <ul>
         <li style="width:100%;">
             <h4><p align="center" id="title"></p></h4>
         </li>
-        <li style="width:100%;text-align:center"><span style="margin-left:80px;margin-right:80px;" id="summary"></span></li>
+        <li style="width:100%;text-align:center"><span style="margin-left:80px;margin-right:80px;" id="summary"></span>
+        </li>
         <div>
             <li style="width:100%;margin-top:90px;"><p style="margin-left:80px;" id="infosource"></p></li>
         </div>
@@ -239,7 +239,7 @@ function infor(id) {
                 shadeClose: true, /*点击遮罩关闭层*/
                 area: ['60%'],
                 content: $('#add_menber_style'),
-                offset:  ['20%', '20%']
+                offset: ['15%', '15%']
             });
             $("#title").html(data.title);
             $("#summary").html(data.summary);

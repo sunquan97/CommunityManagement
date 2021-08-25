@@ -33,6 +33,13 @@ mybatis:
     level:
     com.dao: debug
 
+logging:
+  file:
+    name: CommunityManagement.log
+  pattern:
+    console: '%clr(%d{yyyy-MM-dd HH:mm:SS} [%thread] %-5level %logger{50} - %msg%n)'
+    file: '%d{yyyy-MM-dd HH:mm:ss.SSS} >>> [%thread] >>> %-5level >>> %logger{50} >>> %msg%n'
+#    path: logs
 
 
 
