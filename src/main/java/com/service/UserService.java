@@ -1,8 +1,8 @@
 package com.service;
 
-import java.util.List;
-
 import com.pojo.User;
+
+import java.util.List;
 
 public interface UserService {
     int deleteByPrimaryKey(Integer userid);
@@ -39,6 +39,6 @@ public interface UserService {
     
     int getAllSecuritySum();
     //查询密码
-    User selectPassword(Integer userid);
+    User selectPassword(String userid);
     
 }

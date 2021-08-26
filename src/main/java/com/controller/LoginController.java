@@ -18,6 +18,7 @@ import java.util.Base64.Decoder;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import com.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,7 +34,6 @@ import com.util.FaceSpot;
 import com.util.FileUtil;
 import com.util.HttpUtil;
 import com.pojo.LoginRecord;
-import com.pojo.User;
 import com.pojo.checkin;
 
 import net.sf.json.JSONObject;
@@ -50,7 +50,7 @@ public class LoginController {
 	private CheckInService ser2;
 
 	@RequestMapping("/registe.action")
-	public String registe(Model model,String img,User user){
+	public String registe(Model model, String img, User user){
 		//设置用户基本属性
 		user.setFlag(0);
 		Date date = new Date(); 

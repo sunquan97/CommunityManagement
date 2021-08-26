@@ -7,6 +7,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import com.pojo.User;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,6 @@ import com.service.ShopService;
 import com.pojo.Food;
 import com.pojo.Order;
 import com.pojo.Shop;
-import com.pojo.User;
 
 @Controller
 public class OrderController {

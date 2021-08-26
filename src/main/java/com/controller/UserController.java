@@ -10,6 +10,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,7 +21,6 @@ import com.service.LoginRecordService;
 import com.service.UserService;
 import com.pojo.LoginRecord;
 import com.pojo.UploadedFile;
-import com.pojo.User;
 
 import com.util.FaceSpot;
 
@@ -129,7 +129,7 @@ public class UserController {
 	//修改密码
 	@ResponseBody
 	@RequestMapping(value="/selectPassword.action",produces = "text/plain;charset=UTF-8")
-	public String selectPassword(int userid,String password,String newpassword){
+	public String selectPassword(String userid,String password,String newpassword){
 		String result="";
 		User user=ser.selectPassword(userid);
 		if(user.getPassword().equals(password)){

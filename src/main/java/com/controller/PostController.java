@@ -8,6 +8,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import com.pojo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,12 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.service.PostService;
 import com.service.ReplyPostService;
 import com.service.ReplyService;
-import com.pojo.PageUtil;
-import com.pojo.Post;
-import com.pojo.Reply;
-import com.pojo.ReplyPost;
-import com.pojo.UploadedFile;
-import com.pojo.User;
 
 
 @Controller

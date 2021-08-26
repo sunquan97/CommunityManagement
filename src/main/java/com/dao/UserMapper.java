@@ -7,19 +7,19 @@ import org.apache.ibatis.annotations.Param;
 import com.pojo.User;
 
 public interface UserMapper {
-    int deleteByPrimaryKey(Integer userid);
+    int deleteByPrimaryKey(String userid);
 
     int insert(User record);
 
     int insertSelective(User record);
 
-    User selectByPrimaryKey(Integer userid);
+    User selectByPrimaryKey(String userid);
 
     int updateByPrimaryKeySelective(User record);
     
-    int updateStopFlag(int userid);
+    int updateStopFlag(String userid);
     
-    int updateStartFlag(int userid);
+    int updateStartFlag(String userid);
     
     int updateByPrimaryKey(User record);
     //查询全部用户
@@ -41,6 +41,6 @@ public interface UserMapper {
     
     int getAllSecuritySum();
     
-    User selectPassword(Integer userid);
+    User selectPassword(String userid);
     
 }
