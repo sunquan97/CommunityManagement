@@ -50,7 +50,7 @@ public class LoginController {
 
 
 	@RequestMapping("/registe.action")
-	public String registe(Model model, String img, User user){
+	public String registe( User user){
 		//设置用户基本属性
 		user.setFlag(0);
 		Date date = new Date(); 
@@ -59,10 +59,10 @@ public class LoginController {
 		user.setRealname(user.getUsername());
 		user.setUserid(PrimaryKeyGeneratorUtil.getPrimaryKeyGenerator());
 		//把图片路径保存到数据库
-		String fileName = System.currentTimeMillis() + ".png";
-		user.setPhoto("C:\\images\\"+ fileName);
+//		String fileName = System.currentTimeMillis() + ".png";
+//		user.setPhoto("C:\\images\\"+ fileName);
 		ser.insertSelective(user);
-		return "jsp/login";
+		return "jsp/index";
 	}
 	
 	@RequestMapping(value="/login.action",produces = "text/plain;charset=UTF-8")
