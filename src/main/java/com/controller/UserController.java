@@ -52,7 +52,7 @@ public class UserController {
 	//根据ID查询用户
 	@RequestMapping("/getUserById.action")
 	@ResponseBody
-	public User getUserById(int userid){
+	public User getUserById(String userid){
 		User user=ser.selectByPrimaryKey(userid);
 		return user;
 	}
@@ -85,20 +85,20 @@ public class UserController {
 		return "forward:getAllUsers.action";
 	}
 	@RequestMapping("/stopUser.action")
-	public String stopUser(Model model,int userid){
+	public String stopUser(Model model,String userid){
 		//用户启用
 		ser.updateStopFlag(userid);
 		return "forward:getAllUsers.action";
 	}
 	
 	@RequestMapping("/startUser.action")
-	public String startUser(Model model,int userid){
+	public String startUser(Model model,String userid){
 		//用户停用
 		ser.updateStartFlag(userid);
 		return "forward:getAllUsers.action";
 	}
 	@RequestMapping("/delUser.action")
-	public String delUser(Model model,int userid){
+	public String delUser(Model model,String userid){
 		//用户删除
 		ser.deleteByPrimaryKey(userid);
 		return "forward:getAllUsers.action";

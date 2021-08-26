@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.dao.UserMapper" >
   <resultMap id="BaseResultMap" type="com.pojo.User" >
-    <id column="userid" property="userid" jdbcType="VARCHAR" />
+    <id column="userid" property="userid" jdbcType="INTEGER" />
     <result column="password" property="password" jdbcType="VARCHAR" />
     <result column="username" property="username" jdbcType="VARCHAR" />
     <result column="realname" property="realname" jdbcType="VARCHAR" />
@@ -17,7 +17,7 @@
     <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
   </resultMap>
   <resultMap id="BaseResultMap1" type="com.pojo.User" >
-    <id column="userid" property="userid" jdbcType="VARCHAR" />
+    <id column="userid" property="userid" jdbcType="INTEGER" />
     <result column="password" property="password" jdbcType="VARCHAR" />
     <result column="username" property="username" jdbcType="VARCHAR" />
     <result column="realname" property="realname" jdbcType="VARCHAR" />
@@ -123,23 +123,23 @@
     from user where userroleid=1 or userroleid=11 or userroleid=12
   </select>
 
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from user
     where userid = #{userid,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.vo.User" >
+  <insert id="insert" parameterType="com.pojo.User" >
     insert into user (userid, password, username,
       address, phonenumber,
       idnumber, gender, age,
       userroleid, flag, photo,
       createtime)
-    values (#{userid,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR},
+    values (#{userid,jdbcType=INTEGER}, #{password,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR},
       #{address,jdbcType=VARCHAR}, #{phonenumber,jdbcType=VARCHAR},
       #{idnumber,jdbcType=VARCHAR}, #{gender,jdbcType=INTEGER}, #{age,jdbcType=INTEGER},
       #{userroleid,jdbcType=INTEGER}, #{flag,jdbcType=INTEGER}, #{photo,jdbcType=VARCHAR},
       #{createtime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.vo.User" >
+  <insert id="insertSelective" parameterType="com.pojo.User" >
     insert into user
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="userid != null" >
@@ -225,15 +225,15 @@
     </trim>
   </insert>
 
-  <update id="updateStopFlag" parameterType="com.vo.User">
-  	update user set flag=1 where userid = #{userid,jdbcType=VARCHAR}
+  <update id="updateStopFlag" parameterType="com.pojo.User">
+  	update user set flag=1 where userid = #{userid,jdbcType=INTEGER}
   </update>
 
-  <update id="updateStartFlag" parameterType="com.vo.User">
-  	update user set flag=0 where userid = #{userid,jdbcType=VARCHAR}
+  <update id="updateStartFlag" parameterType="com.pojo.User">
+  	update user set flag=0 where userid = #{userid,jdbcType=INTEGER}
   </update>
 
-  <update id="updateByPrimaryKeySelective" parameterType="com.vo.User" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.pojo.User" >
     update user
     <set >
       <if test="password != null" >
@@ -275,7 +275,7 @@
     </set>
     where userid = #{userid,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.vo.User" >
+  <update id="updateByPrimaryKey" parameterType="com.pojo.User" >
     update user
     set password = #{password,jdbcType=VARCHAR},
       username = #{username,jdbcType=VARCHAR},

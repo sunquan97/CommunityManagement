@@ -5,13 +5,13 @@ import com.pojo.User;
 import java.util.List;
 
 public interface UserService {
-    int deleteByPrimaryKey(Integer userid);
+    int deleteByPrimaryKey(String userid);
 
     int insert(User record);
 
     int insertSelective(User record);
 
-    User selectByPrimaryKey(Integer userid);
+    User selectByPrimaryKey(String userid);
 
     int updateByPrimaryKeySelective(User record);
 
@@ -23,9 +23,9 @@ public interface UserService {
     
     int selectIdByUserName(String username);
     //用户逻辑删除
-    int updateStopFlag(int userid);
+    int updateStopFlag(String userid);
     //用户逻辑添加
-    int updateStartFlag(int userid);
+    int updateStartFlag(String userid);
     //全部安保人员
     List<User> AllSecuritys();
     

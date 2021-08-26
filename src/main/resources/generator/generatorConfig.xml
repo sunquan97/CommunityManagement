@@ -14,7 +14,7 @@
         </commentGenerator>
         <!--jdbc的数据库连接 wg_insert 为数据库名字-->
         <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3306/CommunityManagement?useUnicode=true&amp;characeterEncoding=utf-8&amp;serverTimezone=UTC&amp;nullCatalogMeansCurrent=true"
+                        connectionURL="jdbc:mysql://localhost:3306/CommunityManagement?useUnicode=true&amp;characeterEncoding=utf-8&amp;serverTimezone=Asia/Shanghai&amp;nullCatalogMeansCurrent=true"
                         userId="root" password="root"></jdbcConnection>
         <!--非必须，类型处理器，在数据库类型和java类型之间的转换控制-->
         <!--是否启用java.math.BigDecimal-->

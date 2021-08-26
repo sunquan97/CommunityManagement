@@ -38,7 +38,7 @@ public class SecurityController {
 	
 	@RequestMapping("/getSecurityById.action")
 	@ResponseBody
-	public User getSecurityById(int userid){
+	public User getSecurityById(String userid){
 		User user=ser.selectByPrimaryKey(userid);
 		return user;
 	}
@@ -81,20 +81,20 @@ public class SecurityController {
 	}
 	
 	@RequestMapping("/stopSecurity.action")
-	public String stopSecurity(Model model,int userid){
+	public String stopSecurity(Model model,String userid){
 		//用户启用
 		ser.updateStopFlag(userid);
 		return "forward:getAllSecuritys.action";
 	}
 	
 	@RequestMapping("/startSecurity.action")
-	public String startSecurity(Model model,int userid){
+	public String startSecurity(Model model,String userid){
 		//用户停用
 		ser.updateStartFlag(userid);
 		return "forward:getAllSecuritys.action";
 	}
 	@RequestMapping("/delSecurity.action")
-	public String delSecurity(Model model,int userid){
+	public String delSecurity(Model model,String userid){
 		//用户删除
 		ser.deleteByPrimaryKey(userid);
 		return "forward:getAllSecuritys.action";

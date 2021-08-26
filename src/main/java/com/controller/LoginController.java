@@ -19,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import com.pojo.User;
+import com.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,11 +29,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.service.CheckInService;
 import com.service.LoginRecordService;
 import com.service.UserService;
-import com.util.Access_token_car;
-import com.util.Base64Util;
-import com.util.FaceSpot;
-import com.util.FileUtil;
-import com.util.HttpUtil;
 import com.pojo.LoginRecord;
 import com.pojo.checkin;
 
@@ -48,6 +44,10 @@ public class LoginController {
 	private LoginRecordService ser1;
 	@Autowired
 	private CheckInService ser2;
+	@Autowired
+	private PrimaryKeyGeneratorUtil PrimaryKeyGeneratorUtil;
+
+
 
 	@RequestMapping("/registe.action")
 	public String registe(Model model, String img, User user){
@@ -56,6 +56,8 @@ public class LoginController {
 		Date date = new Date(); 
 		user.setCreatetime(date);
 		user.setUserroleid(0);
+		user.setRealname(user.getUsername());
+		user.setUserid(PrimaryKeyGeneratorUtil.getPrimaryKeyGenerator());
 		//把图片路径保存到数据库
 		String fileName = System.currentTimeMillis() + ".png";
 		user.setPhoto("C:\\images\\"+ fileName);

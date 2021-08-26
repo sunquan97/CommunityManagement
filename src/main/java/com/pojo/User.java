@@ -29,6 +29,16 @@ public class User {
 
     private String realname;
 
+    private UserRole userrole;
+
+    public UserRole getUserrole() {
+        return userrole;
+    }
+
+    public void setUserrole(UserRole userrole) {
+        this.userrole = userrole;
+    }
+
     public String getUserid() {
         return userid;
     }
