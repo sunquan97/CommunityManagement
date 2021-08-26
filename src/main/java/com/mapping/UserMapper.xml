@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.pojo.User" >
+    <id column="userid" property="userid" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="realname" property="realname" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="phonenumber" property="phonenumber" jdbcType="VARCHAR" />
+    <result column="idnumber" property="idnumber" jdbcType="VARCHAR" />
+    <result column="gender" property="gender" jdbcType="INTEGER" />
+    <result column="age" property="age" jdbcType="INTEGER" />
+    <result column="userroleid" property="userroleid" jdbcType="INTEGER" />
+    <result column="flag" property="flag" jdbcType="INTEGER" />
+    <result column="photo" property="photo" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <resultMap id="BaseResultMap1" type="com.pojo.User" >
+    <id column="userid" property="userid" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="realname" property="realname" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="phonenumber" property="phonenumber" jdbcType="VARCHAR" />
+    <result column="idnumber" property="idnumber" jdbcType="VARCHAR" />
+    <result column="gender" property="gender" jdbcType="INTEGER" />
+    <result column="age" property="age" jdbcType="INTEGER" />
+    <result column="userroleid" property="userroleid" jdbcType="INTEGER" />
+    <result column="flag" property="flag" jdbcType="INTEGER" />
+    <result column="photo" property="photo" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <collection property="userrole" column="userroleid" select="com.dao.UserRoleMapper.selectByPrimaryKey"></collection>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    userid, password, username, address, phonenumber, idnumber, gender, age,
+    userroleid, flag, photo, createtime,realname
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from user
+    where userid = #{userid,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectPassword" resultMap="BaseResultMap"  parameterType="java.lang.String"  >
+    select
+    <include refid="Base_Column_List" />
+    from user
+    where userid = #{userid,jdbcType=VARCHAR}
+  </select>
+
+
+  <select id="searchUser" resultMap="BaseResultMap1">
+    select
+    <include refid="Base_Column_List" />
+    from user
+    <where>
+      <if test="search!=null">
+        username like '%${search}%'
+      </if>
+      <if test="addtime!=null">
+        and	 createtime like '%${addtime}%'
+      </if>
+      and userroleid IN
+      (select userroleid from user  where userroleid=0)
+    </where>
+  </select>
+
+  <select id="searchSecurity" resultMap="BaseResultMap1">
+    select
+    <include refid="Base_Column_List" />
+    from user
+    <where>
+      <if test="search!=null">
+        username like '%${search}%'
+      </if>
+      <if test="addtime!=null">
+        and	 createtime like '%${addtime}%'
+      </if>
+      and userroleid IN
+      (select userroleid from user  where userroleid=1 or userroleid=11 or userroleid=12 )
+    </where>
+  </select>
+
+  <select id="getAllUserSum" resultType="INTEGER">
+    select
+    count(*)
+    from user
+    where userroleid = 0
+  </select>
+
+  <select id="getAllAdminSum" resultType="INTEGER">
+    select
+    count(*)
+    from user
+    where userroleid = 2
+  </select>
+
+  <select id="getAllSecuritySum" resultType="INTEGER">
+    select
+    count(*)
+    from user
+    where userroleid = 1 or userroleid=11 or userroleid=12
+  </select>
+
+  <select id="getUserByUserName" resultMap="BaseResultMap1">
+    select
+    <include refid="Base_Column_List" />
+    from user
+    where username = #{username,jdbcType=VARCHAR} and flag=0
+  </select>
+
+  <select id="allUsers" resultMap="BaseResultMap1" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from user where userroleid=0
+  </select>
+
+  <select id="AllSecuritys" resultMap="BaseResultMap1" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from user where userroleid=1 or userroleid=11 or userroleid=12
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from user
+    where userid = #{userid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.vo.User" >
+    insert into user (userid, password, username,
+      address, phonenumber,
+      idnumber, gender, age,
+      userroleid, flag, photo,
+      createtime)
+    values (#{userid,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR},
+      #{address,jdbcType=VARCHAR}, #{phonenumber,jdbcType=VARCHAR},
+      #{idnumber,jdbcType=VARCHAR}, #{gender,jdbcType=INTEGER}, #{age,jdbcType=INTEGER},
+      #{userroleid,jdbcType=INTEGER}, #{flag,jdbcType=INTEGER}, #{photo,jdbcType=VARCHAR},
+      #{createtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.vo.User" >
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userid != null" >
+        userid,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="username != null" >
+        username,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="phonenumber != null" >
+        phonenumber,
+      </if>
+      <if test="idnumber != null" >
+        idnumber,
+      </if>
+      <if test="gender != null" >
+        gender,
+      </if>
+      <if test="realname != null" >
+        realname,
+      </if>
+      <if test="age != null" >
+        age,
+      </if>
+      <if test="userroleid != null" >
+        userroleid,
+      </if>
+      <if test="flag != null" >
+        flag,
+      </if>
+      <if test="photo != null" >
+        photo,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userid != null" >
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="phonenumber != null" >
+        #{phonenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="idnumber != null" >
+        #{idnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null" >
+        #{gender,jdbcType=INTEGER},
+      </if>
+      <if test="realname != null" >
+        #{realname,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null" >
+        #{age,jdbcType=INTEGER},
+      </if>
+      <if test="userroleid != null" >
+        #{userroleid,jdbcType=INTEGER},
+      </if>
+      <if test="flag != null" >
+        #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="photo != null" >
+        #{photo,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+
+  <update id="updateStopFlag" parameterType="com.vo.User">
+  	update user set flag=1 where userid = #{userid,jdbcType=VARCHAR}
+  </update>
+
+  <update id="updateStartFlag" parameterType="com.vo.User">
+  	update user set flag=0 where userid = #{userid,jdbcType=VARCHAR}
+  </update>
+
+  <update id="updateByPrimaryKeySelective" parameterType="com.vo.User" >
+    update user
+    <set >
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null" >
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="phonenumber != null" >
+        phonenumber = #{phonenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="realname != null" >
+        realname = #{realname,jdbcType=VARCHAR},
+      </if>
+      <if test="idnumber != null" >
+        idnumber = #{idnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null" >
+        gender = #{gender,jdbcType=INTEGER},
+      </if>
+      <if test="age != null" >
+        age = #{age,jdbcType=INTEGER},
+      </if>
+      <if test="userroleid != null" >
+        userroleid = #{userroleid,jdbcType=INTEGER},
+      </if>
+      <if test="flag != null" >
+        flag = #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="photo != null" >
+        photo = #{photo,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where userid = #{userid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.vo.User" >
+    update user
+    set password = #{password,jdbcType=VARCHAR},
+      username = #{username,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      phonenumber = #{phonenumber,jdbcType=VARCHAR},
+      realname = #{realname,jdbcType=VARCHAR},
+      idnumber = #{idnumber,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=INTEGER},
+      age = #{age,jdbcType=INTEGER},
+      userroleid = #{userroleid,jdbcType=INTEGER},
+      flag = #{flag,jdbcType=INTEGER},
+      photo = #{photo,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP}
+    where userid = #{userid,jdbcType=VARCHAR}
+  </update>
+</mapper>
