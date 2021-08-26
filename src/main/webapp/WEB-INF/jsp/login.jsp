@@ -11,20 +11,10 @@
 <link href="static/css/login1.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="static/assets/css/ace.min.css" />
 <script src="static/js/jquery-3.2.1.min.js"></script>
+<script src="${pageContext.request.contextPath}/static/layer/layer.js"></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/static/layer/theme/default/layer.css">
 <style type="text/css">
-  #footer {
-      height: 40px;
-      line-height: 40px;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      text-align: center;
-      background: #333;
-      color: #fff;
-      font-family: Arial;
-      font-size: 13px;
-      letter-spacing: 1px;
-  }
+
 </style>
 </head>
 
@@ -45,7 +35,7 @@
                <p>智慧社区管理系统</p>
           </div>
           <form method="post" action="${pageContext.request.contextPath}/login.action" id="login">
-              <input name="username" type="text" id="username"  value="用户名" onfocus="this.value=''" onblur="if(this.value==''){this.value='用户名'}">
+              <input name="username" type="text" id="username" placeholder="用户名" >
               <input name="password" type="password"   id="password" placeholder="密码"/>
               <input value="密码登录" style="width:45%;" type="button" id="login_btn">
               <input value="注册" id="registe_btn" style="width:45%;margin-left:24px;" type="button">
@@ -66,17 +56,16 @@ $('#registe_btn').on('click', function(){
 $('#login_btn').on('click', function(){
 	 var username =$("#username").val();
 	 var password =$("#password").val();
-	 var username1 = new RegExp("[\\u4E00-\\u9FFF]+","g");
-	 if(username== "" || $.trim($("#username").val()).length == 0){
-		 alert("请输入用户名！");
-	 }else if (username1.test(username)){
-      	alert("用户名不能含有有中文");
+	 if(username== "" || $("#username").val().length == 0){
+		 layer.msg('请输入用户名');
+	 // }else if (username1.test(username)){
+     //  	alert("用户名不能含有有中文");
      }else if(username.length > 20){
-		 alert("用户名长度不能超过20位");
-	 }else if(password== "" || $.trim($("#password").val()).length == 0){
-		 alert("请输入密码！");
+		 layer.msg('用户名长度不能超过20位');
+	 }else if(password== "" || $("#password").val().length == 0){
+		 layer.msg('请输入密码');
 	 }else if(password.length <6 || password.length > 12){
-		 alert("密码长度范围在6-12位之间");
+		 layer.msg('密码长度范围在6-12位之间');
 	 }else{
 		  $('#login').submit(); 
 	 }

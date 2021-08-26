@@ -37,6 +37,9 @@ thymeleaf:
 mybatis:
   type-aliases-package: com.pojo
   mapper-locations: classpath*:com/mapping/*.xml
+  #打印sql，方便调试
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   logging: #打印sql日志
     level:
     com.dao: debug

@@ -42,5 +42,7 @@ public interface UserMapper {
     int getAllSecuritySum();
     
     User selectPassword(String userid);
+
+    User checkExistUser(String username);
     
 }

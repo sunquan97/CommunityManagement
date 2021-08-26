@@ -190,7 +190,7 @@
                                                                                           id="check">
             <ul class="nav ace-nav">
                 <li class="light-blue"><a data-toggle="dropdown" href="#" class="dropdown-toggle"><span class="time"><em
-                        id="time"></em></span><span class="user-info"><small>欢迎光临,</small>${sessionScope.user.realname} </span><i
+                        id="time"></em></span><span class="user-info"><small>欢迎您,</small>${sessionScope.user.realname} </span><i
                         class="icon-caret-down"></i></a>
                     <ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
                         <li><a href="javascript:void(0)" name="/Systems" title="系统设置" class="iframeurl"><i

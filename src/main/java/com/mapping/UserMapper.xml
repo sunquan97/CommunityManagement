@@ -32,10 +32,19 @@
     <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
     <collection property="userrole" column="userroleid" select="com.dao.UserRoleMapper.selectByPrimaryKey"></collection>
   </resultMap>
+
   <sql id="Base_Column_List" >
     userid, password, username, address, phonenumber, idnumber, gender, age,
     userroleid, flag, photo, createtime,realname
   </sql>
+<!--  根据用户名查询是否注册过-->
+  <select id="checkExistUser" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select
+    <include refid="Base_Column_List" />
+    from user
+    where username = #{username,jdbcType=VARCHAR}
+  </select>
+
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select
     <include refid="Base_Column_List" />

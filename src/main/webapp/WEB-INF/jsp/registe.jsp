@@ -8,10 +8,11 @@
 	<meta http-equiv="Cache-Control" content="no-cache">
 	<meta http-equiv="Expires" content="0">
 	<title></title>
-	<link href="static/css/login1.css" rel="stylesheet" type="text/css" />
-	<link rel="stylesheet" href="static/assets/css/ace.min.css" />
-	<script src="static/js/jquery-3.2.1.min.js"></script>
-
+	<link href="${pageContext.request.contextPath}/static/css/login1.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/static/assets/css/ace.min.css" />
+	<script src="${pageContext.request.contextPath}/static/js/jquery-3.2.1.min.js"></script>
+	<script src="${pageContext.request.contextPath}/static/layer/layer.js"></script>
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/static/layer/theme/default/layer.css">
 </head>
 
 <body class="login-layout Reg_log_style">
@@ -31,7 +32,7 @@
 			<p>智慧社区管理系统</p>
 		</div>
 		<form action="${pageContext.request.contextPath}/registe.action" method="post" id="formregiste">
-			<input name="username" type="text" id="username"  value="用户名" onfocus="this.value=''" onblur="if(this.value==''){this.value='用户名'}">
+			<input name="username" type="text" id="username" placeholder="用户名">
 			<input name="password" type="password"   id="password" placeholder="密码"/>
 			<input name="confirmpassword" type="password"   id="confirmpassword" placeholder="确认密码"/>
 			<input id="xiao-submit-button" type="button" style="float: left;width: 49%" onclick="registeuser()" value="立即注册"/>
@@ -173,18 +174,18 @@ function registeuser() {
 	// var phonenumber1 = /^[1][3,4,5,7,8][0-9]{9}$/;
 	// var realname1 = /^[\u4e00-\u9fa5]{2,4}$/;
 	// var age1 = /^\d+(\.\d+)?$/;
-	if (username == "" || $.trim($("#username").val()).length == 0) {
-		alert("请输入用户名！");
+	if (username == "" || $("#username").val().length == 0) {
+		layer.msg('请输入用户名');
 	// } else if (username1.test(username)) {
 	// 	alert("用户名不能含有有中文");
 	} else if (username.length > 20) {
-		alert("用户名长度不能超过20位");
+		layer.msg('用户名长度不能超过20位');
 	// } else if (input == "已注册") {
 	// 	alert("用户名已注册");
 	} else if ($("#password").val().length == 0) {
-		alert("请输入密码！");
+		layer.msg('请输入密码');
 	} else if (password.length < 6 || password.length > 12) {
-		alert("密码长度范围在6-12位之间");
+		layer.msg('密码长度范围在6-12位之间');
 	// } else if (idnumber.length == 0) {
 	// 	alert("请输入身份证号");
 	// } else if (!idnumber1.test(idnumber)) {
@@ -194,9 +195,9 @@ function registeuser() {
 	// } else if (!age1.test(age)) {
 	// 	alert("请输入年龄");
 	} else if (confirmpassword.length == 0) {
-		alert("请再次输入密码");
+		layer.msg('请再次输入密码');
 	} else if (confirmpassword != password) {
-		alert("两次密码输入不一致");
+		layer.msg('两次密码输入不一致');
 	// } else if (phonenumber.length == 0) {
 	// 	alert("请输入手机号码");
 	// } else if (!phonenumber1.test(phonenumber)) {
@@ -208,28 +209,45 @@ function registeuser() {
 	// } else if (!realname1.test(realname)) {
 	// 	alert("请输入真实姓名");
 	} else {
-		$("#formregiste").submit();
+		var userName = $("#username").val();
+		$.ajax({
+			type: "post",
+			contentType: "application/json;charset=UTF-8",
+			url: "${pageContext.request.contextPath}/newLogin/checkExistUser",
+			data: "{'userName':'" + userName + "'}",
+			success: function (result) {
+				if(result.status == 0){
+					layer.msg('该用户名已注册');
+				}else {
+					$("#formregiste").submit();
+				}
+			},
+			error: function () {
+				ayer.msg('错误');
+			}
+		});
 	}
 }
 
-$("#username").change(function () {
-	var username = $("#username").val();
-	$.ajax({
-		type: "post",
-		url: "${pageContext.request.contextPath}/checkUserName.action",
-		data: {"username": username},
-		success: function (data) {
-			$("#div").empty();
-			var span = "<span id='span1' style='color: red;'>" + data + "</span>"
-			var input = "<input type='hidden' value='" + data + "' id='input'>"
-			var div = "<div id='div' style='float:right;margin-right:110px;'> </div>"
-			$("#userbox").append(div);
-			$("#div").append(span);
-			$("#div").append(input);
-		},
-		error: function (msg) {
-			alert("错误");
-		}
-	});
-});</script>
+<%--$("#username").change(function () {--%>
+<%--	var username = $("#username").val();--%>
+<%--	$.ajax({--%>
+<%--		type: "post",--%>
+<%--		url: "${pageContext.request.contextPath}/checkUserName.action",--%>
+<%--		data: {"username": username},--%>
+<%--		success: function (data) {--%>
+<%--			$("#div").empty();--%>
+<%--			var span = "<span id='span1' style='color: red;'>" + data + "</span>"--%>
+<%--			var input = "<input type='hidden' value='" + data + "' id='input'>"--%>
+<%--			var div = "<div id='div' style='float:right;margin-right:110px;'> </div>"--%>
+<%--			$("#userbox").append(div);--%>
+<%--			$("#div").append(span);--%>
+<%--			$("#div").append(input);--%>
+<%--		},--%>
+<%--		error: function (msg) {--%>
+<%--			alert("错误");--%>
+<%--		}--%>
+<%--	});--%>
+<%--});--%>
+</script>
 </html>

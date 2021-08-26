@@ -50,7 +50,7 @@ public class LoginController {
 
 
 	@RequestMapping("/registe.action")
-	public String registe( User user){
+	public String registe( User user,HttpServletRequest request){
 		//设置用户基本属性
 		user.setFlag(0);
 		Date date = new Date(); 
@@ -58,6 +58,19 @@ public class LoginController {
 		user.setUserroleid(0);
 		user.setRealname(user.getUsername());
 		user.setUserid(PrimaryKeyGeneratorUtil.getPrimaryKeyGenerator());
+		//将登录信息放到session中
+		HttpSession session=request.getSession();
+		session.setAttribute("user",user);
+		String ip=getIP().getString("cip");
+		LoginRecord loginrecord=new LoginRecord();
+		loginrecord.setArea(getIP().getString("cname"));
+		loginrecord.setIp(ip);
+		loginrecord.setContent("登录成功");
+		loginrecord.setLogintime(date);
+		loginrecord.setUsername(user.getUsername());
+		loginrecord.setFlag(0);
+		//登录登记
+		ser1.insertSelective(loginrecord);
 		//把图片路径保存到数据库
 //		String fileName = System.currentTimeMillis() + ".png";
 //		user.setPhoto("C:\\images\\"+ fileName);
