@@ -230,8 +230,8 @@
                             class="menu-text">社区医疗</span><b class="arrow icon-angle-down"></b></a>
                         <ul class="submenu">
                             <li class="home"><a href="javascript:void(0)"
-                                                name="${pageContext.request.contextPath }/getPosts.action" title="预约体检"
-                                                class="iframeurl"><i class="icon-double-angle-right"></i>预约体检</a></li>
+                                                name="${pageContext.request.contextPath }/appointment" title="预约挂号"
+                                                class="iframeurl"><i class="icon-double-angle-right"></i>预约挂号</a></li>
                             <li class="home"><a href="javascript:void(0)"
                                                 name="${pageContext.request.contextPath }/getAllFood.action"
                                                 title="上门服务" class="iframeurl"><i class="icon-double-angle-right"></i>上门服务</a>

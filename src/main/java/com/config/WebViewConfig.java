@@ -37,35 +37,33 @@ public class WebViewConfig implements WebMvcConfigurer {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/").setViewName("jsp/login");
-        registry.addViewController("/login").setViewName("jsp/login");
-        registry.addViewController("/password").setViewName("jsp/password");
-        registry.addViewController("/carLogin").setViewName("jsp/carlogin");
-        registry.addViewController("/userLogin").setViewName("jsp/userlogin");
-        registry.addViewController("/faceLogin").setViewName("jsp/facelogin");
-        registry.addViewController("/registe").setViewName("jsp/registe");
-        registry.addViewController("/index").setViewName("jsp/index");
-        registry.addViewController("/addQuestion").setViewName("jsp/addquestion");
+        registry.addViewController("/").setViewName("jsp/login");//登录页面
+        registry.addViewController("/login").setViewName("jsp/login");//登录页面
+        registry.addViewController("/appointment").setViewName("jsp/appointment");//预约挂号页面
+        registry.addViewController("/schedulInfo").setViewName("jsp/schedulInfo");//医生排班信息页面
+        registry.addViewController("/carLogin").setViewName("jsp/carlogin");//车牌识别页面
+        registry.addViewController("/userLogin").setViewName("jsp/userlogin");//人脸识别页面
+        registry.addViewController("/faceLogin").setViewName("jsp/facelogin");//人脸识别页面
+        registry.addViewController("/registe").setViewName("jsp/registe");//注册页面
+        registry.addViewController("/index").setViewName("jsp/index");//首页
+        registry.addViewController("/addQuestion").setViewName("jsp/addquestion");//发表帖子页面
         registry.addViewController("/ConcurrentQuery").setViewName("jsp/Concurrent_Query");
-        registry.addViewController("/EditorPost").setViewName("jsp/EditorPost");
-        registry.addViewController("/EpidemicDetails").setViewName("jsp/Epidemic_Details");
-        registry.addViewController("/EpidemicInformation").setViewName("jsp/Epidemic_Information");
-        registry.addViewController("/ForeignEpidemic").setViewName("jsp/Foreign_epidemic");
-        registry.addViewController("/home").setViewName("jsp/home");
-        registry.addViewController("/myOrder").setViewName("jsp/myOrder");
-        registry.addViewController("/necessities").setViewName("jsp/necessities");
-        registry.addViewController("/Order").setViewName("jsp/Order");
-        registry.addViewController("/page").setViewName("jsp/page");
-        registry.addViewController("/PerimeterOutbreak").setViewName("jsp/Perimeter_outbreak");
-        registry.addViewController("/question").setViewName("jsp/question");
-        registry.addViewController("/questionDetail").setViewName("jsp/questiondetail");
-        registry.addViewController("/release").setViewName("jsp/release");
-        registry.addViewController("/SearchPost").setViewName("jsp/SearchPost");
-        registry.addViewController("/security").setViewName("jsp/security");
-        registry.addViewController("/userList").setViewName("jsp/user_list");
-        registry.addViewController("/UserInfo").setViewName("jsp/UserInfo");
-        registry.addViewController("/userLogin").setViewName("jsp/userlogin");
-        registry.addViewController("/VehicleList").setViewName("jsp/Vehicle_List");
+        registry.addViewController("/EditorPost").setViewName("jsp/EditorPost");//编辑帖子页面
+        registry.addViewController("/ForeignEpidemic").setViewName("jsp/Foreign_epidemic");//国外疫情信息页面
+        registry.addViewController("/home").setViewName("jsp/home");//首页子页面
+        registry.addViewController("/myOrder").setViewName("jsp/myOrder");//我的订单页面
+        registry.addViewController("/necessities").setViewName("jsp/necessities");//生活必需品页面
+        registry.addViewController("/Order").setViewName("jsp/Order");//全部订单页面
+        registry.addViewController("/page").setViewName("jsp/page");//公告页面
+        registry.addViewController("/question").setViewName("jsp/question");//贴吧首页
+        registry.addViewController("/questionDetail").setViewName("jsp/questiondetail");//帖子详情页面
+        registry.addViewController("/release").setViewName("jsp/release");//发布公告页面
+        registry.addViewController("/SearchPost").setViewName("jsp/SearchPost");//搜索帖子页面
+        registry.addViewController("/security").setViewName("jsp/security");//管理安保人员页面
+        registry.addViewController("/userList").setViewName("jsp/user_list");//管理社区居民页面
+        registry.addViewController("/UserInfo").setViewName("jsp/UserInfo");//个人信息页面
+        registry.addViewController("/userLogin").setViewName("jsp/userlogin");//用户登录页面
+        registry.addViewController("/VehicleList").setViewName("jsp/Vehicle_List");//车辆管理页面
 
         //super.addViewControllers(registry);
     }
