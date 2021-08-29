@@ -32,7 +32,7 @@ public class NoticeController {
 	@Autowired 
 	private OutinforService ser2;
 	@RequestMapping("/insertNotice.action")
-	public String insertNotice(Notice notice,Model model,HttpServletRequest request, UploadedFile file) throws ParseException, IllegalStateException, IOException {
+	public String insertNotice(Notice notice,UploadedFile file) throws ParseException, IllegalStateException, IOException {
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		long now=new Date().getTime();
 	    String d = format.format(now);
@@ -46,7 +46,7 @@ public class NoticeController {
 		ser.insertSelective(notice);
 		return "forward:getAllNotices.action";
 	}
-	
+
 	
 	@RequestMapping("/personnelSum.action")
 	@ResponseBody
@@ -61,7 +61,7 @@ public class NoticeController {
 	}
 	
 	@RequestMapping("/getAllNotices.action")
-	public String getAllNotices(Model model,HttpServletRequest request,Integer currentPage) {
+	public String getAllNotices(Model model,Integer currentPage) {
 		Integer curPage=1;
 		if(currentPage!=null) {
 			curPage=currentPage;

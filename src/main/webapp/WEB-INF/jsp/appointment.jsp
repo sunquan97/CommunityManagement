@@ -3,13 +3,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link rel="shortcut icon" href="https://static.guahao.cn/favicon.ico"/>
     <link rel="stylesheet"
           href="https://static.guahao.cn/front/portal-pc-static/css/portal.base.min.css?v=162394246787d5d6"
           type="text/css"/>
     <link rel="stylesheet" href="https://static.guahao.cn/front/portal-pc-static/css/fastorder.css?v=162394246787d5d6"
           type="text/css"/>
     <script src="static/js/jquery-3.2.1.min.js"></script>
+    <script src="${pageContext.request.contextPath}/static/layer/layer.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/layer/theme/default/layer.css">
 </head>
 <body class="g-1200px g-page-1200">
 <div id="g-wrapper" class="g-wrapper ">
@@ -50,7 +51,7 @@
                                                                                disabled="disabled" name="hdid">
                                 <option value="">请选择...</option>
                             </select></div>
-                            <div class="gfm-actions"><a href="javascript:;" class="gbn gbt-green js-btn"
+                            <div class="gfm-actions"><a href="javascript:appointment();" class="gbn gbt-green js-btn"
                                                         monitor="fastorder,fastorder,fast_order">预约挂号</a></div>
                             <div class="footer-msg"></div>
                         </div>
@@ -59,106 +60,21 @@
             </div>
         </div>
     </div>
-    <div id="gm-bg"></div>
-    <div id="gm-mask">
-        <div class="gm-box account-ui-v3 user-login-v3 new-login-dialog-v3 g-clear J_LoginDialogV3" id="gm-login"><a
-                class="close gm-close" href="javascript:;"></a>
-            <div class="g-left">
-                <div class="main-box J_MainBox">
-                    <div class="nav g-clear">
-                        <li class="main-current J_MainTab"><span>登录</span>&nbsp;&nbsp;<i>▪</i>&nbsp;&nbsp;<a
-                                href="https://www.guahao.com/register/mobile?target=%2Fexpert%2Ffastorder">注册</a></li>
-                        <li class="download-normal">扫一扫</li>
-                    </div>
-                    <div class="tab-list ">
-                        <div class="tab-listcon J_TabList">
-                            <div class="tab-main g-clear J_TabMain">
-                                <div class="form-container">
-                                    <form action="/user/login_a">
-                                        <div class="lg-tips tips-error hide"></div>
-                                        <div class="lg-tips tips-succ hide"></div>
-                                        <ul>
-                                            <li class="icon-line"><label class="item-icon icon-user"></label><input
-                                                    type="text" id="poploginId" name="loginId"
-                                                    class="form-input required" placeholder="手机、邮箱或用户名" maxlength="30"
-                                                    tabindex="1"/></li>
-                                            <li class="icon-line"><label class="item-icon icon-pwd"></label><input
-                                                    type="password" autocomplete="off" disableautocomplete id="password"
-                                                    class="form-input required" placeholder="密码" maxlength="20"
-                                                    tabindex="2"/><input type="password" autocomplete="off"
-                                                                         disableautocomplete name="password"
-                                                                         class="hide"/></li>
-                                            <li class="geeTest J_Valid"><input type="hidden" value="geetest"
-                                                                               id="J_CaptchaName"><input type="hidden"
-                                                                                                         id="J_GeeTestValid"
-                                                                                                         value="0">
-                                                <div class="J_ImageTest" style="display:none;"><input type="text"
-                                                                                                      maxlength="4"
-                                                                                                      autocomplete="off"
-                                                                                                      class=" required code-text"
-                                                                                                      placeholder="验证码"
-                                                                                                      id="validCode"
-                                                                                                      name="validCode"
-                                                                                                      data-validcode="loginmodal"
-                                                                                                      tabindex="3"/><a
-                                                        href="javascript:void(0)" title="换一张" class="captcha"><img
-                                                        src="https://www.guahao.com/validcode/genimage/1"/></a></div>
-                                            </li>
-                                            <li class="action-bar actionbt"><a tabindex="4" href="javascript:;"
-                                                                               id="loginbtn" class="gbb gbt-green">登&nbsp;录</a>
-                                            </li>
-                                            <li class="auto-login"><input type="checkbox" id="autoLogin"
-                                                                          name="autologin"><label
-                                                    for="autoLogin">自动登录</label>
-                                                <div class="fo-pwd"><a href="https://www.guahao.com/forget/index"
-                                                                       class="forget-ps" target="_blank">忘记密码？</a></div>
-                                            </li>
-                                        </ul>
-                                    </form>
-                                </div>
-                                <div class="third-login"><i class="or">或</i>
-                                    <div class="qrcode-wrapper"><img
-                                            src="https://static.guahao.cn/front/portal-pc-static/img/qr/drain/app-login.jpg"><span>下载APP</span>
-                                    </div>
-                                    <div class="qrcode-wrapper secondary"><img
-                                            src="https://static.guahao.cn/front/portal-pc-static/img/qr/drain/wechat-subscription.jpg"><span>关注公众号</span>
-                                    </div>
-                                    <h5>使用第三方登录平台</h5>
-                                    <p class="third-platform J_LoginList"><a
-                                            href="https://www.guahao.com/partners/weixin/login"
-                                            class="icon-weixin J_Social">微信</a><a
-                                            href="https://www.guahao.com/partners/qq/login"
-                                            class="icon-qq J_Social">QQ</a><a
-                                            href="https://www.guahao.com/partners/sina/fastlogin"
-                                            class="noMrgR icon-sina J_Social">新浪微博</a><a
-                                            href="https://www.guahao.com/tblogin/tbfastlogin" class="icon-taobao">淘宝</a><a
-                                            href="https://www.guahao.com/alipayFastLogin/getFastLoginInfo"
-                                            class="icon-alipay J_Social">支付宝</a></p>
-                                    <div class="go-home"><a href="https://www.guahao.com">返回首页</a></div>
-                                </div>
-                            </div>
-                            <div class="tab-download g-clear J_TabDownload">
-                                <div class="qr-inner">
-                                    <ul class="g-clear">
-                                        <li><img
-                                                src="https://static.guahao.cn/front/portal-pc-static/img/account/v3/qr-user.png"
-                                                alt="">
-                                            <p>下载<a href="https://www.guahao.com/intro/userapp">微医APP</a></p></li>
-                                        <li class="wy-qr"><img
-                                                src="https://static.guahao.cn/front/portal-pc-static/img/account/v3/qr-doctor.png"
-                                                alt="">
-                                            <p>下载<a href="https://www.guahao.com/intro/drapp">微医生APP</a></p></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <a class="btn-switch" href="https://doctor.guahao.com/user/login"><i></i><span>医生</span></a></div>
-            </div>
-        </div>
-    </div>
 </div>
 <script type="text/javascript">
+    function appointment(){
+        var province=$("#province option:selected").text();
+        var city=$("#city option:selected").text();
+        var hospital=$("#hospital option:selected").text();
+        var department=$("#department option:selected").text();
+        console.log(province,city,hospital,department);
+        if (province!="请选择..."&&city!="请选择..."&&hospital!="请选择..."&&department!="请选择..."){
+            window.location.href="${pageContext.request.contextPath }/appointment/confirm?province="+province+"&city="+city+"&hospital="+hospital+"&department="+department+"";
+        }else {
+            layer.msg('请选择完整信息');
+        }
+    }
+
     $(document).ready(function() {
         getProvince();
 
