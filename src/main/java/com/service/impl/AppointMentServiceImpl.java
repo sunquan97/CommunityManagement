@@ -68,6 +68,7 @@ public class AppointMentServiceImpl implements AppointmentService {
         String date = (String) jsonObject.get("date");
         String time = (String) jsonObject.get("time");
         AppointmentRecord appointmentRecord =new AppointmentRecord();
+        appointmentRecord.setProvince("上海市");
         appointmentRecord.setProvince(province);
         appointmentRecord.setCity(city);
         appointmentRecord.setHospital(hospital);

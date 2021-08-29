@@ -214,7 +214,7 @@ function confirmAppointment(doctor) {
             });
 
         }, function(){
-
+            layer.msg('预约失败');
         });
     }else {
         layer.msg('请选择就诊日期');

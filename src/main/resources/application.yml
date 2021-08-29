@@ -15,7 +15,7 @@ spring:
 #    driverClassName: com.mysql.jdbc.Driver
 
   datasource:
-    url: jdbc:mysql://localhost:3306/CommunityManagement?useUnicode=true&characeterEncoding=UTF-8&serverTimezone=Asia/Shanghai&nullCatalogMeansCurrent=true
+    url: jdbc:mysql://localhost:3306/CommunityManagement?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&nullCatalogMeansCurrent=true
     username: root
     password: root
     driverClassName: com.mysql.jdbc.Driver
