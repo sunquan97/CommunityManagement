@@ -134,11 +134,11 @@ h1 {
 								//提醒用户识别成功
 								//验证成功跳转页面
 								window.setTimeout(function() {
-									// layer.msg('登陆成功');
+									layer.msg('登陆成功');
 									window.location.href="${pageContext.request.contextPath}/faceLogin.action?username="+data.result.user_list[0].user_id+"";
 								},1000)
 							}else{
-								console.log("您的头像未注册，无法人脸识别登录");
+								layer.msg('您的人脸信息未注册，无法人脸识别登录');
 								count=0;
 							}
 						},
