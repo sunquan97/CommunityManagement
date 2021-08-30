@@ -133,10 +133,10 @@ public class LoginController {
 	@ResponseBody
 	public String searchFace(String img) throws IOException {
 		String fileName = System.currentTimeMillis() + ".png";
-        GenerateImage(img, "C:\\images\\"+ fileName);
-        byte[] file = FileToByte(new File("C:\\images\\"+ fileName));
+        GenerateImage(img, "C:\\images\\faceLogin\\"+ fileName);
+        byte[] file = FileToByte(new File("C:\\images\\faceLogin\\"+ fileName));
 		String js = FaceSpot.search(file, "face");
-		return js.toString();
+		return js;
 	}
 	
 	
@@ -146,8 +146,8 @@ public class LoginController {
 	public String registe(String img, String username) throws IOException {
 		//把拍摄的照片保存到本地
 		String fileName = System.currentTimeMillis() + ".png";
-        GenerateImage(img, "C:\\images\\"+ fileName);
-        byte[] file = FileToByte(new File("C:\\images\\"+ fileName));
+        GenerateImage(img, "C:\\images\\faceRegister\\"+ fileName);
+        byte[] file = FileToByte(new File("C:\\images\\faceRegister\\"+ fileName));
         String js = FaceSpot.search(file, "face");
 		return js.toString();
 	}
@@ -157,11 +157,10 @@ public class LoginController {
 	public String registe1(String img, String username) throws IOException {
 		//把拍摄的照片保存到本地
 		String fileName = System.currentTimeMillis() + ".png";
-        GenerateImage(img, "C:\\images\\"+ fileName);
-        byte[] file = FileToByte(new File("C:\\images\\"+ fileName));
+        GenerateImage(img, "C:\\images\\faceLogin\\"+ fileName);
+        byte[] file = FileToByte(new File("C:\\images\\faceLogin\\"+ fileName));
         String js = FaceSpot.addUser(file, "BASE64", username, "face");
-        System.out.println(js.toString());
-		return js.toString();
+		return js;
 	}
 	
 	public static byte[] FileToByte(File file) throws IOException {

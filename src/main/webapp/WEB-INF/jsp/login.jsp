@@ -48,7 +48,7 @@
 </body>
 <script>
 $('#facelogin_btn').on('click', function(){
-	window.location.href="/facelogin"
+	window.location.href="/faceLogin"
 });
 $('#registe_btn').on('click', function(){
 	window.location.href="/registe"
