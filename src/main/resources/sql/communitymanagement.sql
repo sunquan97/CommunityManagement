@@ -11,7 +11,7 @@
  Target Server Version : 80022
  File Encoding         : 65001
 
- Date: 29/08/2021 20:58:58
+ Date: 30/08/2021 18:48:50
 */
 
 SET NAMES utf8mb4;
@@ -216,7 +216,7 @@ CREATE TABLE `loginrecord`  (
   `area` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
   `flag` int(0) NULL DEFAULT NULL,
   PRIMARY KEY (`recordid`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 392 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 401 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of loginrecord
@@ -225,6 +225,7 @@ INSERT INTO `loginrecord` VALUES (395, '登录成功', '112.42.7.132', '2021-08-
 INSERT INTO `loginrecord` VALUES (396, '登录成功', '112.42.7.132', '2021-08-29 19:20:51', 'sunquan', '江苏省', 0);
 INSERT INTO `loginrecord` VALUES (398, '登录成功', '112.42.7.132', '2021-08-29 20:43:53', 'sunquan', '江苏省', 0);
 INSERT INTO `loginrecord` VALUES (399, '登录成功', '112.42.7.132', '2021-08-29 20:48:07', 'sunquan', '江苏省', 0);
+INSERT INTO `loginrecord` VALUES (400, '登录成功', '112.42.7.132', '2021-08-30 18:46:27', 'sunquan', '江苏省', 0);
 
 -- ----------------------------
 -- Table structure for notice
@@ -283,7 +284,7 @@ DROP TABLE IF EXISTS `outinfor`;
 CREATE TABLE `outinfor`  (
   `id` int(0) NOT NULL,
   `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
-  `summary` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `summary` varchar(2000) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
   `infoSource` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
   `sourceUrl` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
   `pubDateStr` datetime(0) NULL DEFAULT NULL,
@@ -304,7 +305,7 @@ CREATE TABLE `post`  (
   `img` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
   `replypost` int(0) NULL DEFAULT 0,
   PRIMARY KEY (`postid`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 15 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of post
@@ -501,7 +502,7 @@ CREATE TABLE `user`  (
   `createtime` datetime(0) NULL DEFAULT NULL COMMENT '????',
   `realname` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
   PRIMARY KEY (`userid`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 91 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Compact;
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of user
