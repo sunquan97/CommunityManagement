@@ -33,5 +33,7 @@ public interface PostMapper {
     List<Post> getBestPostByPost();
     
     int accept(@Param("postid")Integer postid);
+
+    List<Post> getPostList();
     
 }

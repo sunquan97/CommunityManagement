@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import com.pojo.*;
+import com.util.FaceSpot;
+import javafx.geometry.Pos;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +19,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.service.PostService;
 import com.service.ReplyPostService;
 import com.service.ReplyService;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 
 @Controller
@@ -27,6 +31,36 @@ public class PostController {
 	private ReplyPostService ser1;
 	@Autowired 
 	private ReplyService ser2;
+
+	//获取全部帖子，并分页
+	@RequestMapping("/getPostList")
+	public String getPostList(Model model,Integer currentPage,HttpServletRequest request) {
+		Integer curPage=1;
+		if(currentPage!=null) {
+			curPage=currentPage;
+		}
+		PageUtil page=new PageUtil(10, ser.countByPosts(), curPage);
+		List<Post> posts=ser.getPosts(page);
+		model.addAttribute("posts",posts);
+		model.addAttribute("page",page);
+		return "jsp/post_list";
+	}
+
+	//根据id查询帖子
+	@ResponseBody
+	@RequestMapping("/getPostById")
+	public Post getPostById1(Model model,int postid,HttpServletRequest request) {
+		Post post=ser.selectByPrimaryKey(postid);
+		return post;
+	}
+
+
+	//修改帖子
+	@RequestMapping(value="/updatePost",method= RequestMethod.POST)
+	public String updatePost1 (Post post)throws IllegalStateException{
+		ser.updateByPrimaryKeySelective(post);
+		return "forward:getPostList";
+	}
 	
 	//获取全部帖子，并分页
 	@RequestMapping("/getPosts.action")

@@ -66,6 +66,7 @@ public class WebViewConfig implements WebMvcConfigurer {
         registry.addViewController("/VehicleList").setViewName("jsp/Vehicle_List");//车辆管理页面
         registry.addViewController("/schedulInfo").setViewName("jsp/schedulInfo");//车辆管理页面
 
+
         //super.addViewControllers(registry);
     }
 
