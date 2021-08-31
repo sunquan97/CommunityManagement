@@ -11,7 +11,7 @@
   <sql id="Base_Column_List" >
     noticeid, noticename, content, img, createtime
   </sql>
-  
+
   <select id="getAllNotices" resultMap="BaseResultMap">
   	select <include refid="Base_Column_List" /> from notice order by noticeid desc limit #{page.start},#{page.end}
   </select>
