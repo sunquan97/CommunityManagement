@@ -177,6 +177,13 @@ public class PostController {
 		ser.deleteByPrimaryKey(postid);
 		return "forward:getPosts.action";
 	}
+
+	//删除帖子
+	@RequestMapping("/postDel")
+	public String postDel(int postid) {
+		ser.deleteByPrimaryKey(postid);
+		return "forward:getPostList";
+	}
 	
 	//搜索帖子
 	@RequestMapping("/searchPost.action")

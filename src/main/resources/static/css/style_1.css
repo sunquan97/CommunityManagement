@@ -106,10 +106,10 @@ header .top .right .gouwuche:hover{color:#000;background: #666;}
 22px;font-weight: bold;margin-top: 20px;}
 .danpin .main{width: 1226px;height: 340px;}
 .danpin .main .mingxing{width: 234px;height: 339px;background: rgb(250,250,250);}
-.danpin .main .mingxing:nth-of-type(1){border-top: 1px solid orange;margin-right:14px;}
-.danpin .main .mingxing:nth-of-type(2){border-top: 1px solid green;margin-right:14px;}
-.danpin .main .mingxing:nth-of-type(3){border-top: 1px solid blue;margin-right:14px;}
-.danpin .main .mingxing:nth-of-type(4){border-top: 1px solid red;margin-right:14px;}
+.danpin .main .mingxing:nth-of-type(1){border-top: 1px solid orange;}
+.danpin .main .mingxing:nth-of-type(2){border-top: 1px solid green;}
+.danpin .main .mingxing:nth-of-type(3){border-top: 1px solid blue;}
+.danpin .main .mingxing:nth-of-type(4){border-top: 1px solid red;}
 .danpin .main .mingxing:nth-of-type(5){border-top: 1px solid teal;}
 .danpin .main .mingxing .sub_mingxing{padding: 37px;}
 .danpin .main .mingxing .sub_mingxing a img{display:block;width: 160px;height: 160px;opacity: 0.85}

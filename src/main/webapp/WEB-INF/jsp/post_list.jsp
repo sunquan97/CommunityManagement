@@ -34,20 +34,14 @@
             <form action="${pageContext.request.contextPath }/searchUser.action" method="post" id="search">
                 <div class="search_style">
                     <ul class="search_content clearfix">
-                        <li><label class="l_f">用户名</label><input name="search" value="${search}" type="text"  class="text_add" placeholder="输入用户名"  style=" width:400px"/></li>
-                        <li><label class="l_f">添加时间</label><input type="datetime" value="${addtime}" name="addtime" class="inline laydate-icon" id="start" style=" margin-left:10px;"></li>
-                        <li style="width:90px;"><input type="submit" id="searchbtn" class="btn_search" value="查询"></li>
+<%--                        <li><label class="l_f">用户名</label><input name="search" value="${search}" type="text"  class="text_add" placeholder="输入用户名"  style=" width:400px"/></li>--%>
+<%--                        <li><label class="l_f">添加时间</label><input type="datetime" value="${addtime}" name="addtime" class="inline laydate-icon" id="start" style=" margin-left:10px;"></li>--%>
+<%--                        <li style="width:90px;"><input type="submit" id="searchbtn" class="btn_search" value="查询"></li>--%>
                     </ul>
                 </div>
             </form>
             <!---->
-            <div class="border clearfix">
-       <span class="l_f">
-        <a href="javascript:ovid()" id="member_add" class="btn btn-warning"><i class="icon-plus"></i>添加用户</a>
-        <a href="javascript:ovid()" class="btn btn-danger"><i class="icon-trash"></i>批量删除</a>
-       </span>
-                <span class="r_f">共：<b>${size}</b>条</span>
-            </div>
+
             <!---->
             <div class="table_menu_list">
                 <table class="table table-striped table-bordered table-hover" id="sample-table">
@@ -77,7 +71,7 @@
                             <td style="vertical-align: middle !important;text-align: center;">${post.img }</td>
                             <td class="td-manage">
                                 <a title="编辑" onclick="post_edit(${post.postid })" href="javascript:;"  class="btn btn-xs btn-info" ><i class="icon-edit bigger-120">编辑</i></a>
-                                <a title="删除" href="javascript:;"  onclick="user_del(this,${user.userid })" class="btn btn-xs btn-warning" ><i class="icon-trash  bigger-120">删除</i></a>
+                                <a title="删除" href="javascript:;"  onclick="postDel(this,${post.postid })" class="btn btn-xs btn-warning" ><i class="icon-trash  bigger-120">删除</i></a>
                             </td>
                         </tr>
                     </c:forEach>
@@ -87,13 +81,13 @@
         </div>
     </div>
 </div>
-<!--添加用户图层-->
+<!--添加和编辑图层-->
 <form action="${pageContext.request.contextPath }/addUser.action" method="post" id="addUserForm" ENCTYPE="multipart/form-data">
     <div class="add_menber" id="add_menber_style" style="display:none">
         <ul class=" page-content">
             <li><label class="label_name">帖子标题：</label><span class="add_name"><input name="title" id="title" type="text"  class="text_add"/></span><div class="prompt r_f" id="userbox"></div></li>
             <li><label class="label_name">状&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;态：</label><span class="add_name"><input name="flag" id="flag" type="text"  class="text_add"/></span><div class="prompt r_f"></div></li>
-            <li><label class="label_name">帖子内容：</label><span class="add_name"><input name="content" id="content" type="textarea" style="width: 80;height: 80px"  class="text_add"/></span><div class="prompt r_f"></div></li>
+            <li><label class="label_name" style="float: left">帖子内容：</label><span class="add_name"><input name="content" id="content" type="textarea" style="width: 500px;height: 120px;float: left"  class="text_add"/></span><div class="prompt r_f"></div></li>
         </ul>
     </div>
 </form>
@@ -135,62 +129,6 @@
             return 'left';
         }
     })
-    /*用户-添加*/
-    $('#member_add').on('click', function(){
-        layer.open({
-            type: 1,
-            title: '添加用户',
-            maxmin: true,
-            shadeClose: true, //点击遮罩关闭层
-            area : ['800px' , ''],
-            content:$('#add_menber_style'),
-            btn:['提交','取消'],
-            yes:function(index,layero){
-                var username = $("#username").val();
-                var password = $("#password").val();
-                var idnumber = $("#idnumber").val();
-                var age = $("#age").val();
-                var input = $("#input").val();
-                var file = $("#file").val();
-                var confirmpassword = $("#confirmpassword").val();
-                var phonenumber = $("#phonenumber").val();
-                var address = $("#address").val();
-                var realname = $("#realname").val();
-                var idnumber1 = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
-                var username1 = new RegExp("[\\u4E00-\\u9FFF]+","g");
-                var phonenumber1 = /^[1][3,4,5,7,8][0-9]{9}$/;
-                var realname1 =/^[\u4e00-\u9fa5]{2,4}$/;
-                var age1=/^\d+(\.\d+)?$/;
-                if(username== "" || $.trim($("#username").val()).length == 0){
-                    layer.alert('请输入用户名！',{
-                        title: '提示框',
-                        icon:1,
-                    });
-                }else{
-                    $("#addUserForm").submit();
-                    layer.close(index);
-                }
-
-            }
-        });
-    });
-    $("#username").change(function(){
-        var username = $("#username").val();
-        $.ajax({
-            type:"post",
-            url:"${pageContext.request.contextPath}/checkUserName.action",
-            data: {"username":username},
-            success:function(data){
-                $("#userbox").empty();
-                var span="<span id='span1' style='color: red;'>"+data+"</span>"
-                var input="<input type='hidden' value='"+data+"' id='input'>"
-                $("#userbox").append(span);
-                $("#userbox").append(input);
-            },error:function(msg){
-                alert("错误");
-            }
-        });
-    });
 
     /*帖子-编辑*/
     function post_edit(postid){
@@ -225,11 +163,11 @@
         });
     }
     /*用户-删除*/
-    function user_del(obj,userid){
+    function postDel(obj,postid){
         layer.confirm('确认要删除吗？',function(index){
             $(obj).parents("tr").remove();
             layer.msg('已删除!',{icon:1,time:1000});
-            window.location.href="${pageContext.request.contextPath }/delUser.action?userid="+userid+""
+            window.location.href="${pageContext.request.contextPath }/postDel?postid="+postid+""
         });
     }
     laydate({

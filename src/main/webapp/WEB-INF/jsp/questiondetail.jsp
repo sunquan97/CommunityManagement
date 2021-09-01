@@ -89,7 +89,7 @@ form {
 					<div class="detail-body photos" style="margin-bottom: 20px;">
 						<h4><p>${post.content }</p></h4>
 						<c:choose>
-					        <c:when test="${post.img !=null }">
+					        <c:when test="${post.img !=null&&post.img !='' }">
 								<img src="${post.img}">
 							</c:when>
 						</c:choose>
