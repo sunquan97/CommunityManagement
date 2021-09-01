@@ -2,20 +2,14 @@ package com.controller;
 
 import com.common.ResultEntity;
 import com.constant.ResultEnum;
-import com.pojo.CodeMap;
 import com.service.AppointmentService;
-import com.service.impl.AppointMentServiceImpl;
-import com.service.newLoginService;
 import net.sf.json.JSONObject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.List;
 
 @Controller
 @RequestMapping(value = "/appointment", produces = "application/json;charset=UTF-8")
@@ -114,5 +108,22 @@ public class AppointmentController {
         return resultJson.toString();
     }
 
+
+
+    @ResponseBody
+    @PostMapping(value = "/getProjects")
+    public String getProjects() {
+        ResultEntity resultEntity = new ResultEntity();
+        try {
+            resultEntity.setData(appointmentService.getProjects());
+            resultEntity.setMsg("操作成功");
+            resultEntity.setStatus(ResultEnum.SUCCESS.getCode());
+        } catch (Exception e) {
+            resultEntity.setMsg("操作失败");
+            resultEntity.setStatus(ResultEnum.FAIL.getCode());
+        }
+        JSONObject resultJson = JSONObject.fromObject(resultEntity);
+        return resultJson.toString();
+    }
 
 }

@@ -20,4 +20,6 @@ public interface CodeMapMapper {
     List<CodeMap> getProvinces();
 
     List<CodeMap> getCitys(Integer id);
+
+    List<CodeMap> getProjects();
 }

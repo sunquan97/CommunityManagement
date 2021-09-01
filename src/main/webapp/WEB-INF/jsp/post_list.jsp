@@ -162,7 +162,7 @@
             }
         });
     }
-    /*用户-删除*/
+    /*删除*/
     function postDel(obj,postid){
         layer.confirm('确认要删除吗？',function(index){
             $(obj).parents("tr").remove();

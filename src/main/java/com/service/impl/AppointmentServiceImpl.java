@@ -17,7 +17,7 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 
 @Service
-public class AppointMentServiceImpl implements AppointmentService {
+public class AppointmentServiceImpl implements AppointmentService {
 
 
     @Autowired
@@ -81,6 +81,11 @@ public class AppointMentServiceImpl implements AppointmentService {
         String userid = user.getUserid();
         appointmentRecord.setUserId(userid);
         appointmentRecordMapper.insertSelective(appointmentRecord);
+    }
+
+    @Override
+    public List<CodeMap> getProjects() {
+        return codeMapMapper.getProjects();
     }
 
 }
