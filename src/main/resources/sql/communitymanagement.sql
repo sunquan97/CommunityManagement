@@ -11,7 +11,7 @@
  Target Server Version : 80022
  File Encoding         : 65001
 
- Date: 30/08/2021 18:48:50
+ Date: 01/09/2021 22:40:27
 */
 
 SET NAMES utf8mb4;
@@ -31,7 +31,7 @@ CREATE TABLE `appointment_record`  (
   `doctor` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `datetime` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of appointment_record
@@ -48,7 +48,7 @@ CREATE TABLE `checkin`  (
   `Checkin` int(0) NOT NULL DEFAULT 0,
   `checktime` datetime(0) NOT NULL ON UPDATE CURRENT_TIMESTAMP(0),
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of checkin
@@ -69,13 +69,37 @@ CREATE TABLE `codemap`  (
   `code_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `code_desc` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of codemap
 -- ----------------------------
 INSERT INTO `codemap` VALUES (1, 'province', '辽宁', NULL, NULL);
 INSERT INTO `codemap` VALUES (2, 'city', '大连', '1', NULL);
+INSERT INTO `codemap` VALUES (3, 'project', '生活自理能力训练', NULL, NULL);
+INSERT INTO `codemap` VALUES (4, 'project', '生活护理', NULL, NULL);
+INSERT INTO `codemap` VALUES (5, 'project', '安全护理', NULL, NULL);
+INSERT INTO `codemap` VALUES (6, 'project', '压疮预防与护理', NULL, NULL);
+INSERT INTO `codemap` VALUES (7, 'project', '坠积性肺炎预防护理', NULL, NULL);
+INSERT INTO `codemap` VALUES (8, 'project', '鼻饲', NULL, NULL);
+INSERT INTO `codemap` VALUES (9, 'project', '肠胀气', NULL, NULL);
+INSERT INTO `codemap` VALUES (10, 'project', '便秘护理', NULL, NULL);
+INSERT INTO `codemap` VALUES (11, 'project', '吸痰护理', NULL, NULL);
+INSERT INTO `codemap` VALUES (12, 'project', '生命体征监测', NULL, NULL);
+INSERT INTO `codemap` VALUES (13, 'project', '氧气吸入', NULL, NULL);
+INSERT INTO `codemap` VALUES (14, 'project', '物理降温', NULL, NULL);
+INSERT INTO `codemap` VALUES (15, 'project', '血糖监测', NULL, NULL);
+INSERT INTO `codemap` VALUES (16, 'project', '口服给药', NULL, NULL);
+INSERT INTO `codemap` VALUES (17, 'project', '静脉采血', NULL, NULL);
+INSERT INTO `codemap` VALUES (18, 'project', '肌肉注射', NULL, NULL);
+INSERT INTO `codemap` VALUES (19, 'project', '皮下注射', NULL, NULL);
+INSERT INTO `codemap` VALUES (20, 'project', '留置/更换导尿管的护理', NULL, NULL);
+INSERT INTO `codemap` VALUES (21, 'project', '一般灌肠', NULL, NULL);
+INSERT INTO `codemap` VALUES (22, 'project', '普通伤口护理', NULL, NULL);
+INSERT INTO `codemap` VALUES (23, 'project', '关节松动训练', NULL, NULL);
+INSERT INTO `codemap` VALUES (24, 'project', '刮痧', NULL, NULL);
+INSERT INTO `codemap` VALUES (25, 'project', '艾灸', NULL, NULL);
+INSERT INTO `codemap` VALUES (26, 'project', '拔罐', NULL, NULL);
 
 -- ----------------------------
 -- Table structure for department
@@ -86,7 +110,7 @@ CREATE TABLE `department`  (
   `depart_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `flag` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`ID`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 55 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of department
@@ -148,6 +172,27 @@ INSERT INTO `department` VALUES (54, '检验科', '1');
 INSERT INTO `department` VALUES (55, '急诊科', '1');
 
 -- ----------------------------
+-- Table structure for doctor_room
+-- ----------------------------
+DROP TABLE IF EXISTS `doctor_room`;
+CREATE TABLE `doctor_room`  (
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `user_id` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `province` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `city` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `project` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `appointment_time` datetime(0) NULL DEFAULT NULL,
+  `address` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of doctor_room
+-- ----------------------------
+INSERT INTO `doctor_room` VALUES (2, '29', '辽宁', '大连', '生活自理能力训练', '2021-09-01 22:31:00', '红旗西路');
+INSERT INTO `doctor_room` VALUES (3, '29', '辽宁', '大连', '生活护理', '2021-09-01 22:36:00', '红旗西路');
+
+-- ----------------------------
 -- Table structure for food
 -- ----------------------------
 DROP TABLE IF EXISTS `food`;
@@ -194,7 +239,7 @@ CREATE TABLE `hospital`  (
   `grade` varchar(2000) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `address` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of hospital
@@ -216,7 +261,7 @@ CREATE TABLE `loginrecord`  (
   `area` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
   `flag` int(0) NULL DEFAULT NULL,
   PRIMARY KEY (`recordid`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 401 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 408 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of loginrecord
@@ -226,6 +271,15 @@ INSERT INTO `loginrecord` VALUES (396, '登录成功', '112.42.7.132', '2021-08-
 INSERT INTO `loginrecord` VALUES (398, '登录成功', '112.42.7.132', '2021-08-29 20:43:53', 'sunquan', '江苏省', 0);
 INSERT INTO `loginrecord` VALUES (399, '登录成功', '112.42.7.132', '2021-08-29 20:48:07', 'sunquan', '江苏省', 0);
 INSERT INTO `loginrecord` VALUES (400, '登录成功', '112.42.7.132', '2021-08-30 18:46:27', 'sunquan', '江苏省', 0);
+INSERT INTO `loginrecord` VALUES (401, '登录成功', '112.42.7.132', '2021-08-30 20:53:56', 'sunquan', '江苏省', 0);
+INSERT INTO `loginrecord` VALUES (402, '登录成功', '112.42.7.132', '2021-08-31 19:42:12', 'sunquan', '江苏省', 0);
+INSERT INTO `loginrecord` VALUES (403, '登录成功', '112.42.7.132', '2021-08-31 20:14:14', 'sunquan', '江苏省', 0);
+INSERT INTO `loginrecord` VALUES (404, '登录成功', '112.42.7.132', '2021-08-31 20:44:50', 'sunquan', '江苏省', 0);
+INSERT INTO `loginrecord` VALUES (405, '登录成功', '112.42.7.132', '2021-08-31 20:46:32', 'sunquan', '江苏省', 0);
+INSERT INTO `loginrecord` VALUES (406, '登录成功', '223.102.85.2', '2021-09-01 20:37:40', 'sunquan', 'CHINA', 0);
+INSERT INTO `loginrecord` VALUES (407, '登录成功', '223.102.85.2', '2021-09-01 20:57:07', 'sunquan', 'CHINA', 0);
+INSERT INTO `loginrecord` VALUES (408, '登录成功', '223.102.85.2', '2021-09-01 22:19:04', 'sunquan', 'CHINA', 0);
+INSERT INTO `loginrecord` VALUES (409, '登录成功', '223.102.85.2', '2021-09-01 22:31:17', 'sunquan', 'CHINA', 0);
 
 -- ----------------------------
 -- Table structure for notice
@@ -272,7 +326,7 @@ CREATE TABLE `order`  (
 INSERT INTO `order` VALUES (290308430, '一号楼二单元二楼西户201', '王红梅', '3,', '15044832900', 6.00, 2, '2020-05-06 17:30:00');
 INSERT INTO `order` VALUES (349000287, '一号楼二单元二楼西户201', '王红梅', '2,3,', '15044832900', 155.90, 2, '2020-05-01 15:30:52');
 INSERT INTO `order` VALUES (378330706, '一号楼二单元二楼西户201', '孙权', '3,', '15044832900', 6.00, 3, '2020-05-01 16:31:28');
-INSERT INTO `order` VALUES (528412265, '一号楼二单元二楼西户201', '孙权', '1,2,3,', '15044832900', 274.70, 1, '2020-05-19 14:58:48');
+INSERT INTO `order` VALUES (528412265, '一号楼二单元二楼西户201', '孙权', '1,2,3,', '15044832900', 274.70, 3, '2020-05-19 14:58:48');
 INSERT INTO `order` VALUES (667188519, '一号楼二单元二楼西户201', '王红梅', '2,', '15044832900', 149.90, 2, '2020-05-06 17:00:21');
 INSERT INTO `order` VALUES (771204537, '一号楼二单元二楼西户201', '孙权', '1,2,3,8,', '15044832900', 402.70, 2, '2020-05-06 16:59:02');
 INSERT INTO `order` VALUES (960123662, '一号楼二单元二楼西户201', '孙权', '2,3,5,', '15044832900', 185.40, 3, '2020-05-01 16:27:56');
@@ -292,6 +346,23 @@ CREATE TABLE `outinfor`  (
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Compact;
 
 -- ----------------------------
+-- Records of outinfor
+-- ----------------------------
+INSERT INTO `outinfor` VALUES (150039, '云南 | 昨日新增3例境外输入新冠肺炎确诊病例', '8月29日0时至24时，我省新增境外输入新冠肺炎确诊病例3例。确诊病例治愈出院18例，无症状感染者解除医学观察1例。截至8月29日24时，我省现有确诊病例236例（本土22例，境外输入214例）、无症状感染者39例（境外输入），均在定点医疗机构隔离治疗或医学观察。新增确诊病例信息：确诊病例1：男，24岁，中国籍，轻型；确诊病例2：女，31岁，中国籍，轻型；确诊病例3：男，27岁，中国籍，普通型。上述3人近期居住在缅甸。8月25日-28日自陆路入境，转运至集中隔离点隔离观察，8月29日新冠病毒核酸检测结果阳性，转运至定点医院隔离诊治。结合流行病学史、临床表现和实验室检测结果，诊断为新冠肺炎确诊病例（普通型1例、轻型2例，缅甸输入）。', '云南卫健委', 'http://ynswsjkw.yn.gov.cn/wjwWebsite/web/doc/UU163027573808617206', '2021-08-30 19:00:00');
+INSERT INTO `outinfor` VALUES (150042, '广东 | 昨日新增 9 例境外输入新冠肺炎确诊病例', '据广东省卫生健康委员会8月30日通报，8月29日0—24时，广东省新增境外输入确诊病例9例，广州报告6例，2例来自孟加拉国，其余4例分别来自英国、日本、缅甸和泰国；深圳报告1例，来自美国；佛山报告2例，分别来自埃及和马来西亚。新增境外输入无症状感染者11例，广州报告7例，2例来自缅甸，2例来自阿联酋，其余3例分别来自日本、哥斯达黎加和埃及；深圳报告1例，来自塞拉利昂；佛山报告2例，均来自日本；东莞', '央视新闻app', 'http://app.cctv.com/special/cportal/detail/arti/index.html?id=Artig8dCXoaNY0A8in5zlXls210830&isfromapp=1', '2021-08-30 19:00:00');
+INSERT INTO `outinfor` VALUES (150047, '上海 | 昨日新增 5 例境外输入确诊病例', '2021年8月29日0—24时，通过口岸联防联控机制，上海报告5例境外输入性新冠肺炎确诊病例。新增治愈出院4例，其中来自泰国1例，来自日本1例，来自荷兰1例，来自埃塞俄比亚1例。\n病例1为中国籍，在英国留学，自英国出发，经德国转机，于2021年8月24日抵达上海浦东国际机场，入关后即被集中隔离观察，其间出现症状。综合流行病学史、临床症状、实验室检测和影像学检查结果等，诊断为确诊病例。\n病例2为墨西', '央视新闻app', 'http://app.cctv.com/special/cportal/detail/arti/index.html?id=ArtiAMjVPRR1QkOWtxFzgWlu210830&isfromapp=1', '2021-08-30 19:00:00');
+INSERT INTO `outinfor` VALUES (150048, '北京 | 昨日新增 1 例境外输入疑似病例', '8月29日0时至24时，无新增本地确诊病例、疑似病例和无症状感染者；无新增境外输入确诊病例，新增1例疑似病例和1例无症状感染者。全市16区无报告病例天数情况', '北京卫健委', 'http://wjw.beijing.gov.cn/xwzx_20031/xwfb/202108/t20210830_2479183.html', '2021-08-30 19:00:00');
+INSERT INTO `outinfor` VALUES (150054, '全国 | 昨日无新增本土确诊病例', '8月29日0—24时，31个省（自治区、直辖市）和新疆生产建设兵团报告新增确诊病例23例，均为境外输入病例（广东9例，上海5例，云南3例，天津2例，山西1例，浙江1例，福建1例，山东1例）；无新增死亡病例；新增疑似病例4例，均为境外输入病例（上海3例，北京1例）。\n当日新增治愈出院病例107例，解除医学观察的密切接触者2446人，重症病例较前一日减少2例。\n境外输入现有确诊病例624例（其中重症病', '央视新闻app', 'http://app.cctv.com/special/cportal/detail/arti/index.html?id=ArtizM7ThkjV6U9whAPAD0TT210830&isfromapp=1', '2021-08-30 19:00:00');
+INSERT INTO `outinfor` VALUES (150083, '扬州 | 昨日新增出院 45 人', '今天（8月30日），江苏扬州市举行第32场疫情防控专题新闻发布会，扬州市卫健委副主任尹成雷在发布会上介绍，29日0—24时，扬州市无新增新冠肺炎确诊病例。截至目前，扬州市累计报告本土确诊病例570例。经过医护人员精心治疗，经专家评估，又有45名确诊患者达到出院标准转至定点医院康复，累计出院377例。\n截至8月29日24时，共有45例确诊病例在扬州市第三人民医院治疗，其中轻型6例，普通型39例。14', '央视新闻app', 'http://app.cctv.com/special/cportal/detail/arti/index.html?id=ArtiUx8IPKPD9boWDTM1PReC210830&isfromapp=1', '2021-08-30 21:00:00');
+INSERT INTO `outinfor` VALUES (150110, '扬州 | 又一地调低风险等级', '扬州市新冠肺炎疫情防控工作指挥部今天（30日）发布通告，根据国务院联防联控机制《关于调整新冠肺炎疫情分区分级标准实施精准管控措施的通知》和《关于印发新冠肺炎聚集性疫情处置指南（修订版）》要求，经扬州市新冠肺炎疫情防控工作指挥部研究，自发布之日起，对扬州市部分区域疫情风险等级进行调整：扬州市邗江区甘泉街道由中风险地区调整为低风险地区。其他地区风险等级不变。\n调整后扬州市现有5个中风险地区。（总台央视', '央视新闻app', 'http://app.cctv.com/special/cportal/detail/arti/index.html?id=ArtihT63YAEKJ5N5j7mm8Kh1210830&isfromapp=1', '2021-08-30 21:00:00');
+INSERT INTO `outinfor` VALUES (150112, '河北 | 乐亭公布一确诊病例次密接者行动轨迹', '8月30日，河北唐山乐亭县发布通告，寻找乐亭县新冠肺炎确诊病例次密接的密切接触者。\n2021年8月30日1时，乐亭县接唐山市疾控中心转发的“秦皇岛市疾病预防控制中心关于杭州新冠确诊病例密切接触者的同乘密切接触者的协查函”，涉及新冠肺炎确诊病例的密切接触者刘某同车厢人员张某某在乐亭县。接到协查信息后，该县立即启动流调程序，对张某某及其密接人员按要求落实相关防控措施。为进一步寻找张某某的密切接触者，现', '央视新闻app', 'http://app.cctv.com/special/cportal/detail/arti/index.html?id=ArtieQdR3JJNnLDKBmMMq5yS210830&isfromapp=1', '2021-08-30 21:00:00');
+INSERT INTO `outinfor` VALUES (150180, '全国  | 昨日无新增本土确诊病例，新增境外输入确诊病例 37 例', '国家卫健委：昨日31个省区市和新疆生产建设兵团无新增本土确诊病例。\n（总台央视记者 龙晓勤）\n（编辑 程程）', '央视新闻app', 'http://app.cctv.com/special/cportal/detail/arti/index.html?id=Artixx0XZqelkDKsPrdUfw2e210831&isfromapp=1', '2021-08-31 20:00:00');
+INSERT INTO `outinfor` VALUES (150215, '海口 | 今起美兰机场取消出岛前往北京人员查验核酸检测证明', '记者31日从海南海口美兰国际机场获悉，据海南省疫情防控指挥部通知，鉴于国内疫情形势趋于好转，海南省中风险地区清零已超过7天，为方便人员出行，海口美兰国际机场决定从2021年8月31日起取消对出岛前往北京人员查验核酸检测证明的防控措施要求。\n机场温馨提示：乘坐飞机出行请佩戴好口罩，做好个人防护，并配合现场工作人员开展体温检测、健康码查验等工作。（总台记者 钟华夏 何英平）\n（编辑 王鹤翔）', '央视新闻app', 'http://app.cctv.com/special/cportal/detail/arti/index.html?id=Artim5MI045FtrsFE9apoMKL210831&isfromapp=1', '2021-08-31 20:00:01');
+INSERT INTO `outinfor` VALUES (150231, '​商丘 | 两地调整为低风险地区', '据河南省商丘市新冠肺炎疫情防控指挥部办公室消息：商丘市新冠肺炎疫情防控指挥部决定，自2021年8月31日24时起，将虞城县人民医院东院区(健康路)、虞城县谷熟镇刘大庄村委何庄村疫情风险等级由中风险地区调整为低风险地区。自此，商丘市域内中高风险区域“清零”。\n（总台记者 田萌 赵磊）\n（编辑 程程）', '央视新闻app', 'http://app.cctv.com/special/cportal/detail/arti/index.html?id=ArtijGfTRFOhuZGX3Cezwy7Z210831&isfromapp=1', '2021-08-31 20:00:01');
+INSERT INTO `outinfor` VALUES (150237, '泰安 | 今日报告 1 例加拿大输入确诊病例', '8月31日，据山东省泰安市卫生健康委员会官方网站消息，2021年8月30日0—24时，泰安市无新增新冠肺炎疑似病例、无症状感染者，新增1例境外输入确诊病例。\n新增境外输入确诊病例和某某，男，70岁，中国籍，山东省新泰市人，2021年8月12日乘坐AC027国际航班从加拿大出发，途经新加坡，于8月13日抵达上海浦东国际机场，在上海市完成14天集中隔离医学观察，其间7次核酸检测结果均为阴性。2021年', '央视新闻app', 'http://app.cctv.com/special/cportal/detail/arti/index.html?id=ArtiEXzPpFwVzWkMDvhEEknv210831&isfromapp=1', '2021-08-31 20:00:01');
+INSERT INTO `outinfor` VALUES (150239, '上海 | 松江区一地区调为低风险地区', '31日，记者获悉，上海市疫情防控工作领导小组办公室最新公布，根据国务院联防联控机制有关要求，经上海市防控办研究决定，自9月1日0时起，将松江区永丰街道仓丰路855号（有庐公寓）由中风险地区调整为低风险地区，上海市其余区域风险等级不变。\n（总台央视记者 王殿甲）\n（编辑 程程）', '央视新闻app', 'http://app.cctv.com/special/cportal/detail/arti/index.html?id=ArtiltudMxv8hZgZGu2coWYR210831&isfromapp=1', '2021-08-31 20:00:01');
+
+-- ----------------------------
 -- Table structure for post
 -- ----------------------------
 DROP TABLE IF EXISTS `post`;
@@ -305,7 +376,7 @@ CREATE TABLE `post`  (
   `img` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
   `replypost` int(0) NULL DEFAULT 0,
   PRIMARY KEY (`postid`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 15 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of post
@@ -322,7 +393,7 @@ INSERT INTO `post` VALUES (11, '震惊！90后小伙深更半夜居然做出这�
 INSERT INTO `post` VALUES (12, '我好想出去丸', '想吃大餐，想呼吸新鲜空气', '2020-02-14 23:24:48', 1, 'sunquan', '/images/post/1581693887760.png', 2);
 INSERT INTO `post` VALUES (13, '我要出去玩牛逼！！', '别的啥也不说了，牛逼就完事儿了！', '2020-02-17 13:49:58', 0, '', '/images/post/1581918597522.png', 4);
 INSERT INTO `post` VALUES (14, '', '', '2021-08-21 19:08:52', 0, 'sunquan', '/images/post/1629544132438.png', 0);
-INSERT INTO `post` VALUES (15, '请问', '请问', '2021-08-29 19:21:38', 0, 'sunquan', '/images/post/1630236098197.png', 0);
+INSERT INTO `post` VALUES (15, '请问', '87978978', '2021-08-29 19:21:38', 1, 'sunquan', '/images/post/1630236098197.png', 0);
 
 -- ----------------------------
 -- Table structure for reply
@@ -336,7 +407,7 @@ CREATE TABLE `reply`  (
   `username` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `replyname` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`replyid`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 20 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 19 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of reply
@@ -362,7 +433,7 @@ CREATE TABLE `replypost`  (
   `username` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `img` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
   PRIMARY KEY (`replypostid`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 47 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 46 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of replypost
@@ -427,7 +498,7 @@ CREATE TABLE `security`  (
   `userroleid` int(0) NOT NULL COMMENT '角色',
   `flag` int(0) NOT NULL DEFAULT 0 COMMENT '逻辑删除（默认为0）',
   PRIMARY KEY (`securityid`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Compact;
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for shop
@@ -551,7 +622,7 @@ CREATE TABLE `vehicle`  (
   `createtime` datetime(0) NOT NULL,
   `finite_time` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`vehicleid`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 61 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 60 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of vehicle
@@ -588,7 +659,7 @@ CREATE TABLE `vehiclefares`  (
   `amount` decimal(10, 2) NOT NULL,
   `flag` int(0) NOT NULL DEFAULT 0,
   PRIMARY KEY (`fareid`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of vehiclefares
@@ -603,7 +674,7 @@ CREATE TABLE `vehiclerole`  (
   `vehicleroleid` int(0) NOT NULL AUTO_INCREMENT COMMENT '车辆权限id',
   `vehiclerolename` varchar(10) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT '车辆权限名称',
   PRIMARY KEY (`vehicleroleid`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of vehiclerole
