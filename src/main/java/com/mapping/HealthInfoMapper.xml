@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.HealthInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.pojo.HealthInfo" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="idNumber" property="idnumber" jdbcType="VARCHAR" />
+    <result column="phoneNumber" property="phonenumber" jdbcType="VARCHAR" />
+    <result column="PhysicalCondition" property="physicalcondition" jdbcType="VARCHAR" />
+    <result column="temperature" property="temperature" jdbcType="VARCHAR" />
+    <result column="isContact" property="iscontact" jdbcType="VARCHAR" />
+    <result column="fillTime" property="filltime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, idNumber, phoneNumber, PhysicalCondition, temperature, isContact, fillTime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from health_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from health_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.pojo.HealthInfo" >
+    insert into health_info (id, name, idNumber, 
+      phoneNumber, PhysicalCondition, temperature, 
+      isContact, fillTime)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{idnumber,jdbcType=VARCHAR}, 
+      #{phonenumber,jdbcType=VARCHAR}, #{physicalcondition,jdbcType=VARCHAR}, #{temperature,jdbcType=VARCHAR}, 
+      #{iscontact,jdbcType=VARCHAR}, #{filltime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.pojo.HealthInfo" >
+    insert into health_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="idnumber != null" >
+        idNumber,
+      </if>
+      <if test="phonenumber != null" >
+        phoneNumber,
+      </if>
+      <if test="physicalcondition != null" >
+        PhysicalCondition,
+      </if>
+      <if test="temperature != null" >
+        temperature,
+      </if>
+      <if test="iscontact != null" >
+        isContact,
+      </if>
+      <if test="filltime != null" >
+        fillTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="idnumber != null" >
+        #{idnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="phonenumber != null" >
+        #{phonenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="physicalcondition != null" >
+        #{physicalcondition,jdbcType=VARCHAR},
+      </if>
+      <if test="temperature != null" >
+        #{temperature,jdbcType=VARCHAR},
+      </if>
+      <if test="iscontact != null" >
+        #{iscontact,jdbcType=VARCHAR},
+      </if>
+      <if test="filltime != null" >
+        #{filltime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.pojo.HealthInfo" >
+    update health_info
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="idnumber != null" >
+        idNumber = #{idnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="phonenumber != null" >
+        phoneNumber = #{phonenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="physicalcondition != null" >
+        PhysicalCondition = #{physicalcondition,jdbcType=VARCHAR},
+      </if>
+      <if test="temperature != null" >
+        temperature = #{temperature,jdbcType=VARCHAR},
+      </if>
+      <if test="iscontact != null" >
+        isContact = #{iscontact,jdbcType=VARCHAR},
+      </if>
+      <if test="filltime != null" >
+        fillTime = #{filltime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.pojo.HealthInfo" >
+    update health_info
+    set name = #{name,jdbcType=VARCHAR},
+      idNumber = #{idnumber,jdbcType=VARCHAR},
+      phoneNumber = #{phonenumber,jdbcType=VARCHAR},
+      PhysicalCondition = #{physicalcondition,jdbcType=VARCHAR},
+      temperature = #{temperature,jdbcType=VARCHAR},
+      isContact = #{iscontact,jdbcType=VARCHAR},
+      fillTime = #{filltime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
