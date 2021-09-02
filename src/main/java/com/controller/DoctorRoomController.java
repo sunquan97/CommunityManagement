@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 
 @RestController
 @RequestMapping(value = "/doctorRoom", produces = "application/json;charset=UTF-8")
-public class doctorRoomController {
+public class DoctorRoomController {
 
     @Autowired
     private DoctorRoomService doctorRoomService;

@@ -237,7 +237,7 @@
                                                 title="上门服务" class="iframeurl"><i class="icon-double-angle-right"></i>上门服务</a>
                             </li>
                             <li class="home"><a href="javascript:void(0)"
-                                                name="${pageContext.request.contextPath }/getMyOrder.action?name=${sessionScope.user.realname}"
+                                                name="${pageContext.request.contextPath }/healthInfo"
                                                 title="健康信息填报" class="iframeurl"><i class="icon-double-angle-right"></i>健康信息填报</a>
                             </li>
                         </ul>

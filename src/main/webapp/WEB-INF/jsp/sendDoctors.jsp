@@ -51,7 +51,7 @@
                                 <input type="datetime-local" id="appointmentTime"   style="width: auto" class="gfm-input gfm-input-s J_Submit J_DateF" data-code="SXRQF" />
                             </div>
                             <div class="row g-clear"><label>地址：</label>
-                                <input type="text" id="address"   style="width: auto" class="gfm-input gfm-input-s J_Submit J_DateF" data-code="SXRQF" />
+                                <input type="text" id="address"   style="width: 280px" class="gfm-input gfm-input-s J_Submit J_DateF" data-code="SXRQF" />
                             </div>
                             <div class="gfm-actions"><a href="javascript:sendDoctors();" class="gbn gbt-green js-btn"
                                                         monitor="fastorder,fastorder,fast_order">预约上门</a></div>
