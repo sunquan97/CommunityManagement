@@ -51,11 +51,11 @@ public class OrderController {
             JSONObject object1=shop.getJSONObject(i);
             int id=object1.getInt("id");
             foodids=foodids+id+",";
-            BigDecimal price=(BigDecimal)object1.get("price");
+            String price= (String) object1.get("price");
             int count=object1.getInt("count");
             Shop shop1=new Shop();
             shop1.setFoodid(id);
-            shop1.setAmount(price);
+            shop1.setAmount(new BigDecimal(price));
             shop1.setCount(count);
             shop1.setOrderid(orderid);
             ser1.insertSelective(shop1);

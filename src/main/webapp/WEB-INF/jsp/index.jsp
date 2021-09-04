@@ -328,15 +328,6 @@
                                                         name="https://voice.baidu.com/act/newpneumonia/newpneumonia"
                                                         title="疫情实时大数据报告" class="iframeurl"><i
                                             class="icon-double-angle-right"></i>疫情实时大数据报告</a></li>
-                                    <li class="home"><a href="javascript:void(0)" name="/PerimeterOutbreak"
-                                                        title="周边疫情查询" class="iframeurl"><i
-                                            class="icon-double-angle-right"></i>周边疫情查询</a></li>
-                                    <li class="home"><a href="javascript:void(0)" name="/ConcurrentQuery" title="同程查询"
-                                                        class="iframeurl"><i
-                                            class="icon-double-angle-right"></i>同程查询</a></li>
-                                    <li class="home"><a href="javascript:void(0)" name="/EpidemicInformation"
-                                                        title="疫情数据（图）" class="iframeurl"><i
-                                            class="icon-double-angle-right"></i>疫情数据(图)</a></li>
                                     <li class="home"><a href="javascript:void(0)" name="/ForeignEpidemic" title="国外疫情"
                                                         class="iframeurl"><i
                                             class="icon-double-angle-right"></i>国外疫情</a></li>
