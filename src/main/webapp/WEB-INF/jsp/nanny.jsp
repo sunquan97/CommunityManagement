@@ -35,7 +35,8 @@
     <script type="text/javascript" src="${pageContext.request.contextPath }/static/js/jquery-3.2.1.min.js"></script>
 
     <script src="${pageContext.request.contextPath }/static/js/bootstrap.min.js"></script>
-
+    <script src="${pageContext.request.contextPath}/static/layer/layer.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/layer/theme/default/layer.css">
     <!--分页-->
 
     <script src="${pageContext.request.contextPath }/static/js/jquery.pagination.js"></script>
@@ -120,14 +121,24 @@
     <div class="container">
 
         <h4>以下数据更新于48小时前，如有变动请以客服为准。谢谢！</h4>
+        <div class="fastorder-main" >
+            <div class="g-fastorder-box">
 
+                <div class="row g-clear" ><label>时间：</label>
+                    <input type="datetime-local" id="appointmentTime"   style="width: auto;" class="gfm-input gfm-input-s J_Submit J_DateF" data-code="SXRQF" />
+                </div>
+                <div class="row g-clear"><label>地址：</label>
+                    <input type="text" id="address"   style="width: 280px;" class="gfm-input gfm-input-s J_Submit J_DateF" data-code="SXRQF" />
+                </div>
+            </div>
+        </div>
         <div class="person-info">
 
             <ul class="person-list">
 
                 <li class="person-item col-md-4" style=" float:left">
 
-                    <a href="book_info.html" class="person-link">
+                    <a href="javascript:appointment('高宝兰');" class="person-link">
 
                         <img src="${pageContext.request.contextPath }/static/images/linshi_1.jpg" alt=""/>
 
@@ -161,7 +172,7 @@
 
                 <li class="person-item col-md-4" style=" float:left">
 
-                    <a href="book_info.html" class="person-link">
+                    <a href="javascript:appointment('向俊芝');" class="person-link">
 
                         <img src="${pageContext.request.contextPath }/static/images/linshi_2.jpg" alt=""/>
 
@@ -195,7 +206,7 @@
 
                 <li class="person-item col-md-4" style=" float:left">
 
-                    <a href="book_info.html" class="person-link">
+                    <a href="javascript:appointment('温秋香');" class="person-link">
 
                         <img src="${pageContext.request.contextPath }/static/images/linshi_3.jpg" alt=""/>
 
@@ -321,14 +332,42 @@
     });
 
 </script>
+<script>
+    function appointment(name){
+        var appointmentTime=$("#appointmentTime").val();
+        var address=$("#address").val();
+        var type='保姆';
+        if (address!=""&&appointmentTime!=""){
+            //window.location.href="${pageContext.request.contextPath }/doctorRoom/confirm?province="+province+"&city="+city+"&project="+project+"&appointmentTime="+appointmentTime+"";
+            layer.confirm('您确定预约'+name+'做'+type+'项目，在'+appointmentTime+'的'+address+'？', {
+                btn: ['确定','取消'] //按钮
+            }, function(){
+                var newData = "{'name':'" + name + "','appointmentTime':'" + appointmentTime + "','address':'" + address + "','type':'" + type + "'}";
+                var url = "${pageContext.request.contextPath }/houseService/addAppointment";
+                $.ajax({
+                    type: "POST",
+                    contentType: "application/json;charset=UTF-8",
+                    url: url,
+                    data: newData,
+                    success: function (result) {
+                        if(result.status==1){
+                            layer.msg('预约成功');
+                        }else {
+                            layer.msg('预约失败');
+                        }
+                    },
+                    error: function (e) {
+                        console.log(e.status);
+                        console.log(e.responseText);
+                    }
+                });
+            });
 
-<!--	<script>
-
-	layui.use('laydate', function(){
-
- 	 var laydate = layui.laydate;
-
-	</script>-->
+        }else {
+            layer.msg('请选择完整信息');
+        }
+    }
+</script>
 
 </body>
 

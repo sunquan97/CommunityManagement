@@ -28,100 +28,6 @@
 
 <body>
 
-<div class="header">
-    <div class="container">
-        <div class="jw-logo"> <img src="${pageContext.request.contextPath }/static/images/logo2.png" alt="" onClick="location.href=/housekeepingService";/>
-        </div>
-        <div class="header-right">
-            <ul class="header-nav">
-                <li class="nav-list active"><a href="${pageContext.request.contextPath }/housekeepingService">首页</a></li>
-
-                <li class="nav-list"><a href="${pageContext.request.contextPath }/nanny">保姆</a></li>
-
-                <li class="nav-list"><a href="${pageContext.request.contextPath }/maternityMatron">月嫂</a></li>
-
-                <li class="nav-list "><a href="${pageContext.request.contextPath }/hourlyWorker">临时钟点工</a></li>
-
-                <li class="nav-list"><a href="${pageContext.request.contextPath }/longTermHourlyWork">长期钟点工</a></li>
-
-                <li class="nav-list">
-
-                    <a href="javascript:void(0)" class="nav-more">更多服务<span class="fa fa-angle-down"></span></a>
-
-                    <ol class="hide-nav">
-
-                        <li><a href="${pageContext.request.contextPath }/householdApplianceClean">家电清洗</a></li>
-
-                        <li><a href="${pageContext.request.contextPath }/noData">干洗</a></li>
-
-                        <li><a href="${pageContext.request.contextPath }/noData">搬家</a></li>
-
-                        <li><a href="${pageContext.request.contextPath }/noData">护工</a></li>
-
-                        <li><a href="${pageContext.request.contextPath }/noData">居家保养</a></li>
-
-                        <li><a href="${pageContext.request.contextPath }/noData">皮具护理</a></li>
-
-                        <li><a href="${pageContext.request.contextPath }/noData">居家便民</a></li>
-
-                        <li><a href="${pageContext.request.contextPath }/noData">家电维修</a></li>
-
-                    </ol>
-
-                </li>
-
-            </ul>
-            <div class="drop-menu"> <span class="fa fa-navicon"></span> </div>
-        </div>
-    </div>
-</div>
-<div id="bootstrap-touch-slider" class="carousel bs-slider fade  control-round indicators-line" data-ride="carousel" data-pause="hover" data-interval="5000" >
-
-    <!-- Indicators -->
-
-    <ol class="carousel-indicators">
-        <li data-target="#bootstrap-touch-slider" data-slide-to="0" class="active"></li>
-        <li data-target="#bootstrap-touch-slider" data-slide-to="1"></li>
-        <li data-target="#bootstrap-touch-slider" data-slide-to="2"></li>
-    </ol>
-
-    <!-- Wrapper For Slides -->
-
-    <div class="carousel-inner" role="listbox">
-        <div class="item active"> <img src="${pageContext.request.contextPath }/static/images/banner1.png" alt="Bootstrap Touch Slider"  class="slide-image"/>
-            <div class="bs-slider-overlay"></div>
-            <div class="container">
-                <div class="row">
-                    <div class="slide-text slide_style_center">
-                        <h1 data-animation="animated zoomInRight">您的家庭好帮手</h1>
-                        <p data-animation="animated fadeInLeft">家务事交给我们，您的时间值得更多..</p>
-                        <a href="changqi.html" class="btn btn-default" data-animation="animated fadeInLeft">点击查看</a> <a href="order.html"   class="btn btn-primary" data-animation="animated fadeInRight">立即预约</a> </div>
-                </div>
-            </div>
-        </div>
-        <div class="item"> <img src="${pageContext.request.contextPath }/static/images/banner2.png" alt="Bootstrap Touch Slider"  class="slide-image"/>
-            <div class="bs-slider-overlay"></div>
-            <div class="slide-text slide_style_center">
-                <h1 data-animation="animated flipInX">悠然的家庭生活</h1>
-                <p data-animation="animated lightSpeedIn">金网家政全心全心为你提供</p>
-                <a href="changqi.html" class="btn btn-default" data-animation="animated fadeInUp">点击查看</a> <a href="order.html"  class="btn btn-primary" data-animation="animated fadeInDown">立即预约</a> </div>
-        </div>
-        <div class="item"> <img src="${pageContext.request.contextPath }/static/images/banner3.png" alt="Bootstrap Touch Slider"  class="slide-image"/>
-            <div class="bs-slider-overlay"></div>
-            <div class="slide-text slide_style_center">
-                <h1 data-animation="animated zoomInLeft">净美环境　愉悦办公</h1>
-                <p data-animation="animated fadeInRight">某某家政企业服务　服务好助手</p>
-                <a href="changqi.html"  class="btn btn-default" data-animation="animated fadeInLeft">点击查看</a> <a href="order.html"  class="btn btn-primary" data-animation="animated fadeInRight">立即预约</a> </div>
-        </div>
-    </div>
-
-    <!-- Left Control -->
-
-    <a class="left carousel-control" href="#bootstrap-touch-slider" role="button" data-slide="prev"> <span class="fa fa-angle-left" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a>
-
-    <!-- Right Control -->
-
-    <a class="right carousel-control" href="#bootstrap-touch-slider" role="button" data-slide="next"> <span class="fa fa-angle-right" aria-hidden="true"></span> <span class="sr-only">Next</span> </a> </div>
 <div class="safe">
     <div class="container">
         <div class="section-heading">
@@ -189,40 +95,40 @@
         <div class="row">
             <div class="col-md-7 col-sm-7">
                 <ul class="type-icon">
-                    <li> <a href="baomu.html" class="icon-links"> <img src="${pageContext.request.contextPath }/static/images/baomu.png" alt=""/>
+                    <li> <a href="${pageContext.request.contextPath }/nanny" class="icon-links"> <img src="${pageContext.request.contextPath }/static/images/baomu.png" alt=""/>
                         <p>保姆</p>
                     </a> </li>
-                    <li> <a href="yuesao.html" class="icon-links"> <img src="${pageContext.request.contextPath }/static/images/yuesao.png" alt=""/>
+                    <li> <a href="${pageContext.request.contextPath }/maternityMatron" class="icon-links"> <img src="${pageContext.request.contextPath }/static/images/yuesao.png" alt=""/>
                         <p>月嫂</p>
                     </a> </li>
-                    <li> <a href="linshi.html" class="icon-links"> <img src="${pageContext.request.contextPath }/static/images/duanzhong.png" alt=""/>
+                    <li> <a href="${pageContext.request.contextPath }/hourlyWorker" class="icon-links"> <img src="${pageContext.request.contextPath }/static/images/duanzhong.png" alt=""/>
                         <p>临时钟点工</p>
                     </a> </li>
-                    <li> <a href="changqi.html" class="icon-links"> <img src="${pageContext.request.contextPath }/static/images/changzhong.png" alt=""/>
+                    <li> <a href="${pageContext.request.contextPath }/longTermHourlyWork" class="icon-links"> <img src="${pageContext.request.contextPath }/static/images/changzhong.png" alt=""/>
                         <p>长期钟点工</p>
                     </a> </li>
-                    <li> <a href="jiadian.html" class="icon-links"> <img src="${pageContext.request.contextPath }/static/images/qingxi.png" alt=""/>
+                    <li> <a href="${pageContext.request.contextPath }/householdApplianceClean" class="icon-links"> <img src="${pageContext.request.contextPath }/static/images/qingxi.png" alt=""/>
                         <p>家电清洗</p>
                     </a> </li>
-                    <li> <a href="no_date.html" class="icon-links"> <img src="${pageContext.request.contextPath }/static/images/hugong.png" alt=""/>
+                    <li> <a href="${pageContext.request.contextPath }/noData" class="icon-links"> <img src="${pageContext.request.contextPath }/static/images/hugong.png" alt=""/>
                         <p>护工</p>
                     </a> </li>
-                    <li> <a href="no_date.html" class="icon-links"> <img src="${pageContext.request.contextPath }/static/images/jiaju.png" alt=""/>
+                    <li> <a href="${pageContext.request.contextPath }/noData" class="icon-links"> <img src="${pageContext.request.contextPath }/static/images/jiaju.png" alt=""/>
                         <p>居家保养</p>
                     </a> </li>
-                    <li> <a href="no_date.html" class="icon-links"> <img src="${pageContext.request.contextPath }/static/images/weixiu.png" alt=""/>
+                    <li> <a href="${pageContext.request.contextPath }/noData" class="icon-links"> <img src="${pageContext.request.contextPath }/static/images/weixiu.png" alt=""/>
                         <p>家电维修</p>
                     </a> </li>
-                    <li> <a href="no_date.html" class="icon-links"> <img src="${pageContext.request.contextPath }/static/images/banjia.png" alt=""/>
+                    <li> <a href="${pageContext.request.contextPath }/noData" class="icon-links"> <img src="${pageContext.request.contextPath }/static/images/banjia.png" alt=""/>
                         <p>搬家</p>
                     </a> </li>
-                    <li> <a href="no_date.html" class="icon-links"> <img src="${pageContext.request.contextPath }/static/images/ganxi.png" alt=""/>
+                    <li> <a href="${pageContext.request.contextPath }/noData" class="icon-links"> <img src="${pageContext.request.contextPath }/static/images/ganxi.png" alt=""/>
                         <p>干洗</p>
                     </a> </li>
-                    <li> <a href="no_date.html" class="icon-links"> <img src="${pageContext.request.contextPath }/static/images/piju.png" alt=""/>
+                    <li> <a href="${pageContext.request.contextPath }/noData" class="icon-links"> <img src="${pageContext.request.contextPath }/static/images/piju.png" alt=""/>
                         <p>皮具护理</p>
                     </a> </li>
-                    <li> <a href="no_date.html" class="icon-links"> <img src="${pageContext.request.contextPath }/static/images/jujia.png" alt=""/>
+                    <li> <a href="${pageContext.request.contextPath }/noData" class="icon-links"> <img src="${pageContext.request.contextPath }/static/images/jujia.png" alt=""/>
                         <p>居家便民</p>
                     </a> </li>
                 </ul>
