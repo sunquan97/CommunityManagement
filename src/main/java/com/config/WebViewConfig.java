@@ -75,7 +75,6 @@ public class WebViewConfig implements WebMvcConfigurer {
         registry.addViewController("/householdApplianceClean").setViewName("jsp/householdApplianceClean");//家电清洗页面
         registry.addViewController("/noData").setViewName("jsp/noData");//系统升级页面
 
-
         //super.addViewControllers(registry);
     }
 

@@ -297,6 +297,9 @@
                                                 name="${pageContext.request.contextPath }/getPostList" title="贴吧管理"
                                                 class="iframeurl"><i class="icon-double-angle-right"></i>贴吧管理</a></li>
                             <li class="home"><a href="javascript:void(0)"
+                                                name="${pageContext.request.contextPath }/searchNotices" title="公告管理"
+                                                class="iframeurl"><i class="icon-double-angle-right"></i>公告管理</a></li>
+                            <li class="home"><a href="javascript:void(0)"
                                                 name="${pageContext.request.contextPath }/housekeepingService" title="家政服务"
                                                 class="iframeurl"><i class="icon-double-angle-right"></i>家政服务</a></li>
                             <li class="home"><a href="javascript:void(0)"

@@ -31,7 +31,7 @@
 <div class="page-content clearfix">
     <div id="Member_Ratings">
     	<div class="d_Confirm_Order_style">
-      		<form action="${pageContext.request.contextPath }/getAllNotices.action" method="post" id="search">
+      		<form action="${pageContext.request.contextPath }/searchNotices" method="post" id="search">
       			<div class="search_style">
 		        	<ul class="search_content clearfix">
 		       			<li><label class="l_f">公告标题</label><input name="search" value="${search}" type="text"  class="text_add" placeholder="输入公告标题"  style=" width:400px"/></li>
@@ -54,27 +54,27 @@
 		<thead>
 		 <tr>
 				<th width="25"><label><input type="checkbox" class="ace"><span class="lbl"></span></label></th>
-				<th width="60">公告ID</th>
-				<th width="60">公告标题</th>
-				<th width="100">公告内容</th>
+				<th width="40">公告ID</th>
+				<th width="80">公告标题</th>
+				<th width="200">公告内容</th>
 				<th width="100">公告图片</th>
 				<th width="80">创建时间</th>
-				<th width="250">操作</th>
+				<th width="100">操作</th>
 			</tr>
 		</thead>
 	<tbody>
 		<c:forEach items="${notices}" var="notice">
 			<tr>
 				<td style="vertical-align: middle !important;text-align: center;"><label><input type="checkbox" class="ace"><span class="lbl"></span></label></td>
-				<td style="vertical-align: middle !important;text-align: center;">${notice.notice_id }</td>
-				<td style="vertical-align: middle !important;text-align: center;">${notice.noticename }</td>
-				<td style="vertical-align: middle !important;text-align: center;">${notice.content }</td>
-				<td style="vertical-align: middle !important;text-align: center;">${notice.img  }</td>
+				<td style="vertical-align: middle !important;text-align: center;">${notice.noticeid }</td>
+				<td style="vertical-align: middle !important;text-align: center;">${notice.noticename}</td>
+				<td style="vertical-align: middle !important;text-align: center;">${notice.content}</td>
+				<td style="vertical-align: middle !important;text-align: center;">${notice.img}</td>
 				<td style="vertical-align: middle !important;text-align: center;"><fmt:formatDate value="${notice.createtime }" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 
 				<td class="td-manage">
-					<a title="编辑" onclick="member_edit(${notices .noticeid })" href="javascript:;"  class="btn btn-xs btn-info" ><i class="icon-edit bigger-120">编辑</i></a>
-					<a title="删除" href="javascript:;"  onclick="notice_del(this,${notices.noticeid })" class="btn btn-xs btn-warning" ><i class="icon-trash  bigger-120">删除</i></a>
+					<a title="编辑" onclick="member_edit(${notice.noticeid })" href="javascript:;"  class="btn btn-xs btn-info" ><i class="icon-edit bigger-120">编辑</i></a>
+					<a title="删除" href="javascript:;"  onclick="notice_del(this,${notice.noticeid })" class="btn btn-xs btn-warning" ><i class="icon-trash  bigger-120">删除</i></a>
 				</td>
 			</tr>
 		</c:forEach>
@@ -179,20 +179,19 @@ jQuery(function($) {
 
 /*公告信息-修改*/
 function member_edit(noticeid){
-		$.ajax({		url : "${pageContext.request.contextPath}/editNotices.action
-				type : "POST",
-		action",
-				data : {
-					noticeid : noticeid
-				},
-				dataType : "JSON",
-				success : function(data) {
-					$("#noticename").attr('value',data.noticename);
-					$("#content").attr('value',data.content);
-					$("#img").attr('value',data.img);
-					$("#createtime").attr('value',data.createtime);
-
-				}
+		$.ajax({
+			url : "${pageContext.request.contextPath}/editNotices.action",
+			type : "POST",
+			data : {
+				noticeid : noticeid
+			},
+			dataType : "JSON",
+			success : function(data) {
+				$("#noticename").attr('value',data.noticename);
+				$("#content").attr('value',data.content);
+				$("#img").attr('value',data.img);
+				$("#createtime").attr('value',data.createtime);
+			}
 			});
 	  layer.open({
         type: 1,
@@ -240,17 +239,18 @@ function member_edit(noticeid){
     });
 }
 /*公告-删除*/
-function notice_del(obj,noticeid){
-$.ajax({		url : "${pageContext.request.contextPath}/delNotices.action
-				type : "POST",
-		action",
-				data : {
-					noticeid : noticeid
-				},
-	layer.confirm('确认要删除吗？',function(index){
-		$(obj).parents("tr").remove();
-		layer.msg('已删除!',{icon:1,time:1000});
-		window.location.href="${pageContext.request.contextPath }/delNotices.action?noticeid="+noticeid+""
+function notice_del(obj, noticeid) {
+	$.ajax({
+		url: "${pageContext.request.contextPath}/delNotices.action",
+		type: "POST",
+		data: {noticeid: noticeid},
+		success : function(data) {
+			layer.confirm('确认要删除吗？', function (index) {
+				$(obj).parents("tr").remove();
+				layer.msg('已删除!', {icon: 1, time: 1000});
+				window.location.href = "${pageContext.request.contextPath }/delNotices.action?noticeid=" + noticeid + ""
+			});
+		}
 	});
 }
 laydate({

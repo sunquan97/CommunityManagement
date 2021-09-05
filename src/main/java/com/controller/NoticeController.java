@@ -32,7 +32,7 @@ public class NoticeController {
 	private UserService ser1;
 	@Autowired 
 	private OutinforService ser2;
-	@RequestMapping("/insertNotices.action")
+	@RequestMapping("/insertNotice.action")
 	public String insertNotice(Notice notice,UploadedFile file) throws ParseException, IllegalStateException, IOException {
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		long now=new Date().getTime();
@@ -121,6 +121,18 @@ public class NoticeController {
 		}
 		JSONObject resultJson = JSONObject.fromObject(resultEntity);
 		return resultJson.toString();
+	}
+
+	@RequestMapping("/searchNotices")
+	public String searchNotice(Model model,Integer currentPage) {
+		Integer curPage=1;
+		if(currentPage!=null) {
+			curPage=currentPage;
+		}
+		PageUtil page=new PageUtil(5, ser.countByNotices(), curPage);
+		List<Notice> notices=ser.getAllNotices(page);
+		model.addAttribute("notices",notices);
+		return "jsp/noticeList";
 	}
 	
 }
