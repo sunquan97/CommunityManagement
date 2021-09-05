@@ -2,6 +2,7 @@ package com.service.impl;
 
 import java.util.List;
 
+import com.pojo.User;
 import com.service.NoticeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +17,7 @@ public class NoticeServiceImpl implements NoticeService {
 	@Override
 	public int deleteByPrimaryKey(Integer noticeid) {
 		// TODO Auto-generated method stub
-		return 0;
+		return mapper.deleteByPrimaryKey( noticeid);
 	}
 
 	@Override
@@ -40,7 +41,7 @@ public class NoticeServiceImpl implements NoticeService {
 	@Override
 	public int updateByPrimaryKeySelective(Notice record) {
 		// TODO Auto-generated method stub
-		return 0;
+		return mapper.updateByPrimaryKeySelective( record);
 	}
 
 	@Override
@@ -66,5 +67,11 @@ public class NoticeServiceImpl implements NoticeService {
 		// TODO Auto-generated method stub
 		return mapper.getAllNoticeSum();
 	}
+
+	@Override
+	public List<User> searchNotices(String search, String addtime) {
+		return null;
+	}
+
 
 }

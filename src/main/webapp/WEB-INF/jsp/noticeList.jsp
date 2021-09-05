@@ -24,17 +24,17 @@
         <script type="text/javascript" src="${pageContext.request.contextPath }/static/js/H-ui.admin.js"></script>
         <script src="${pageContext.request.contextPath }/static/assets/layer/layer.js" type="text/javascript" ></script>
         <script src="${pageContext.request.contextPath }/static/assets/laydate/laydate.js" type="text/javascript"></script>
-<title>用户列表</title>
+<title>公告列表</title>
 </head>
 
 <body>
 <div class="page-content clearfix">
     <div id="Member_Ratings">
     	<div class="d_Confirm_Order_style">
-      		<form action="${pageContext.request.contextPath }/searchUser.action" method="post" id="search">
+      		<form action="${pageContext.request.contextPath }/getAllNotices.action" method="post" id="search">
       			<div class="search_style">
 		        	<ul class="search_content clearfix">
-		       			<li><label class="l_f">用户名</label><input name="search" value="${search}" type="text"  class="text_add" placeholder="输入用户名"  style=" width:400px"/></li>
+		       			<li><label class="l_f">公告标题</label><input name="search" value="${search}" type="text"  class="text_add" placeholder="输入公告标题"  style=" width:400px"/></li>
 		       			<li><label class="l_f">添加时间</label><input type="datetime" value="${addtime}" name="addtime" class="inline laydate-icon" id="start" style=" margin-left:10px;"></li>
 		       			<li style="width:90px;"><input type="submit" id="searchbtn" class="btn_search" value="查询"></li>
 		      		</ul>
@@ -43,7 +43,7 @@
      <!---->
      <div class="border clearfix">
        <span class="l_f">
-        <a href="javascript:ovid()" id="member_add" class="btn btn-warning"><i class="icon-plus"></i>添加用户</a>
+        <a href="javascript:ovid()" id="member_add" class="btn btn-warning"><i class="icon-plus"></i>添加公告</a>
         <a href="javascript:ovid()" class="btn btn-danger"><i class="icon-trash"></i>批量删除</a>
        </span>
        <span class="r_f">共：<b>${size}</b>条</span>
@@ -54,58 +54,27 @@
 		<thead>
 		 <tr>
 				<th width="25"><label><input type="checkbox" class="ace"><span class="lbl"></span></label></th>
-				<th width="60">ID</th>
-				<th width="100">用户名</th>
-				<th width="100">真实姓名</th>
-				<th width="80">性别</th>
-				<th width="100">手机</th>
-				<th width="150">地址</th>
-				<th width="150">加入时间</th>
-                <th width="80">权限</th>
-				<th width="70">状态</th>                
+				<th width="60">公告ID</th>
+				<th width="60">公告标题</th>
+				<th width="100">公告内容</th>
+				<th width="100">公告图片</th>
+				<th width="80">创建时间</th>
 				<th width="250">操作</th>
 			</tr>
 		</thead>
 	<tbody>
-		<c:forEach items="${users }" var="user">
+		<c:forEach items="${notices}" var="notice">
 			<tr>
 				<td style="vertical-align: middle !important;text-align: center;"><label><input type="checkbox" class="ace"><span class="lbl"></span></label></td>
-				<td style="vertical-align: middle !important;text-align: center;">${user.userid }</td>
-				<td style="vertical-align: middle !important;text-align: center;">${user.username }</td>
-				<td style="vertical-align: middle !important;text-align: center;">${user.realname }</td>
-				<td style="vertical-align: middle !important;text-align: center;">		<c:choose>
-          <c:when test="${user.gender ==0 }">
-				男
-          </c:when>
-          <c:otherwise>
-				女
-          </c:otherwise>
-        </c:choose></td>
-				<td style="vertical-align: middle !important;text-align: center;">${user.phonenumber }</td>
-				<td style="vertical-align: middle !important;text-align: center;">${user.address }</td>
-				<td style="vertical-align: middle !important;text-align: center;"><fmt:formatDate value="${user.createtime }" pattern="yyyy-MM-dd HH:mm:ss"/></td>
-				<td style="vertical-align: middle !important;text-align: center;">${user.userrole.rolename }</td>
-				<td class="td-status">
-		<c:choose>
-          <c:when test="${user.flag==0 }">
-			<span class="label label-success radius">已启用</span>
-          </c:when>
-          <c:otherwise>
-			<span class="label label-defaunt radius">已停用</span>
-          </c:otherwise>
-        </c:choose>
-        </td>
+				<td style="vertical-align: middle !important;text-align: center;">${notice.notice_id }</td>
+				<td style="vertical-align: middle !important;text-align: center;">${notice.noticename }</td>
+				<td style="vertical-align: middle !important;text-align: center;">${notice.content }</td>
+				<td style="vertical-align: middle !important;text-align: center;">${notice.img  }</td>
+				<td style="vertical-align: middle !important;text-align: center;"><fmt:formatDate value="${notice.createtime }" pattern="yyyy-MM-dd HH:mm:ss"/></td>
+
 				<td class="td-manage">
-		<c:choose>
-          <c:when test="${user.flag==0 }">
-			<a onClick="user_stop(this,${user.userid })"  href="javascript:;" title="停用"  class="btn btn-xs btn-success"><i class="icon-ok bigger-120">停用</i></a> 
-          </c:when>
-          <c:otherwise>
-            <a style="text-decoration:none" class="btn btn-xs " onClick="user_start(this,${user.userid })" href="javascript:;" title="启用"><i class="icon-ok bigger-120">启用</i></a>
-          </c:otherwise>
-        </c:choose>
-					<a title="编辑" onclick="member_edit(${user.userid })" href="javascript:;"  class="btn btn-xs btn-info" ><i class="icon-edit bigger-120">编辑</i></a> 
-					<a title="删除" href="javascript:;"  onclick="user_del(this,${user.userid })" class="btn btn-xs btn-warning" ><i class="icon-trash  bigger-120">删除</i></a>
+					<a title="编辑" onclick="member_edit(${notices .noticeid })" href="javascript:;"  class="btn btn-xs btn-info" ><i class="icon-edit bigger-120">编辑</i></a>
+					<a title="删除" href="javascript:;"  onclick="notice_del(this,${notices.noticeid })" class="btn btn-xs btn-warning" ><i class="icon-trash  bigger-120">删除</i></a>
 				</td>
 			</tr>
 		</c:forEach>
@@ -115,22 +84,16 @@
   </div>
  </div>
 </div>
-<!--添加用户图层-->
-<form action="${pageContext.request.contextPath }/addUser.action" method="post" id="addUserForm" ENCTYPE="multipart/form-data">
+<!--添加公告图层-->
+<form action="${pageContext.request.contextPath }/insertNotices.action" method="post" id="addNoticesForm" ENCTYPE="multipart/form-data">
 <div class="add_menber" id="add_menber_style" style="display:none">
 	    <ul class=" page-content">
-	    <li><label class="label_name">用户名：</label><span class="add_name"><input name="username" id="username" type="text"  class="text_add"/></span><div class="prompt r_f" id="userbox"></div></li>
-	     <li><label class="label_name">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：</label><span class="add_name"><input name="password" id="password" type="text"  class="text_add"/></span><div class="prompt r_f"></div></li>
-	     <li><label class="label_name">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：</label><span class="add_name">
-	     <label><input name="gender" type="radio" checked="checked" class="ace" value="0"><span class="lbl">男</span></label>&nbsp;&nbsp;&nbsp;
-	     <label><input name="gender" type="radio" class="ace" value="1"><span class="lbl">女</span></label>&nbsp;&nbsp;&nbsp;
-	     </li>
-	     <li><label class="label_name">年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;龄：</label><span class="add_name"><input name="age" id="age" type="text"  class="text_add"/></span><div class="prompt r_f"></div></li>
-	     <li><label class="label_name">真实姓名：</label><span class="add_name"><input name="realname" id="realname" type="text"  class="text_add"/></span><div class="prompt r_f"></div></li>
-	     <li><label class="label_name">身份证号：</label><span class="add_name"><input name="idnumber" id="idnumber" type="text"  class="text_add"/></span><div class="prompt r_f"></div></li>
-	     <li><label class="label_name">移动电话：</label><span class="add_name"><input name="phonenumber" id="phonenumber" type="text"  class="text_add"/></span><div class="prompt r_f"></div></li>
-	     <li><label class="label_name">个人照片：</label><span class="add_name"><input name="file" type="file" id="file"  class="text_add"/></span><div class="prompt r_f"></div></li>
-	     <li class="adderss"><label class="label_name">家庭住址：</label><span class="add_name"><input name="address" id="address" type="text"  class="text_add" style=" width:450px"/></span><div class="prompt r_f"></div></li>
+	    <li><label class="label_name">公告ID：</label><span class="add_name"><input name="noticeid" id="noticeid" type="text"  class="text_add"/></span><div class="prompt r_f" id="noticebox"></div></li>
+	     <li><label class="label_name">公告标题</label><span class="add_name"><input name="noticename" id="noticename" type="text"  class="text_add"/></span><div class="prompt r_f"></div></li>
+	     <li><label class="label_name">公告内容：</label><span class="add_name"><input name="content" id="content" type="text"  class="text_add"/></span><div class="prompt r_f"></div></li>
+	     <li><label class="label_name">公告图片</label><span class="add_name"><input name="img" id="img" type="text"  class="text_add"/></span><div class="prompt r_f"></div></li>
+	     <li><label class="label_name">创建时间</label><span class="add_name"><input name="createtime" id="createtime" type="text"  class="text_add"/></span><div class="prompt r_f"></div></li>
+
 	    </ul>
  </div>
   </form>
@@ -172,114 +135,41 @@ jQuery(function($) {
 					return 'left';
 				}
 			})
-/*用户-添加*/
+/*公告-添加*/
  $('#member_add').on('click', function(){
     layer.open({
         type: 1,
-        title: '添加用户',
+        title: '添加公告',
 		maxmin: true, 
 		shadeClose: true, //点击遮罩关闭层
         area : ['800px' , ''],
         content:$('#add_menber_style'),
 		btn:['提交','取消'],
 		yes:function(index,layero){	
-			var username = $("#username").val();
-            var password = $("#password").val();
-            var idnumber = $("#idnumber").val();
-            var age = $("#age").val();
-            var input = $("#input").val();
-            var file = $("#file").val();
-            var confirmpassword = $("#confirmpassword").val();
-            var phonenumber = $("#phonenumber").val();
-            var address = $("#address").val();
-            var realname = $("#realname").val();
-            var idnumber1 = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;  
-            var username1 = new RegExp("[\\u4E00-\\u9FFF]+","g");
-            var phonenumber1 = /^[1][3,4,5,7,8][0-9]{9}$/;
-            var realname1 =/^[\u4e00-\u9fa5]{2,4}$/;  
-            var age1=/^\d+(\.\d+)?$/;
-            if(username== "" || $.trim($("#username").val()).length == 0){
-	       		layer.alert('请输入用户名！',{
+			var noticename = $("#noticename").val();
+            var content = $("#content").val();
+            var img = $("#iig").val();
+
+            if(noticename== "" || $.trim($("#noticename").val()).length == 0){
+	       		layer.alert('请输入公告标题！',{
 	                title: '提示框',				
 	 			icon:1,		
 	 			  });
-       	 	}else if (username1.test(username)){
-            	layer.alert('用户名不能含有中文',{
-                    title: '提示框',				
-     			icon:1,		
-     			  });
-            }else if(username.length > 20){
-	       		layer.alert('用户名长度不能超过20位',{
+
+       	 	}else if(content== "" || $.trim($("#content").val()).length == 0){
+	       		layer.alert('请输入公告内容！',{
 	                title: '提示框',				
 	 			icon:1,		
 	 			  });
-       	 	}else if(input=="已注册"){
-	       		layer.alert('用户名已注册',{
-	                title: '提示框',				
-	 			icon:1,		
-	 			  });
-       	 	}else if(password== "" || $.trim($("#password").val()).length == 0){
-	       		layer.alert('请输入密码！',{
-	                title: '提示框',				
-	 			icon:1,		
-	 			  });
-       	 	}else if(password.length < 6 || password.length > 12){
-	       		layer.alert('密码长度范围在6-12位之间',{
-	                title: '提示框',				
-	 			icon:1,		
-	 			  });
-       	 	}else if(age.length == 0){
-	       		layer.alert('请输入年龄',{
-	                title: '提示框',				
-	 			icon:1,		
-	 			  });
-       	 	}else if(!age1.test(age)){
-	       		layer.alert('请输入年龄',{
-	                title: '提示框',				
-	 			icon:1,		
-	 			  });
-       	 	}else if(realname.length ==0){
-	       		layer.alert('请输入真实姓名',{
-	                title: '提示框',				
-	 			icon:1,		
-	 			  });
-       	 	}else if(!realname1.test(realname)){
-	       		layer.alert('请输入真实姓名',{
-	                title: '提示框',				
-	 			icon:1,		
-	 			  });
-       	 	}else if(idnumber.length ==0){
-	       		layer.alert('请输入身份证号',{
-	                title: '提示框',				
-	 			icon:1,		
-	 			  });
-       	 	}else if(!idnumber1.test(idnumber)){
-	       		layer.alert('身份证号输入不合法',{
-	                title: '提示框',				
-	 			icon:1,		
-	 			  });
-       	 	}else if(phonenumber.length ==0){
-	       		layer.alert('请输入手机号码',{
-	                title: '提示框',				
-	 			icon:1,		
-	 			  });
-       	 	}else if(!phonenumber1.test(phonenumber)){
-	       		layer.alert('请输入正确的手机号码',{
-	                title: '提示框',				
-	 			icon:1,		
-	 			  });
-       	 	}else if(address.length ==0){
-	       		layer.alert('请输入家庭住址',{
-	                title: '提示框',				
-	 			icon:1,		
-	 			  });
-       	 	}else if(file.length ==0){
-	       		layer.alert('请选择您的真实照片(用于人脸识别登录)',{
+
+
+       	 	}else if(img.length ==0){
+	       		layer.alert('请添加公告信息图片',{
 	                title: '提示框',				
 	 			icon:1,		
 	 			  });
        	 	}else{
-	       		$("#addUserForm").submit();
+	       		$("#addNoticeForm").submit();
 				layer.close(index);	
        	 	}
             
@@ -287,51 +177,9 @@ jQuery(function($) {
     });
 });
 
-$("#username").change(function(){
-	  var username = $("#username").val();
-    $.ajax({
-        type:"post",
-        url:"${pageContext.request.contextPath}/checkUserName.action",
-        data: {"username":username},
-        success:function(data){
-      		$("#userbox").empty();
-        	var span="<span id='span1' style='color: red;'>"+data+"</span>"
-        	var input="<input type='hidden' value='"+data+"' id='input'>"
-        	$("#userbox").append(span); 
-        	$("#userbox").append(input); 
-      },error:function(msg){
-            alert("错误");
-      }
-  }); 
-	});
-/*用户-查看*/
-function member_show(title,url,id,w,h){
-	layer_show(title,url+'#?='+id,w,h);
-}
-/*用户-停用*/
-function user_stop(obj,userid){
-	layer.confirm('确认要停用吗？',function(index){
-		$(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" class="btn btn-xs " onClick="user_start(this,'+userid+')" href="javascript:;" title="启用"><i class="icon-ok bigger-120">启用</i></a>');
-		$(obj).parents("tr").find(".td-status").html('<span class="label label-defaunt radius">已停用</span>');
-		$(obj).remove();
-		layer.msg('已停用!',{icon: 5,time:1000});
-		window.location.href="${pageContext.request.contextPath }/stopUser.action?userid="+userid+"" 
-	});
-}
-
-/*用户-启用*/
-function user_start(obj,userid){
-	layer.confirm('确认要启用吗？',function(index){
-		$(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" class="btn btn-xs btn-success" onClick="user_stop(this,'+userid+')" href="javascript:;" title="停用"><i class="icon-ok bigger-120">停用</i></a>');
-		$(obj).parents("tr").find(".td-status").html('<span class="label label-success radius">已启用</span>');
-		$(obj).remove();
-		layer.msg('已启用!',{icon: 6,time:1000});
-		window.location.href="${pageContext.request.contextPath }/startUser.action?userid="+userid+"" 
-	});
-}
-/*通告信息-修改*/
+/*公告信息-修改*/
 function member_edit(noticeid){
-		$.ajax({		url : "${pageContext.request.contextPath}/getAllNotices.action
+		$.ajax({		url : "${pageContext.request.contextPath}/editNotices.action
 				type : "POST",
 		action",
 				data : {
@@ -359,7 +207,7 @@ function member_edit(noticeid){
             var content= $("#content").val();
             var idnumber = $("#idnumber").val();
             var img = $("#img").val();
-            var createtime = $("#createtime").val();
+
 
             if(noticename== "" || $.trim($("#noticename").val()).length == 0){
 	       		layer.alert('请输入通告信息标题！',{
@@ -382,21 +230,27 @@ function member_edit(noticeid){
 	 			  });
        	 	}else{
 	       	 	var newUrl = "${pageContext.request.contextPath }/insertNotice.action?noticeid="+noticeid+"";    //设置新提交地址
-		        $("#addNoticeForm").attr('action',newUrl);    //通过jquery为action属性赋值
-		        $("#addNoticeForm").attr('ENCTYPE','multipart/form-data');
-		        $("#addNoticeForm").submit();    //提交ID为myform的表单
+		        $("#addNoticesForm").attr('action',newUrl);    //通过jquery为action属性赋值
+		        $("#addNoticesForm").attr('ENCTYPE','multipart/form-data');
+		        $("#addNoticesForm").submit();    //提交ID为myform的表单
 			   layer.close(index);	
        	 	}
 			  
 		}
     });
 }
-/*用户-删除*/
+/*公告-删除*/
 function notice_del(obj,noticeid){
+$.ajax({		url : "${pageContext.request.contextPath}/delNotices.action
+				type : "POST",
+		action",
+				data : {
+					noticeid : noticeid
+				},
 	layer.confirm('确认要删除吗？',function(index){
 		$(obj).parents("tr").remove();
 		layer.msg('已删除!',{icon:1,time:1000});
-		window.location.href="${pageContext.request.contextPath }/delUser.action?noticeid="+noticeid+""
+		window.location.href="${pageContext.request.contextPath }/delNotices.action?noticeid="+noticeid+""
 	});
 }
 laydate({

@@ -9,19 +9,20 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.common.ResultEntity;
+import com.constant.ResultEnum;
+import com.pojo.*;
+import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.service.NoticeService;
 import com.service.OutinforService;
 import com.service.UserService;
-import com.pojo.Notice;
-import com.pojo.PageUtil;
-import com.pojo.UploadedFile;
-import com.pojo.outinfor;
 
 @Controller
 public class NoticeController {
@@ -31,7 +32,7 @@ public class NoticeController {
 	private UserService ser1;
 	@Autowired 
 	private OutinforService ser2;
-	@RequestMapping("/insertNotice.action")
+	@RequestMapping("/insertNotices.action")
 	public String insertNotice(Notice notice,UploadedFile file) throws ParseException, IllegalStateException, IOException {
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		long now=new Date().getTime();
@@ -47,7 +48,6 @@ public class NoticeController {
 		return "forward:getAllNotices.action";
 	}
 
-	
 	@RequestMapping("/personnelSum.action")
 	@ResponseBody
 	public String personnelSum() {
@@ -82,6 +82,45 @@ public class NoticeController {
 		Notice notice=ser.selectByPrimaryKey(noticeid);
 		model.addAttribute("notice",notice);
 		return "jsp/page";
+	}
+	@ResponseBody
+	@RequestMapping("/editNotice.action")
+	public String editNotice(@RequestBody String json) {
+		ResultEntity resultEntity = new ResultEntity();
+		JSONObject jsonObject = JSONObject.fromObject(json);
+			Integer noticeId =(Integer) jsonObject.get("noticeId");
+		   String noticeName=(String) jsonObject.get("noticeName");
+		    Notice notice = new Notice();
+		    notice.setNoticeid(noticeId);
+		    notice.setNoticename(noticeName);
+		    try{
+		    	resultEntity.setData(ser.updateByPrimaryKeySelective(notice));
+		    	resultEntity.setMsg("编辑成功");
+		    	resultEntity.setStatus(ResultEnum.SUCCESS.getCode());
+			}catch (Exception e){
+		    	resultEntity.setMsg("编辑失败");
+		    	resultEntity.setStatus(ResultEnum.FAIL.getCode());
+			}
+		    JSONObject resultJson = JSONObject.fromObject(resultEntity);
+		    return  resultJson.toString();
+	}
+	@RequestMapping("/delNotices.action")
+	public String delNotices(@RequestBody String json) {
+		ResultEntity resultEntity = new ResultEntity();
+		JSONObject jsonObject = JSONObject.fromObject(json);
+		Integer noticeId =(Integer) jsonObject.get("noticeId");
+		Notice notice = new Notice();
+		notice.setNoticeid(noticeId);
+		try{
+			resultEntity.setData(ser.deleteByPrimaryKey(noticeId));
+			resultEntity.setMsg("删除成功");
+			resultEntity.setStatus(ResultEnum.SUCCESS.getCode());
+		}catch (Exception e){
+			resultEntity.setMsg("删除失败");
+			resultEntity.setStatus(ResultEnum.FAIL.getCode());
+		}
+		JSONObject resultJson = JSONObject.fromObject(resultEntity);
+		return resultJson.toString();
 	}
 	
 }

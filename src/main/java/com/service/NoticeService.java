@@ -2,6 +2,7 @@ package com.service;
 
 import java.util.List;
 
+import com.pojo.User;
 import org.apache.ibatis.annotations.Param;
 
 import com.pojo.Notice;
@@ -25,4 +26,6 @@ public interface NoticeService {
     int countByNotices();
     
     int getAllNoticeSum();
+
+    List<User> searchNotices(String search, String addtime);
 }
