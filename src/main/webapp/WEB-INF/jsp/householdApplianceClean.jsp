@@ -68,9 +68,9 @@
 
                     <li class="nav-list"><a href="${pageContext.request.contextPath }/hourlyWorker">临时钟点工</a></li>
 
-                    <li class="nav-list active"><a href="${pageContext.request.contextPath }/longTermHourlyWork">长期钟点工</a></li>
+                    <li class="nav-list"><a href="${pageContext.request.contextPath }/longTermHourlyWork">长期钟点工</a></li>
 
-                    <li class="nav-list">
+                    <li class="nav-list active">
 
                         <a href="javascript:void(0)" class="nav-more">更多服务<span class="fa fa-angle-down"></span></a>
 

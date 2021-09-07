@@ -22,4 +22,6 @@ public interface CodeMapMapper {
     List<CodeMap> getCitys(Integer id);
 
     List<CodeMap> getProjects();
+
+    List<CodeMap> getCares();
 }

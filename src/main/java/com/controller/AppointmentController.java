@@ -126,4 +126,20 @@ public class AppointmentController {
         return resultJson.toString();
     }
 
+
+    @ResponseBody
+    @PostMapping(value = "/getCares")
+    public String getCares() {
+        ResultEntity resultEntity = new ResultEntity();
+        try {
+            resultEntity.setData(appointmentService.getCares());
+            resultEntity.setMsg("操作成功");
+            resultEntity.setStatus(ResultEnum.SUCCESS.getCode());
+        } catch (Exception e) {
+            resultEntity.setMsg("操作失败");
+            resultEntity.setStatus(ResultEnum.FAIL.getCode());
+        }
+        JSONObject resultJson = JSONObject.fromObject(resultEntity);
+        return resultJson.toString();
+    }
 }

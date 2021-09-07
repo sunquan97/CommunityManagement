@@ -254,7 +254,7 @@
                             class="menu-text">社区养老</span><b class="arrow icon-angle-down"></b></a>
                         <ul class="submenu">
                             <li class="home"><a href="javascript:void(0)"
-                                                name="${pageContext.request.contextPath }/getPosts.action" title="生活照料"
+                                                name="${pageContext.request.contextPath }/lifeCare" title="生活照料"
                                                 class="iframeurl"><i class="icon-double-angle-right"></i>生活照料</a></li>
                             <li class="home"><a href="javascript:void(0)"
                                                 name="${pageContext.request.contextPath }/getPosts.action" title="紧急救助"

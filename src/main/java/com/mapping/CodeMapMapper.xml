@@ -18,6 +18,12 @@
     where code_type='province'
   </select>
 
+  <select id="getCares" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List" />
+    from codemap
+    where code_type='cares'
+  </select>
+
   <select id="getProjects" resultMap="BaseResultMap">
     select <include refid="Base_Column_List" />
     from codemap

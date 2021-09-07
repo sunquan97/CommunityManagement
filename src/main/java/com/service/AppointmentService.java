@@ -20,4 +20,6 @@ public interface AppointmentService {
     void addAppointment(String json, HttpServletRequest request) throws ParseException;
 
     List<CodeMap> getProjects();
+
+    List<CodeMap> getCares();
 }
