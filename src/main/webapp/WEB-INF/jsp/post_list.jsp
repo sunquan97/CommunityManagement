@@ -48,14 +48,14 @@
                     <thead>
                     <tr>
                         <th width="25"><label><input type="checkbox" class="ace"><span class="lbl"></span></label></th>
-                        <th width="60">帖子编号</th>
+                        <th width="40">帖子编号</th>
                         <th width="100">帖子标题</th>
-                        <th width="100">帖子内容</th>
+                        <th width="220">帖子内容</th>
                         <th width="150">创建时间</th>
                         <th width="80">状态</th>
                         <th width="100">用户名</th>
                         <th width="150">图片</th>
-                        <th width="250">操作</th>
+                        <th width="150">操作</th>
                     </tr>
                     </thead>
                     <tbody>

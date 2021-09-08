@@ -11,7 +11,7 @@
  Target Server Version : 50711
  File Encoding         : 65001
 
- Date: 07/09/2021 14:52:30
+ Date: 08/09/2021 16:37:12
 */
 
 SET NAMES utf8mb4;
@@ -69,7 +69,7 @@ CREATE TABLE `codemap`  (
   `code_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `code_desc` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 55 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 36 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of codemap
@@ -292,7 +292,7 @@ CREATE TABLE `loginrecord`  (
   `area` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
   `flag` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`recordid`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 423 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 427 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of loginrecord
@@ -324,6 +324,10 @@ INSERT INTO `loginrecord` VALUES (419, '登录成功', '223.104.177.38', '2021-0
 INSERT INTO `loginrecord` VALUES (420, '登录成功', '113.227.212.75', '2021-09-06 08:58:27', 'sunquan', '辽宁省大连市', 0);
 INSERT INTO `loginrecord` VALUES (421, '登录成功', '119.112.8.207', '2021-09-07 10:57:57', 'sunquan', '辽宁省大连市', 0);
 INSERT INTO `loginrecord` VALUES (422, '登录成功', '119.112.8.207', '2021-09-07 11:44:22', 'sunquan', '辽宁省大连市', 0);
+INSERT INTO `loginrecord` VALUES (423, '登录成功', '119.112.8.207', '2021-09-08 09:18:22', 'sunquan', '辽宁省大连市', 0);
+INSERT INTO `loginrecord` VALUES (424, '登录成功', '119.112.8.207', '2021-09-08 10:25:41', 'sunquan', '辽宁省大连市', 0);
+INSERT INTO `loginrecord` VALUES (425, '登录成功', '119.112.8.207', '2021-09-08 14:22:59', 'sunquan', '辽宁省大连市', 0);
+INSERT INTO `loginrecord` VALUES (426, '登录成功', '119.112.8.207', '2021-09-08 14:30:41', 'sunquan', '辽宁省大连市', 0);
 
 -- ----------------------------
 -- Table structure for notice
@@ -363,17 +367,6 @@ CREATE TABLE `order`  (
   `createtime` datetime(0) NULL DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`orderid`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Compact;
-
--- ----------------------------
--- Records of order
--- ----------------------------
-INSERT INTO `order` VALUES (290308430, '一号楼二单元二楼西户201', '王红梅', '3,', '15044832900', 6.00, 2, '2020-05-06 17:30:00');
-INSERT INTO `order` VALUES (349000287, '一号楼二单元二楼西户201', '王红梅', '2,3,', '15044832900', 155.90, 2, '2020-05-01 15:30:52');
-INSERT INTO `order` VALUES (378330706, '一号楼二单元二楼西户201', '孙权', '3,', '15044832900', 6.00, 3, '2020-05-01 16:31:28');
-INSERT INTO `order` VALUES (528412265, '一号楼二单元二楼西户201', '孙权', '1,2,3,', '15044832900', 274.70, 3, '2020-05-19 14:58:48');
-INSERT INTO `order` VALUES (667188519, '一号楼二单元二楼西户201', '王红梅', '2,', '15044832900', 149.90, 2, '2020-05-06 17:00:21');
-INSERT INTO `order` VALUES (771204537, '一号楼二单元二楼西户201', '孙权', '1,2,3,8,', '15044832900', 402.70, 2, '2020-05-06 16:59:02');
-INSERT INTO `order` VALUES (960123662, '一号楼二单元二楼西户201', '孙权', '2,3,5,', '15044832900', 185.40, 3, '2020-05-01 16:27:56');
 
 -- ----------------------------
 -- Table structure for outinfor
@@ -420,7 +413,7 @@ CREATE TABLE `post`  (
   `img` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
   `replypost` int(11) NULL DEFAULT 0,
   PRIMARY KEY (`postid`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of post
@@ -435,7 +428,6 @@ INSERT INTO `post` VALUES (8, '线上学习，停课不停学', '线上学习，
 INSERT INTO `post` VALUES (10, '什么时候可以出去玩呢？！', '什么时候可以出去玩什么时候可以出去玩什么时候可以出去玩什么时候可以出去玩什么时候可以出去玩什么时候可以出去玩什么时候可以出去玩什么时候可以出去玩什么时候可以出去玩什么时候可以出去玩什么时候可以出去玩什么时候可以出去玩什么时候可以出去玩什么时候可以出去玩什么时候可以出去玩什么时候可以出去玩什么时候可以出去玩什么时候可以出去玩', '2020-02-14 23:10:03', 1, 'sunquan', '/images/post/1581693003098.png', 3);
 INSERT INTO `post` VALUES (11, '震惊！90后小伙深更半夜居然做出这种事情？！', '哈哈哈哈哈哈傻逼！点进来被骗了吧！', '2020-02-14 23:23:33', 0, 'sunquan', '/images/post/1581693812787.png', 2);
 INSERT INTO `post` VALUES (12, '我好想出去丸', '想吃大餐，想呼吸新鲜空气', '2020-02-14 23:24:48', 1, 'sunquan', '/images/post/1581693887760.png', 2);
-INSERT INTO `post` VALUES (13, '我要出去玩牛逼！！', '别的啥也不说了，牛逼就完事儿了！', '2020-02-17 13:49:58', 0, '', '/images/post/1581918597522.png', 4);
 
 -- ----------------------------
 -- Table structure for reply
@@ -621,15 +613,7 @@ CREATE TABLE `user`  (
 -- Records of user
 -- ----------------------------
 INSERT INTO `user` VALUES ('29', 'sunquan', '123456', '内蒙古巴彦淖尔市五原县', '15044832900', '15822199709220519', 0, 22, 2, 0, 'E:\\images\\1580011434982.png', '2020-01-26 12:03:54', '孙权');
-INSERT INTO `user` VALUES ('75', 'hongmei', '123456', '内蒙古巴彦淖尔市五原县', '15044832900', '152822199709220519', 0, 22, 0, 0, 'E:\\images\\1581606686652.png', '2020-02-13 23:11:27', '王红梅');
-INSERT INTO `user` VALUES ('76', 'hongming', '19970923sq', '内蒙古巴彦淖尔市五原县', '13848781155', '152822199709220519', 0, 51, 0, 0, 'E:\\images\\1581656716382.png', '2020-02-14 13:00:48', '孙红明');
 INSERT INTO `user` VALUES ('77', 'xiaoming', '123456', '内蒙古巴彦淖尔市五原县', '15044832900', '152822199709220519', 0, 26, 12, 0, 'E:\\images\\1581658875147.png', '2020-02-14 13:31:50', '小明');
-INSERT INTO `user` VALUES ('78', 'weixinru', 'weixinru', '巴彦淖尔市乌拉特中旗', '17614788932', '150202199806202443', 1, 22, 0, 0, 'E:\\images\\1581693085088.png', '2020-02-14 23:11:25', '魏心如');
-INSERT INTO `user` VALUES ('80', 'kalajipang', '123456', '内蒙古巴彦淖尔市五原县', '15044832900', '152822199709220519', 0, 31, 0, 0, 'E:\\images\\1581752980909.png', '2020-02-15 15:49:41', '孙权');
-INSERT INTO `user` VALUES ('81', 'xiaoyaqin', '654321', '长沙', '15044832900', '152822199709220519', 0, 18, 0, 0, 'C:\\images\\1581919441494.png', '2020-02-17 14:04:01', '肖雅琴');
-INSERT INTO `user` VALUES ('82', 'you father', 'zhenshinidie', '内蒙古警察局', '14878240110', '123456789012345110', 0, 202, 0, 0, 'C:\\images\\1581924778783.png', '2020-02-17 15:32:59', '你爹');
-INSERT INTO `user` VALUES ('83', 'feng', '123456', '大连', '18342214598', '210782199611193256', 0, 23, 0, 0, 'C:\\images\\1581925082056.png', '2020-02-17 15:38:02', '冯勇智');
-INSERT INTO `user` VALUES ('89', 'useradmin', '123456', '内蒙古', '15044832900', '152822199709220519', 0, 23, 0, 0, 'C:\\images\\1584946785418.png', '2020-03-23 14:59:45', '孙权');
 
 -- ----------------------------
 -- Table structure for userrole

@@ -256,9 +256,9 @@
                             <li class="home"><a href="javascript:void(0)"
                                                 name="${pageContext.request.contextPath }/lifeCare" title="生活照料"
                                                 class="iframeurl"><i class="icon-double-angle-right"></i>生活照料</a></li>
-                            <li class="home"><a href="javascript:void(0)"
-                                                name="${pageContext.request.contextPath }/getPosts.action" title="紧急救助"
-                                                class="iframeurl"><i class="icon-double-angle-right"></i>紧急救助</a></li>
+<%--                            <li class="home"><a href="javascript:void(0)"--%>
+<%--                                                name="${pageContext.request.contextPath }/getPosts.action" title="紧急救助"--%>
+<%--                                                class="iframeurl"><i class="icon-double-angle-right"></i>紧急救助</a></li>--%>
                         </ul>
                     </li>
                     <c:choose><c:when test="${ sessionScope.user.userroleid == 2}">
