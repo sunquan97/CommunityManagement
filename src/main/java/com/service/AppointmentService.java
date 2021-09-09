@@ -22,4 +22,6 @@ public interface AppointmentService {
     List<CodeMap> getProjects();
 
     List<CodeMap> getCares();
+
+    List<CodeMap> getAssistant();
 }

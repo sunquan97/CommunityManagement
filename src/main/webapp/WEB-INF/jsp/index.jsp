@@ -280,10 +280,10 @@
                                                     title="车辆管理" class="iframeurl"><i
                                         class="icon-double-angle-right"></i>车辆列表</a></li>
                             </c:when></c:choose>
-                                <li class="home"><a href="javascript:void(0)"
-                                                    name="${pageContext.request.contextPath }/getAllUsers.action"
-                                                    title="一键求助" class="iframeurl"><i
-                                        class="icon-double-angle-right"></i>一键求助</a></li>
+<%--                                <li class="home"><a href="javascript:void(0)"--%>
+<%--                                                    name="${pageContext.request.contextPath }/getAllUsers.action"--%>
+<%--                                                    title="一键求助" class="iframeurl"><i--%>
+<%--                                        class="icon-double-angle-right"></i>一键求助</a></li>--%>
                             </ul>
                         </li>
                     </c:when></c:choose>
@@ -303,7 +303,7 @@
                                                 name="${pageContext.request.contextPath }/housekeepingService" title="家政服务"
                                                 class="iframeurl"><i class="icon-double-angle-right"></i>家政服务</a></li>
                             <li class="home"><a href="javascript:void(0)"
-                                                name="${pageContext.request.contextPath }/getPostList" title="社区代办"
+                                                name="${pageContext.request.contextPath }/actingAssistant" title="社区代办"
                                                 class="iframeurl"><i class="icon-double-angle-right"></i>社区代办</a></li>
                             <li><a href="#" class="dropdown-toggle"><span
                                     class="menu-text">社区购物</span><b class="arrow icon-angle-down"></b></a>

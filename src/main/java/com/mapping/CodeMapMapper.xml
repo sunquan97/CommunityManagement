@@ -12,6 +12,12 @@
     id, code_type, code_value, code_name, code_desc
   </sql>
 
+  <select id="getAssistant" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List" />
+    from codemap
+    where code_type='assistant'
+  </select>
+
   <select id="getProvinces" resultMap="BaseResultMap">
     select <include refid="Base_Column_List" />
     from codemap

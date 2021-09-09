@@ -93,4 +93,9 @@ public class AppointmentServiceImpl implements AppointmentService {
         return codeMapMapper.getCares();
     }
 
+    @Override
+    public List<CodeMap> getAssistant() {
+        return codeMapMapper.getAssistant();
+    }
+
 }

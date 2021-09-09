@@ -11,11 +11,30 @@
  Target Server Version : 50711
  File Encoding         : 65001
 
- Date: 08/09/2021 16:37:12
+ Date: 09/09/2021 15:21:26
 */
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for acting_asistant
+-- ----------------------------
+DROP TABLE IF EXISTS `acting_asistant`;
+CREATE TABLE `acting_asistant`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `assistant` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `file` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `apply_user` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `apply_time` datetime(0) NULL DEFAULT NULL,
+  `apply_result` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of acting_asistant
+-- ----------------------------
+INSERT INTO `acting_asistant` VALUES (7, '居民养老保险信息变更', 'images\\assistantFile\\微信图片_20210507113109.jpg', 'sunquan', '2021-09-09 15:20:23', NULL);
 
 -- ----------------------------
 -- Table structure for appointment_record
@@ -69,7 +88,7 @@ CREATE TABLE `codemap`  (
   `code_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `code_desc` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 36 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 56 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of codemap
@@ -109,6 +128,24 @@ INSERT INTO `codemap` VALUES (32, 'cares', '口腔清洁服务', NULL, NULL);
 INSERT INTO `codemap` VALUES (33, 'cares', '皮肤清洁服务', NULL, NULL);
 INSERT INTO `codemap` VALUES (34, 'cares', '压疮预防', NULL, NULL);
 INSERT INTO `codemap` VALUES (35, 'cares', '便溺护理', NULL, NULL);
+INSERT INTO `codemap` VALUES (36, 'assistant', '就业登记、失业登记', NULL, NULL);
+INSERT INTO `codemap` VALUES (37, 'assistant', '组织就业技能培训和创业培训', NULL, NULL);
+INSERT INTO `codemap` VALUES (38, 'assistant', '	\r\n居民养老保险信息变更', NULL, NULL);
+INSERT INTO `codemap` VALUES (39, 'assistant', '	\r\n居民养老保险关系注销登记', NULL, NULL);
+INSERT INTO `codemap` VALUES (40, 'assistant', '个体工商户、灵活就业人员基本养老保险参保登记', NULL, NULL);
+INSERT INTO `codemap` VALUES (41, 'assistant', '居民基本医疗保险参保登记', NULL, NULL);
+INSERT INTO `codemap` VALUES (42, 'assistant', '居民养老保险待遇领取资格认证', NULL, NULL);
+INSERT INTO `codemap` VALUES (43, 'assistant', '企业退休人员领取养老金资格认证', NULL, NULL);
+INSERT INTO `codemap` VALUES (44, 'assistant', '社会保险个人权益记录查询', NULL, NULL);
+INSERT INTO `codemap` VALUES (45, 'assistant', '社保卡申领及发放', NULL, NULL);
+INSERT INTO `codemap` VALUES (46, 'assistant', '困难残疾人生活补贴', NULL, NULL);
+INSERT INTO `codemap` VALUES (47, 'assistant', '重度残疾人护理补贴', NULL, NULL);
+INSERT INTO `codemap` VALUES (48, 'assistant', '80周岁以上低保长寿老年人高龄津贴', NULL, NULL);
+INSERT INTO `codemap` VALUES (49, 'assistant', '生育登记服务', NULL, NULL);
+INSERT INTO `codemap` VALUES (50, 'assistant', '计划生育家庭特别扶助', NULL, NULL);
+INSERT INTO `codemap` VALUES (51, 'assistant', '	\r\n独生子女父母奖励扶助', NULL, NULL);
+INSERT INTO `codemap` VALUES (52, 'assistant', '农村部分计划生育家庭奖励扶助', NULL, NULL);
+INSERT INTO `codemap` VALUES (53, 'assistant', '孕前优生健康查体预约登记、随访', NULL, NULL);
 
 -- ----------------------------
 -- Table structure for department
@@ -292,7 +329,7 @@ CREATE TABLE `loginrecord`  (
   `area` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
   `flag` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`recordid`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 427 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 437 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of loginrecord
@@ -328,6 +365,16 @@ INSERT INTO `loginrecord` VALUES (423, '登录成功', '119.112.8.207', '2021-09
 INSERT INTO `loginrecord` VALUES (424, '登录成功', '119.112.8.207', '2021-09-08 10:25:41', 'sunquan', '辽宁省大连市', 0);
 INSERT INTO `loginrecord` VALUES (425, '登录成功', '119.112.8.207', '2021-09-08 14:22:59', 'sunquan', '辽宁省大连市', 0);
 INSERT INTO `loginrecord` VALUES (426, '登录成功', '119.112.8.207', '2021-09-08 14:30:41', 'sunquan', '辽宁省大连市', 0);
+INSERT INTO `loginrecord` VALUES (427, '登录成功', '119.112.21.189', '2021-09-09 09:24:55', 'sunquan', '辽宁省大连市', 0);
+INSERT INTO `loginrecord` VALUES (428, '登录成功', '119.112.21.189', '2021-09-09 09:26:04', 'sunquan', '辽宁省大连市', 0);
+INSERT INTO `loginrecord` VALUES (429, '登录成功', '119.112.21.189', '2021-09-09 11:16:07', 'sunquan', '辽宁省大连市', 0);
+INSERT INTO `loginrecord` VALUES (430, '登录成功', '119.112.21.189', '2021-09-09 11:33:28', 'sunquan', '辽宁省大连市', 0);
+INSERT INTO `loginrecord` VALUES (431, '登录成功', '119.112.21.189', '2021-09-09 11:43:15', 'sunquan', '辽宁省大连市', 0);
+INSERT INTO `loginrecord` VALUES (432, '登录成功', '119.112.21.189', '2021-09-09 14:47:16', 'sunquan', '辽宁省大连市', 0);
+INSERT INTO `loginrecord` VALUES (433, '登录成功', '119.112.21.189', '2021-09-09 15:14:07', 'sunquan', '辽宁省大连市', 0);
+INSERT INTO `loginrecord` VALUES (434, '登录成功', '119.112.21.189', '2021-09-09 15:16:04', 'sunquan', '辽宁省大连市', 0);
+INSERT INTO `loginrecord` VALUES (435, '登录成功', '119.112.21.189', '2021-09-09 15:18:43', 'sunquan', '辽宁省大连市', 0);
+INSERT INTO `loginrecord` VALUES (436, '登录成功', '119.112.21.189', '2021-09-09 15:20:11', 'sunquan', '辽宁省大连市', 0);
 
 -- ----------------------------
 -- Table structure for notice
@@ -413,7 +460,7 @@ CREATE TABLE `post`  (
   `img` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
   `replypost` int(11) NULL DEFAULT 0,
   PRIMARY KEY (`postid`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of post

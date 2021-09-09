@@ -2,14 +2,24 @@ package com.controller;
 
 import com.common.ResultEntity;
 import com.constant.ResultEnum;
+import com.pojo.Asistant;
+import com.pojo.User;
 import com.service.AppointmentService;
+import com.service.AssistantService;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Date;
 
 @Controller
 @RequestMapping(value = "/appointment", produces = "application/json;charset=UTF-8")
@@ -18,6 +28,8 @@ public class AppointmentController {
 
     @Autowired
     private AppointmentService appointmentService;
+    @Autowired
+    private AssistantService assistantService;
 
     @ResponseBody
     @PostMapping(value = "/getProvinces")
@@ -141,5 +153,38 @@ public class AppointmentController {
         }
         JSONObject resultJson = JSONObject.fromObject(resultEntity);
         return resultJson.toString();
+    }
+
+
+    @ResponseBody
+    @PostMapping(value = "/getAssistant")
+    public String getAssistant() {
+        ResultEntity resultEntity = new ResultEntity();
+        try {
+            resultEntity.setData(appointmentService.getAssistant());
+            resultEntity.setMsg("操作成功");
+            resultEntity.setStatus(ResultEnum.SUCCESS.getCode());
+        } catch (Exception e) {
+            resultEntity.setMsg("操作失败");
+            resultEntity.setStatus(ResultEnum.FAIL.getCode());
+        }
+        JSONObject resultJson = JSONObject.fromObject(resultEntity);
+        return resultJson.toString();
+    }
+
+
+
+    @RequestMapping(value = "/addAssistant")
+    public String addAssistant(Asistant asistant,MultipartFile allFile, HttpServletRequest request) throws IOException {
+        Path path = Paths.get(  "C:\\images\\assistantFile\\" + allFile.getOriginalFilename());
+        allFile.transferTo(path);
+        HttpSession session=request.getSession();
+        User user = (User) session.getAttribute("user");
+        Date date = new Date();
+        asistant.setApplyUser(user.getUsername());
+        asistant.setApplyTime(date);
+        asistant.setFile("images\\assistantFile\\" + allFile.getOriginalFilename());
+        assistantService.insertSelective(asistant);
+        return "jsp/actingAssistant";
     }
 }

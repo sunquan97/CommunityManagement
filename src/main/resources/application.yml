@@ -7,6 +7,12 @@ spring:
     view:
       suffix: .jsp
       prefix: /WEB-INF/jsp
+  #设置上传文件最大
+  http:
+    multipart:
+      enabled: true
+      max-file-size: 30MB
+      max-request-size: 30MB
   #数据源  连接虚拟机
 #  datasource:
 #    url: jdbc:mysql://192.168.0.109:3306/CommunityManagement?characterEncoding=utf-8&serverTimezone=GMT

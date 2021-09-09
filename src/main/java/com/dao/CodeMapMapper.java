@@ -24,4 +24,6 @@ public interface CodeMapMapper {
     List<CodeMap> getProjects();
 
     List<CodeMap> getCares();
+
+    List<CodeMap> getAssistant();
 }
