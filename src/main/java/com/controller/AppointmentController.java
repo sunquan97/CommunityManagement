@@ -175,7 +175,7 @@ public class AppointmentController {
 
 
     @RequestMapping(value = "/addAssistant")
-    public String addAssistant(Asistant asistant,MultipartFile allFile, HttpServletRequest request) throws IOException {
+    public String addAssistant(Model model,Asistant asistant,MultipartFile allFile, HttpServletRequest request) throws IOException {
         Path path = Paths.get(  "C:\\images\\assistantFile\\" + allFile.getOriginalFilename());
         allFile.transferTo(path);
         HttpSession session=request.getSession();
@@ -185,6 +185,7 @@ public class AppointmentController {
         asistant.setApplyTime(date);
         asistant.setFile("images\\assistantFile\\" + allFile.getOriginalFilename());
         assistantService.insertSelective(asistant);
+        model.addAttribute("result","申请成功");
         return "jsp/actingAssistant";
     }
 }

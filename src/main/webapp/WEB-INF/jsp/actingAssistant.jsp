@@ -8,7 +8,7 @@
           type="text/css"/>
     <link rel="stylesheet" href="https://static.guahao.cn/front/portal-pc-static/css/fastorder.css?v=162394246787d5d6"
           type="text/css"/>
-    <script src="static/js/jquery-3.2.1.min.js"></script>
+    <script src="${pageContext.request.contextPath}/static/js/jquery-3.2.1.min.js"></script>
     <script src="${pageContext.request.contextPath}/static/layer/layer.js"></script>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/layer/theme/default/layer.css">
 </head>
@@ -57,6 +57,7 @@
         </div>
     </div>
 </div>
+<input id="result" value="${result}" type="hidden"  />
 <script type="text/javascript">
     function confirmSubmit(){
         var assistant=$("#assistant option:selected").text();
@@ -75,7 +76,9 @@
 
     $(document).ready(function() {
         getAssistant();
-
+        if ($("#result").val()!=""){
+            layer.msg($("#result").val());
+        }
     });
 
 
