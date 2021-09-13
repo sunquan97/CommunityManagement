@@ -22,8 +22,8 @@
 <div class="logintop">    
     <span>欢迎登录智慧社区管理系统</span>    
     <ul>
-    <li><a href="/carlogin">车辆通过</a></li>
-    <li><a href="/userlogin">用户通过</a></li>
+    <li><a href="/carLogin">车辆通过</a></li>
+    <li><a href="/userLogin">用户通过</a></li>
     <li><a href="/">返回首页</a></li>
     </ul>    
     </div>

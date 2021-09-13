@@ -60,7 +60,7 @@
           <div class="col-sm-9"><input type="text" name="phonenumber" id="website-title" value="${user.phonenumber }" class="col-xs-7 text_info" disabled="disabled"></div>
           </div>
           <div class="form-group"><label class="col-sm-3 control-label no-padding-right" for="form-field-1">家庭地址： </label>
-          <div class="col-sm-9"><input type="text" name="address" id="website-title" value="${user.address }" class="col-xs-7 text_info" disabled="disabled"></div>
+          <div class="col-sm-9"><input type="text" name="address" id="website-title" value="${user.address }" class="col-xs-12 text_info" disabled="disabled"></div>
           </div>
           <div class="form-group"><label class="col-sm-3 control-label no-padding-right" for="form-field-1">真实姓名： </label>
           <div class="col-sm-9"><input type="text" name="realname" id="website-title" value="${user.realname }" class="col-xs-7 text_info" disabled="disabled"> </div>
