@@ -246,7 +246,7 @@
                             class="menu-text">社区环境</span><b class="arrow icon-angle-down"></b></a>
                         <ul class="submenu">
                             <li class="home"><a href="javascript:void(0)"
-                                                name="${pageContext.request.contextPath }/getPosts.action" title="垃圾分类"
+                                                name="${pageContext.request.contextPath }/refuseClassification" title="垃圾分类"
                                                 class="iframeurl"><i class="icon-double-angle-right"></i>垃圾分类</a></li>
                         </ul>
                     </li>
