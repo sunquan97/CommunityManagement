@@ -53,7 +53,7 @@
 									<span>${post.username }</span>
 									<span><fmt:formatDate value="${post.createtime }" pattern="yyyy-MM-dd HH:mm:ss"/></span>
 									<span class="fly-list-hint"> 
-	              						<i class="iconfont" title="回答">&#xe60c;</i> 317
+	              						<i class="iconfont" title="回答">&#xe60c;</i> ${post.replypost }
 	            					</span>
 								</p>
 							</li>

@@ -95,9 +95,14 @@
         <div id="media">
             <video id="video" width="400" height="400" autoplay style="position: absolute"></video>
             <canvas id="canvas" width="400" height="400" style="position: absolute"></canvas>
+            <input type="file" id="xFile2" capture="camera" multiple="multiple" accept="image/*" class="imgInp1" @change='onUpload2($event)'  style="position:absolute;clip:rect(0 0 0 0); width: 100%; height: 105px; top:0px;" v-if="judgeFan">
         </div>
         <dd>
             <input type="button" onclick="query()" value="识别"
+                   class="submit_btn" />
+        </dd>
+        <dd>
+            <input type="button" onclick="javascript:history.go(-1)" value="返回"
                    class="submit_btn" />
         </dd>
     </dl>

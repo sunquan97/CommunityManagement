@@ -60,49 +60,6 @@
         $(this).addClass('active');
     });
 
-    <%--function addCheckIn(userid) {--%>
-    <%--    $.ajax({--%>
-    <%--        type: "get",--%>
-    <%--        url: "${pageContext.request.contextPath }/addCheckIn.action",--%>
-    <%--        data: {"userid": userid},--%>
-    <%--        success: function (data) {--%>
-    <%--            $("#everyday").attr('onclick', '');--%>
-    <%--            $("#everyday").text("已打卡");--%>
-    <%--            $("#everyday").attr('style', 'opacity: 0.2');--%>
-    <%--            alert(data);--%>
-    <%--        },--%>
-    <%--        error: function (msg) {--%>
-    <%--            alert("错误");--%>
-    <%--        }--%>
-    <%--    });--%>
-    <%--}--%>
-
-    <%--function check() {--%>
-    <%--    var userid = $("#userid").val();--%>
-    <%--    $.ajax({--%>
-    <%--        type: "get",--%>
-    <%--        url: "${pageContext.request.contextPath }/getCheckIn.action",--%>
-    <%--        data: {"userid": userid},--%>
-    <%--        success: function (data) {--%>
-    <%--            data = eval('(' + data + ')');--%>
-    <%--            if (data.flag == 1) {--%>
-    <%--                $("#everyday").empty();--%>
-    <%--                var i = "<i class='icon-bell-alt'></i>每日打卡";--%>
-    <%--                $("#everyday").append(i);--%>
-    <%--                $("#everyday").attr('onclick', 'addCheckIn(${sessionScope.user.userid})');--%>
-    <%--                $("#everyday").attr('style', '');--%>
-    <%--                alert(data.result);--%>
-    <%--            } else {--%>
-    <%--                $("#everyday").attr('onclick', '');--%>
-    <%--                $("#everyday").text("已打卡");--%>
-    <%--                $("#everyday").attr('style', 'opacity: 0.2');--%>
-    <%--            }--%>
-    <%--        },--%>
-    <%--        error: function (msg) {--%>
-    <%--            alert("错误");--%>
-    <%--        }--%>
-    <%--    });--%>
-    <%--}--%>
 
     /*********************点击事件*********************/ $(document).ready(function () {
         // check();/*24小时 执行一次这个函数*/
@@ -202,9 +159,6 @@
                         <li><a href="javascript:void(0)" id="Exit_system"><i class="icon-off"></i>退出</a></li>
                     </ul>
                 </li>
-                <li class="purple"><a data-toggle="dropdown" class="dropdown-toggle" href="javascript:;"
-                                      onclick="addCheckIn(${sessionScope.user.userid})" id="everyday"><i
-                        class="icon-bell-alt"></i>每日打卡</a>
         </div>
     </div>
 </div>
@@ -245,8 +199,8 @@
                     <li><a href="#" class="dropdown-toggle"><i class="icon-trash"></i><span
                             class="menu-text">社区环境</span><b class="arrow icon-angle-down"></b></a>
                         <ul class="submenu">
-                            <li class="home"><a href="javascript:void(0)"
-                                                name="${pageContext.request.contextPath }/refuseClassification" title="垃圾分类"
+                            <li class="home"><a href="javascript:window.location.href='${pageContext.request.contextPath }/refuseClassification';"
+                                                title="垃圾分类"
                                                 class="iframeurl"><i class="icon-double-angle-right"></i>垃圾分类</a></li>
                         </ul>
                     </li>
